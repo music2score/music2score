@@ -2,3 +2,4 @@
 # an actual test that will validate the software deployment/intialization
 
 print("hello_world")
+print("hello_world2")
