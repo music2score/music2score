@@ -12,21 +12,21 @@ const Navbar = () => {
             </NavLink>
             <Bars />
             <NavMenu>
-                <NavLink to='/about' activeStyle>
+                <NavLink to='/AboutPage' activeStyle>
                     About
                 </NavLink>
-                <NavLink to='/services' activeStyle>
-                    Service
+                <NavLink to='/MusicServicesPage' activeStyle>
+                    Sheet Music
                 </NavLink>
-                <NavLink to='/contact-us' activeStyle>
-                    Contact Us
+                <NavLink to='/ContactPage' activeStyle>
+                    Contact Info
                 </NavLink>
-                <NavLink to='/sign-up' activeStyle>
-                    Sign Up
+                <NavLink to='/SignUpSignInPage' activeStyle>
+                    Sign Up/Sign In
                 </NavLink>
             </NavMenu>
             <NavBtn>
-                <NavBtnLink to='signin'>Sign In</NavBtnLink>
+                <NavBtnLink to='AccountPage'>Account</NavBtnLink>
             </NavBtn>
         </Nav>
         </div>

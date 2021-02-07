@@ -2,7 +2,7 @@
   min-height: 100vh;
   text-align: center;
   align-items: center;
-  background-color: skyblue;
+  background-color: #169a;
 }
 
 .App-logo {
@@ -10,7 +10,7 @@
   pointer-events: none;
 }
 
-.App-header {
+/* .App-header {
   display: flex;
   color: black;
   margin-bottom: 20px;
@@ -19,15 +19,85 @@
   justify-content: left;
   font-size: calc(10px + 2vmin);
   background-color: royalblue;
-}
+} */
 
 .HomePage {
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  background-color: slategray;
+  background-color: #169a;
+}
+
+.HomePage > div {
+  margin: 0px
+}
+
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  justify-content: center;
+  border: 1px solid steelblue;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.AboutPage {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #169a;
+}
+
+.MusicServicesPage {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #169a;
+}
+
+.ContactPage {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #169a;
+}
+
+.SignUpSignInPage {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #169a;
+}
+
+.SignUpSignInPage-container {
+	width: 500px;
+	height: 500px;
+	background-color: 'transparent';
+	
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  	
+  margin: auto;
+  margin-top: 125px;
+}
+
+.AccountPage {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #169a;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+footer {
+  margin-top: 30px;
+  text-align: center;
 }
