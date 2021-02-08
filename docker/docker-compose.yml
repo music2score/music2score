@@ -1,0 +1,46 @@
+version: "3.8"
+services:
+    apache_server:
+        build:
+            context: ../
+            dockerfile: docker/Dockerfile
+        volumes:
+            - ../pages/:/var/www/html
+        links:
+            - mysql_server:mysql_server
+        ports:
+            - 80:80
+    mysql_server:
+        image: mysql:8.0.23
+        volumes:
+            - ../mysql/test/:/var/lib/mysql
+        environment: 
+            MYSQL_ROOT_PASSWORD: 12345
+            MYSQL_DATABASE: music2score_test
+        ports:
+            - 3306:3306
+    phpmyadmin:
+        depends_on:
+            - mysql_server
+        image: phpmyadmin/phpmyadmin:5.0.1
+        restart: always
+        ports:
+            - '8081:80'
+        environment:
+          PMA_HOST: mysql_server
+          MYSQL_ROOT_PASSWORD: 12345
+    codecept:
+        build:
+            context: ../
+            dockerfile: docker/Dockerfile2
+        depends_on:
+            - chrome
+            - apache_server
+            - mysql_server
+            - phpmyadmin
+        volumes:
+            - ../:/project
+        links:
+            - apache_server:apache_server
+    chrome:
+        image: selenium/standalone-chrome

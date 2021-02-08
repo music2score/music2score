@@ -1,0 +1,5 @@
+FROM codeception/codeception
+RUN set -ex; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+    default-mysql-client
