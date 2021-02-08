@@ -5,10 +5,7 @@ import React from 'react';
 function ContactPage() {
     return (
         <div className='ContactPage'>
-            <div className='con'>
-                
-            </div>
-            {/* <h1>This is the contact page.</h1> */}
+            <h1 style={{margin:'0px'}}>This is the contact page.</h1>
         </div>
     )
 }

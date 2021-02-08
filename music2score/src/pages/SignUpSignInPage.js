@@ -5,9 +5,10 @@ import React from 'react';
 const SignUpSignInPage = () => {
     return (
         <div className='SignUpSignInPage'>
-            <form className='SignUpSignInPage-container'>
+            <h1 style={{margin:'0px'}}>SignUpSignInPage</h1>
+            {/* <form className='SignUpSignInPage-container'>
                 <label>Name</label>
-            </form>
+            </form> */}
         </div>
     )
 }

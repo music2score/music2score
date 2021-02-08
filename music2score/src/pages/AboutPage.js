@@ -5,7 +5,7 @@ import React from 'react';
 const AboutPage = () => {
     return (
         <div className='AboutPage'>
-            <h1>About page.</h1>
+            <h1 style={{margin:'0px'}}>About page.</h1>
         </div>
     )
 }

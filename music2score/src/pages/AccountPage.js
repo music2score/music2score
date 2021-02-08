@@ -5,7 +5,7 @@ import React from 'react';
 const AccountPage = () => {
     return (
         <div className='AccountPage'>
-            <h1>Account page.</h1>
+            <h1 style={{margin:'0px'}}>Account page.</h1>
         </div>
     )
 }
