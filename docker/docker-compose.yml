@@ -40,7 +40,7 @@ services:
             - mysql_server
             - phpmyadmin
         volumes:
-            - ../:/project
+            - ../.:/project
         links:
             - apache_server:apache_server
         stdin_open: true

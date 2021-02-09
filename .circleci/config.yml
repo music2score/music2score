@@ -45,6 +45,7 @@ jobs:
           name: Start Application Cluster
           command: |
             set -x
+            ls -la
             cd docker
             docker-compose up -d
 
