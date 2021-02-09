@@ -30,13 +30,13 @@ jobs:
       #       sudo apt-get update
       #       sudo apt-get install docker docker-ce docker-ce-cli containerd.io -y
 
-      # - run:
-      #     name: Install Docker Compose
-      #     command: |
-      #       set -x
-      #       sudo rm /usr/local/bin/docker-compose
-      #       sudo curl -L "https://github.com/docker/compose/releases/download/1.28.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-      #       sudo chmod +x /usr/local/bin/docker-compose
+      - run:
+          name: Install Docker Compose
+          command: |
+            set -x
+            sudo rm /usr/local/bin/docker-compose
+            sudo curl -L "https://github.com/docker/compose/releases/download/1.28.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+            sudo chmod +x /usr/local/bin/docker-compose
 
       - setup_remote_docker:
           version: 19.03.13
@@ -51,7 +51,7 @@ jobs:
       - run:
           name: Run Codeception Testing Suite
           command: |
-            docker exec -it docker_codecept_1 ls /root/project/codeception/
+            docker exec -it -u 0 docker_codecept_1 ls /root/project/codeception/
             docker exec -it docker_codecept_1 ls /root/
             docker exec -it docker_codecept_1 chmod 755 /project/codeception/
             docker exec -w="/project/codeception/" -it docker_codecept_1 codecept run
