@@ -45,6 +45,7 @@ services:
             - apache_server:apache_server
         stdin_open: true
         tty: true
+        working_dir: /project/codeception
         entrypoint: /bin/bash
     chrome:
         image: selenium/standalone-chrome
