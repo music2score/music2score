@@ -53,6 +53,9 @@ jobs:
           command: |
             docker exec -it --user root docker_codecept_1 codecept bootstrap
             docker exec -it --user root docker_codecept_1 codecept run unit
+            docker exec -it --user root docker_codecept_1 ls
+            docker exec -it --user root docker_codecept_1 ls ..
+            docker exec -it --user root docker_codecept_1 ls ../tests
 
 workflows:
   build_and_test:
