@@ -51,9 +51,9 @@ jobs:
       - run:
           name: Run Codeception Testing Suite
           command: |
-            docker exec -it -u 0 docker_codecept_1 ls /project/codeception/
-            docker exec -it -u 0 docker_codecept_1 chmod 755 /project/codeception/
-            docker exec -w="/project/codeception/" -it -u 0 docker_codecept_1 codecept run
+            # docker exec -it -u 0 docker_codecept_1 ls /project/codeception/
+            # docker exec -it -u 0 docker_codecept_1 chmod 755 /project/codeception/
+            docker exec -w="../project/codeception/" -it -u 0 docker_codecept_1 codecept run
 
 workflows:
   build_and_test:
