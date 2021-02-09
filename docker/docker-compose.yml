@@ -40,7 +40,15 @@ services:
             - mysql_server
             - phpmyadmin
         volumes:
-            - ../:/project
+            - ../codeception:/project/codeception
+            - ../css:/project/css
+            - ../docker/project/docker
+            - ../js:/project/js
+            - ../mysql:/project/mysql
+            - ../pages:/project/pages
+            - ../plugins:/project/plugins
+            - ../python:/project/python
+            - ../tests:/project/tests
         links:
             - apache_server:apache_server
         stdin_open: true
