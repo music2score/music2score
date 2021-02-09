@@ -41,6 +41,7 @@ services:
             - phpmyadmin
         volumes:
             - ../:/project
+            - ../tests/:/project/tests/
         links:
             - apache_server:apache_server
         stdin_open: true
