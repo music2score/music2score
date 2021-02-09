@@ -33,10 +33,7 @@ jobs:
           name: Start Application Cluster
           command: |
             set -x
-            ls -a
-            cd /root
-            ls 
-            cd music2score/docker
+            cd docker
             docker-compose -d up
 
       - run:
