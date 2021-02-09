@@ -18,6 +18,8 @@ jobs:
       - run: python3 tests/python/test_hello_world.py
 
   codecept_testing_suite:
+    docker:
+      - image: circleci/cci-demo-docker-primary:0.0.2
     steps:
       - checkout
       - run:
