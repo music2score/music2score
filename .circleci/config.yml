@@ -45,7 +45,7 @@ jobs:
           name: Start Application Cluster
           command: |
             set -x
-            ls -la
+            ls -la && ls tests
             cd docker
             docker-compose up -d
 
@@ -60,12 +60,12 @@ jobs:
             docker exec -it --user root docker_codecept_1 ls ../tests
 
 workflows:
-  build_and_test:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
+  # build_and_test:
+  #   jobs:
+  #     - build
+  #     - test:
+  #         requires:
+  #           - build
   testing_suite:
     jobs:
       - codecept_testing_suite
