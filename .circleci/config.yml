@@ -34,7 +34,7 @@ jobs:
           command: |
             set -x
             cd docker
-            docker-compose -d up
+            docker-compose up -d
 
       - run:
           name: Run Codeception Testing Suite
