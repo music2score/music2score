@@ -57,7 +57,7 @@ jobs:
             docker exec -it --user root docker_codecept_1 codecept run acceptance
             docker exec -it --user root docker_codecept_1 ls
             docker exec -it --user root docker_codecept_1 ls ..
-            docker exec -it --user root docker_codecept_1 ls ../tests
+            docker exec -it --user root docker_codecept_1 ls -la
 
 workflows:
   # build_and_test:
