@@ -54,6 +54,7 @@ jobs:
             # docker exec -it -u 0 docker_codecept_1 ls /project/codeception/
             # docker exec -it -u 0 docker_codecept_1 chmod 755 /project/codeception/
             docker exec -it docker_codecept_1 lslogins -u
+            docker exec -it --user root docker_codecept_1 codecept bootstrap
             docker exec -it --user root docker_codecept_1 codecept run
 
 workflows:
