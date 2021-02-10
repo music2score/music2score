@@ -33,7 +33,7 @@ services:
     codecept:
         build:
             context: ../
-            dockerfile: docker/Dockerfile2
+            dockerfile: ../docker/Dockerfile2
         depends_on:
             - chrome
             - apache_server
