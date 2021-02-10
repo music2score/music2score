@@ -34,6 +34,7 @@ services:
         build:
             context: ../
             dockerfile: docker/Dockerfile2
+        user: root
         depends_on:
             - chrome
             - apache_server
