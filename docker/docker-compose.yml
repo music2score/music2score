@@ -30,32 +30,32 @@ services:
         environment:
           PMA_HOST: mysql_server
           MYSQL_ROOT_PASSWORD: 12345
-    codecept:
-        build:
-            context: ../
-            dockerfile: docker/Dockerfile2
-        user: root
-        depends_on:
-            - chrome
-            - apache_server
-            - mysql_server
-            - phpmyadmin
-        volumes:
-            # - ../codeception:/project/codeception
-            # - ../css:/project/css
-            # - ../docker/project/docker
-            # - ../js:/project/js
-            # - ../mysql:/project/mysql
-            # - ../pages:/project/pages
-            # - ../plugins:/project/plugins
-            # - ../python:/project/python
-            # - ../tests:/project/tests
-            - ../:/project
-        links:
-            - apache_server:apache_server
-        stdin_open: true
-        tty: true
-        working_dir: /project/codeception
-        entrypoint: /bin/bash
+    # codecept:
+    #     build:
+    #         context: ../
+    #         dockerfile: docker/Dockerfile2
+    #     user: root
+    #     depends_on:
+    #         - chrome
+    #         - apache_server
+    #         - mysql_server
+    #         - phpmyadmin
+    #     # volumes:
+    #         # - ../codeception:/project/codeception
+    #         # - ../css:/project/css
+    #         # - ../docker/project/docker
+    #         # - ../js:/project/js
+    #         # - ../mysql:/project/mysql
+    #         # - ../pages:/project/pages
+    #         # - ../plugins:/project/plugins
+    #         # - ../python:/project/python
+    #         # - ../tests:/project/tests
+    #         # - ../:/project
+    #     links:
+    #         - apache_server:apache_server
+    #     stdin_open: true
+    #     tty: true
+    #     working_dir: /project/codeception
+    #     entrypoint: /bin/bash
     chrome:
         image: selenium/standalone-chrome
