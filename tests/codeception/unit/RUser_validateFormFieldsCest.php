@@ -11,8 +11,8 @@ class RUser_validateFormFieldsCest
     public function tryToTest(UnitTester $I)
     {
         $I->wantTo('Testing RUser->validateFormFields() Function');
-        include_once './../pages/helper/connect_class.php';
-        include_once './../pages/helper/register_class.php';
+        include_once './pages/helper/connect_class.php';
+        include_once './pages/helper/register_class.php';
         
         $RUser = new RUser;
 

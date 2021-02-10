@@ -11,8 +11,8 @@ class RUser_getFirstNameCest
     public function tryToTest(UnitTester $I)
     {
         $I->wantTo('Testing RUser->getFirstName() Function');
-        include_once './../pages/helper/connect_class.php';
-        include_once './../pages/helper/register_class.php';
+        include_once './pages/helper/connect_class.php';
+        include_once './pages/helper/register_class.php';
         
         $RUser = new RUser;
         $expected = '';

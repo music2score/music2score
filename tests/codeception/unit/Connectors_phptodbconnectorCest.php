@@ -11,7 +11,7 @@ class Connectors_phptodbconnectorCest
     public function tryToTest(UnitTester $I)
     {
         $I->wantTo('Testing Connectors->phptodbconnectorCest() Function');
-        include_once './../pages/helper/connect_class.php';
+        include_once './pages/helper/connect_class.php';
 
         $Connector = new Connectors;
         $I->assertTrue(($Connector->phptodbconnector())!=false);
