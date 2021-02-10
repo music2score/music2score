@@ -18,8 +18,10 @@ jobs:
       - run: python3 tests/python/test_hello_world.py
 
   codecept_testing_suite:
-    docker:
-      - image: cimg/base:2020.01
+    # docker:
+    #   - image: cimg/base:2020.01
+    machine:
+      image: ubuntu-2004:202101-01
     steps:
       - checkout
 
@@ -30,16 +32,16 @@ jobs:
       #       sudo apt-get update
       #       sudo apt-get install docker docker-ce docker-ce-cli containerd.io -y
 
-      - run:
-          name: Install Docker Compose
-          command: |
-            set -x
-            sudo rm /usr/local/bin/docker-compose
-            sudo curl -L "https://github.com/docker/compose/releases/download/1.28.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-            sudo chmod +x /usr/local/bin/docker-compose
+      # - run:
+      #     name: Install Docker Compose
+      #     command: |
+      #       set -x
+      #       sudo rm /usr/local/bin/docker-compose
+      #       sudo curl -L "https://github.com/docker/compose/releases/download/1.28.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+      #       sudo chmod +x /usr/local/bin/docker-compose
 
-      - setup_remote_docker:
-          version: 19.03.13
+      # - setup_remote_docker:
+      #     version: 19.03.13
 
       - run:
           name: Start Application Cluster
