@@ -11,8 +11,8 @@ class RUser_registerUserCest
     public function tryToTest(UnitTester $I)
     {
         $I->wantTo('Testing RUser->registerUser() Function');
-        include_once './../pages/helper/connect_class.php';
-        include_once './../pages/helper/register_class.php';
+        include_once './pages/helper/connect_class.php';
+        include_once './pages/helper/register_class.php';
         
         $RUser = new RUser;
         $false=false;
