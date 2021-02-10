@@ -33,22 +33,23 @@ services:
     codecept:
         build:
             context: ../
-            dockerfile: ../docker/Dockerfile2
+            dockerfile: docker/Dockerfile2
         depends_on:
             - chrome
             - apache_server
             - mysql_server
             - phpmyadmin
         volumes:
-            - ../codeception:/project/codeception
-            - ../css:/project/css
-            - ../docker/project/docker
-            - ../js:/project/js
-            - ../mysql:/project/mysql
-            - ../pages:/project/pages
-            - ../plugins:/project/plugins
-            - ../python:/project/python
-            - ../tests:/project/tests
+            # - ../codeception:/project/codeception
+            # - ../css:/project/css
+            # - ../docker/project/docker
+            # - ../js:/project/js
+            # - ../mysql:/project/mysql
+            # - ../pages:/project/pages
+            # - ../plugins:/project/plugins
+            # - ../python:/project/python
+            # - ../tests:/project/tests
+            - ../:/project
         links:
             - apache_server:apache_server
         stdin_open: true
