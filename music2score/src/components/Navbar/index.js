@@ -7,8 +7,8 @@ const Navbar = () => {
         <div>
         <Nav>
             <NavLink to='/'>
-                {/* <img src={require('../../images/logo.svg')} alt="logo"/> */}
-                <h1>Music2Score</h1>
+                <img src={'./images/logo.png'} alt="logo" style={{width: '55px', height: '55px'}}/>
+                <h1> Music2Score </h1>
             </NavLink>
             <Bars />
             <NavMenu>

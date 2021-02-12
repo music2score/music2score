@@ -28,21 +28,6 @@
   background-color: #169a;
 }
 
-.HomePage > div {
-  margin: 0px
-}
-
-.container {
-  max-width: 500px;
-  margin: 30px auto;
-  overflow: auto;
-  min-height: 300px;
-  justify-content: center;
-  border: 1px solid steelblue;
-  padding: 30px;
-  border-radius: 5px;
-}
-
 .AboutPage {
   min-height: 100vh;
   align-items: center;
@@ -71,19 +56,42 @@
   background-color: #169a;
 }
 
-.SignUpSignInPage-container {
-	width: 500px;
-	height: 500px;
-	background-color: 'transparent';
-	
-	position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-  	
-  margin: auto;
-  margin-top: 125px;
+.SignUpSignInPage > .container {
+  width: 40%;
+  height: 450px;
+  color: black;
+  background-color: 'transparent';
+  border: 2px solid black;
+}
+.container a {
+  color: black;
+}
+
+.empty-box {
+  margin-top: 0px;
+	height: 50px;
+}
+
+.empty-box2 {
+  margin-top: 0px;
+	height: 25px;
+}
+
+.empty-box3 {
+  margin-top: 0px;
+	height: 50px;
+}
+
+.SignUpTab {
+  justify-content: center;
+}
+
+.SignInTab {
+  justify-content: left;
+}
+
+.form-control {
+  margin: 20px 0;
 }
 
 .AccountPage {
