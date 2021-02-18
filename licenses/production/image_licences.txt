@@ -1,0 +1,9 @@
+login_image:
+licence: Free to use (CC0)
+artist-link: https://www.pexels.com/@burst
+login_background:
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@lamiko
+register_background:
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@olly

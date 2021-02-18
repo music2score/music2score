@@ -63,28 +63,46 @@ if($LUser->validateFormRequest($_POST)){
 
 <!DOCTYPE html>
 <html>
-
+<head>
+<title>Login Page - Music2Score</title>
+<link rel="shortcut icon" type="image/jpg" href="images/favicon.ico"/>
+<link rel="stylesheet" href="plugins/bootstrap_v4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="plugins/fontawesome_v5.15.2/css/all.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/login.css">
+</head>
 <body>
-
-<h2>Login Form</h2>
-
+<?php include("./components/navbar.php"); ?>
+<div class="body_content_container">
+<form action="./login.php" method="POST">
+<div class="form_container">
+<div class="login_container">
+<h2>Login Form</h2><br>
+<img src="images/login_image.jpg" style="width: 100%;"/>
+<hr>
 <!-- Sample Error Text Implementation **Starts** -->
 <p style="font-size: 18px; color: #880000;"><?php echo $LUser->getErrorTxt(); ?></p>
 <!-- Sample Error Text Implementation **Ends** -->
-
-<form action="./login.php" method="POST">
-
 <!-- Sample Field Value Retention Implementation **Starts** -->
-  <label for="email">Email:</label><br>
-  <input type="text" id="email" name="email" placeholder="Doe@Doe.com" value="<?php echo $LUser->getEmail(); ?>"><br>
+<div class="form-group">
+  <label for="email" class="login_label">Email:</label><br>
+  <input type="text" id="email" name="email" placeholder="John@Doe.com" class="form-control" value="<?php echo $LUser->getEmail(); ?>">
+</div>
 <!-- Sample Field Value Retention Implementation **Ends** --> 
+<div class="form-group">
+  <label for="password" class="login_label">Password:</label><br>
+  <input type="password" id="password" name="password" class="form-control" placeholder="*****" class="">
+</div>
 
-  <label for="password">Password:</label><br>
-  <input type="password" id="password" name="password" placeholder="*****"><br>
-
-  <input id="loginbtn" name="loginbtn" type="submit" value="Submit">
-  
+<hr><br>
+  <input id="loginbtn" name="loginbtn" type="submit" class="btn btn-default login_submit_button" value="Sign In">
+  <div class="clear"></div>
 </form> 
-
+</div>
+</div>
+</div>
+<?php include("./components/footer.php"); ?>
 </body>
+<script src="plugins/jquery_v3.5.1/js/jquery.min.js"></script>
+<script src="plugins/bootstrap_v4.0/js/bootstrap.min.js"></script>
 </html>

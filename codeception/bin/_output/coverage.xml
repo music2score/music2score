@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1613007718">
-  <project timestamp="1613007718">
+<coverage generated="1613682984">
+  <project timestamp="1613682984">
+    <file name="/project/pages/components/footer.php">
+      <metrics loc="48" ncloc="48" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/project/pages/components/navbar.php">
+      <line num="45" type="stmt" count="0"/>
+      <line num="57" type="stmt" count="0"/>
+      <metrics loc="70" ncloc="70" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="2" coveredelements="0"/>
+    </file>
+    <file name="/project/pages/css/components.css">
+      <metrics loc="305" ncloc="305" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/project/pages/css/login.css">
+      <metrics loc="29" ncloc="29" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/project/pages/css/register.css">
+      <metrics loc="29" ncloc="29" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
     <file name="/project/pages/hello_world.php">
       <line num="2" type="stmt" count="0"/>
       <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="1" coveredelements="0"/>
@@ -200,9 +217,11 @@
       <line num="55" type="stmt" count="0"/>
       <line num="56" type="stmt" count="0"/>
       <line num="57" type="stmt" count="0"/>
-      <line num="72" type="stmt" count="0"/>
-      <line num="79" type="stmt" count="0"/>
-      <metrics loc="89" ncloc="51" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="0" elements="17" coveredelements="0"/>
+      <line num="75" type="stmt" count="0"/>
+      <line num="84" type="stmt" count="0"/>
+      <line num="89" type="stmt" count="0"/>
+      <line num="104" type="stmt" count="0"/>
+      <metrics loc="107" ncloc="69" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="0" elements="19" coveredelements="0"/>
     </file>
     <file name="/project/pages/logout.php">
       <line num="2" type="stmt" count="0"/>
@@ -226,12 +245,14 @@
       <line num="56" type="stmt" count="0"/>
       <line num="57" type="stmt" count="0"/>
       <line num="58" type="stmt" count="0"/>
-      <line num="73" type="stmt" count="0"/>
-      <line num="80" type="stmt" count="0"/>
-      <line num="82" type="stmt" count="0"/>
-      <line num="84" type="stmt" count="0"/>
-      <metrics loc="96" ncloc="56" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="0" elements="19" coveredelements="0"/>
+      <line num="76" type="stmt" count="0"/>
+      <line num="86" type="stmt" count="0"/>
+      <line num="92" type="stmt" count="0"/>
+      <line num="96" type="stmt" count="0"/>
+      <line num="100" type="stmt" count="0"/>
+      <line num="118" type="stmt" count="0"/>
+      <metrics loc="121" ncloc="81" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="0" elements="21" coveredelements="0"/>
     </file>
-    <metrics files="8" loc="516" ncloc="353" classes="4" methods="19" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="173" coveredstatements="132" elements="192" coveredelements="151"/>
+    <metrics files="13" loc="1040" ncloc="877" classes="4" methods="19" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="179" coveredstatements="132" elements="198" coveredelements="151"/>
   </project>
 </coverage>
