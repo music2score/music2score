@@ -64,34 +64,59 @@ Documentation / Guidelines:
 
 <!DOCTYPE html>
 <html>
-
+<head>
+<title>Registeration Page - Music2Score</title>
+<link rel="shortcut icon" type="image/jpg" href="images/favicon.ico"/>
+<link rel="stylesheet" href="plugins/bootstrap_v4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="plugins/fontawesome_v5.15.2/css/all.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/register.css">
+</head>
 <body>
+<?php include("./components/navbar.php"); ?>
+<div class="body_content_container">
 
-<h2>Registration Form</h2>
-
+<form action="./register.php" method="POST">
+<div class="form_container">
+<div class="register_container">
+<h2>Registration Form</h2><br>
+<img src="images/register_image.jpg" style="width: 100%;"/>
+<hr>
 <!-- Sample Error Text Implementation **Starts** -->
 <p style="font-size: 18px; color: #880000;"><?php echo $RUser->getErrorTxt(); ?></p>
 <!-- Sample Error Text Implementation **Ends** -->
 
-<form action="./register.php" method="POST">
-
 <!-- Sample Field Value Retention Implementation **Starts** -->
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" placeholder="John" value="<?php echo $RUser->getFirstName(); ?>"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" placeholder="Doe"  value="<?php echo $RUser->getLastName(); ?>"><br>
-  <label for="email">Email:</label><br>
-  <input type="text" id="email" name="email" placeholder="Doe@Doe.com" value="<?php echo $RUser->getEmail(); ?>"><br>
+<div class="form-group">
+  <label for="fname" class="register_label">First name:</label><br>
+  <input type="text" id="fname" name="fname" class="form-control" placeholder="John" value="<?php echo $RUser->getFirstName(); ?>">
+</div>
+<div class="form-group">  
+  <label for="lname" class="register_label">Last name:</label><br>
+  <input type="text" id="lname" name="lname" class="form-control" placeholder="Doe"  value="<?php echo $RUser->getLastName(); ?>">
+</div>
+<div class="form-group">
+  <label for="email" class="register_label">Email:</label><br>
+  <input type="text" id="email" name="email" class="form-control" placeholder="John@Doe.com" value="<?php echo $RUser->getEmail(); ?>">
+</div>
 <!-- Sample Field Value Retention Implementation **Ends** --> 
-
-  <label for="password">Password:</label><br>
-  <input type="password" id="password" name="password" placeholder="*****"><br>
-  <label for="cpassword">Confirm Password:</label><br>
-  <input type="password" id="cpassword" name="cpassword" placeholder="*****"><br>
-  <br>
-  <input id="registerbtn" name="registerbtn" type="submit" value="Submit">
-  
+<div class="form-group">
+  <label for="password" class="register_label">Password:</label><br>
+  <input type="password" id="password" name="password" class="form-control" placeholder="*****">
+</div>
+<div class="form-group">  
+  <label for="cpassword" class="register_label">Confirm Password:</label><br>
+  <input type="password" id="cpassword" name="cpassword" class="form-control" placeholder="*****">
+</div>
+<hr><br>
+  <input id="registerbtn" name="registerbtn" type="submit" class="btn btn-default register_submit_button" value="Sign Up">
+  <div class="clear"></div>
 </form> 
-
+</div>
+</div>
+</div>
+<?php include("./components/footer.php"); ?>
 </body>
+<script src="plugins/jquery_v3.5.1/js/jquery.min.js"></script>
+<script src="plugins/bootstrap_v4.0/js/bootstrap.min.js"></script>
 </html>
