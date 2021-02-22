@@ -60,3 +60,5 @@ services:
             - apache_server:apache_server
     chrome:
         image: selenium/standalone-chrome
+        links:
+            - apache_server

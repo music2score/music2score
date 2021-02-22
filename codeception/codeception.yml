@@ -12,3 +12,8 @@ coverage:
     enabled: true
     include:
         - ../pages/*
+    exclude:
+        - ../pages/images/*
+        - ../pages/plugins/*
+    remote: true
+    #workdir: ../codeception/
