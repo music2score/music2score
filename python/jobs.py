@@ -117,6 +117,7 @@ def fetch_job(mycursor: conn.cursor.MySQLCursor) -> (bool, tuple):
         return False, None
 
 
+# Set the 'completed' state in MySQL
 def complete_job(mycursor: conn.cursor.MySQLCursor, jobid: int) -> bool:
     sqlUpd = "UPDATE jobs SET completed = %s WHERE jobid = %s"
     paraUpd = (1, jobid)
