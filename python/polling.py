@@ -1,46 +1,44 @@
-import mysql.connector
-import subprocess
-import time
+from time import sleep
+from collections import deque
 
-mydb = mysql.connector.connect(
-  host="mysql_server",
-  user="root",
-  password="12345",
-  database="music2score_test",
-  autocommit=True
-)
+from .constants import *
+from .jobs import *
+from .download import *
+from .convert import *
+from .upload import *
 
-var = 1
-while var == 1 :
-    #Checks for jobs
-    mycursor = mydb.cursor()
 
-    mycursor.execute("SELECT * FROM jobs WHERE processing!=1 AND completed!=1 LIMIT 1")
+# Retrieve and claim jobs
+def polling(jobList: deque) -> bool:
+    mydb = conn.connect(dbTest)
 
-    myresult = mycursor.fetchall()
-
-    mycursor.close()
-    #Updates Processing
-    sql=""
-    for x in myresult:
-        sql = "UPDATE jobs SET processing = 1 WHERE jobid = "+str(x[0])
-        
+    var = True
+    while var:
         mycursor = mydb.cursor()
-
-        mycursor.execute(sql)
-
-        mydb.commit()
-        
+        fetchFlag, myresult = fetch_job(mycursor)
         mycursor.close()
 
-        #Calls API
-        cmd = ['python', './python/download.py']
-        subprocess.Popen(cmd).wait()
+        if not fetchFlag:
+            return False
+        elif not myresult:
+            sleep(pollEmptyDelay)
+            continue
+        
+        newJob = JOB()
+        jobList.append(newJob)
+        newJob.set_job(myresult)
 
-        cmd = ['python', './python/convert.py']
-        subprocess.Popen(cmd).wait()
-
-        cmd = ['python', './python/upload.py']
-        subprocess.Popen(cmd).wait()
-
-    time.sleep(10)
+        var = False
+        if not download_src():
+            print("Failed to download the source file.", newJob)
+        elif not convert():
+            print("Failed to convert the music.", newJob)
+        elif not upload_score():
+            print("Failed to upload the score.", newJob)
+        else:
+            var = True
+            sleep(pollNormalDelay)
+        
+    print("Polling system has terminated.")
+    print("len(jobList) =", len(jobList))
+    return False
