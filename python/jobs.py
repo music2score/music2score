@@ -7,16 +7,21 @@ class JOB(object):
         # Information of a job
         self.jobid = None
         self.filename = None
+        # Records of upload information
         self.upTime = None
+        self.upDuration = None
         # State of corresponding file type
         self.sourceFile = False
         self.pdf = False
         self.png = False
+        # Directory
+        self._cwd = os.getcwd() + "\\"
 
     def __repr__(self) -> str:
         ret = "jobid: " + str(self.jobid)
         ret += "\\nfilename: " + self.filename
         ret += "\\nupTime: " + self.upTime
+        ret += "\\nupDuration: " + self.upDuration + " s"
         ret += "\\nsrc: " + str(self.sourceFile)
         ret += "\\npdf: " + str(self.pdf)
         ret += "\\npng: " + str(self.png)
@@ -42,13 +47,17 @@ class JOB(object):
             elif arg.lower() == 'png':
                 self.png = True
 
-    # Delete local files and set the upload time. 
-    def upload_done(self, upTime: str):
+    # Delete local files and set the upload time & duration. 
+    def upload_done(self, upTime: str, upDuration: float):
         self._del_files()
         self.upTime = upTime
+        self.upDuration = upDuration
 
-    def _path(self) -> str:
-        return '.\\' + str(self.jobid)
+    def localFilePath(self) -> str:
+        return self._directory + "\\" + str(self.jobid)
+    
+    def _directory(self) -> str:
+        return self._cwd + str(self.jobid)
 
     def _clear(self):
         self._del_files()
@@ -62,7 +71,7 @@ class JOB(object):
         self.png = False
 
         # Delete local files
-        path = self._path()
+        path = self._directory()
         if os.path.exists(path):
             os.removedirs(path)
             return True
@@ -106,3 +115,17 @@ def fetch_job(mycursor: conn.cursor.MySQLCursor) -> (bool, tuple):
     else:
         print('Error: rowCnt != 1.')
         return False, None
+
+
+def complete_job(mycursor: conn.cursor.MySQLCursor, jobid: int) -> bool:
+    sqlUpd = "UPDATE jobs SET completed = %s WHERE jobid = %s"
+    paraUpd = (1, jobid)
+
+    try:
+        mycursor.execute(sqlUpd, paraUpd)
+        mycursor.execute("commit")
+    except conn.Error as ex:
+        print('Failed to mark the completed job. {}'.format(ex))
+        return False
+
+    return True

@@ -2,8 +2,6 @@ from time import sleep, time
 from collections import deque
 from pickle import dump, load
 
-from .constants import *
-from .jobs import *
 from .download import *
 from .convert import *
 from .upload import *
@@ -34,7 +32,7 @@ def polling(trigger: bool, jobList: deque) -> bool:
             print("Failed to download the source file.", newJob)
         elif not convert():
             print("Failed to convert the music.", newJob)
-        elif not upload_score():
+        elif not upload_score(newJob, mydb):
             print("Failed to upload the score.", newJob)
         else:
             var = True
