@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from time import sleep, time
 from collections import deque
 from pickle import dump, load
