@@ -86,7 +86,7 @@ if($LUser->validateFormRequest($_POST)){
 <!-- Sample Field Value Retention Implementation **Starts** -->
 <div class="form-group">
   <label for="email" class="login_label">Email:</label><br>
-  <input type="text" id="email" name="email" placeholder="" class="form-control" value="<?php echo $LUser->getEmail(); ?>">
+  <input type="text" id="email" name="email" placeholder="John@Doe.com" class="form-control" value="<?php echo $LUser->getEmail(); ?>">
 </div>
 <!-- Sample Field Value Retention Implementation **Ends** --> 
 <div class="form-group">
