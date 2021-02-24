@@ -19,12 +19,12 @@ class JOB(object):
 
     def __repr__(self) -> str:
         ret = "jobid: " + str(self.jobid)
-        ret += "\\nfilename: " + self.filename
-        ret += "\\nupTime: " + self.upTime
-        ret += "\\nupDuration: " + self.upDuration + " s"
-        ret += "\\nsrc: " + str(self.sourceFile)
-        ret += "\\npdf: " + str(self.pdf)
-        ret += "\\npng: " + str(self.png)
+        ret += "\nfilename: " + self.filename
+        ret += "\nupTime: " + self.upTime
+        ret += "\nupDuration: " + self.upDuration + " s"
+        ret += "\nsrc: " + str(self.sourceFile)
+        ret += "\npdf: " + str(self.pdf)
+        ret += "\npng: " + str(self.png)
         return ret
 
     # Set the information. 

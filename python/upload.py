@@ -11,7 +11,7 @@ def upload_score(newJob: JOB, mydb: conn.connection.MySQLConnection) -> bool:
         r = requests.get(url_fShare, timeout = timeOut_connect)
         r.raise_for_status()    # check if status == 200
     except Exception as ex:
-        print("Request Error:\\n" + str(ex))
+        print("Request Error:\n" + str(ex))
         return False
 
     form = {"jobid": str(newJob.jobid)}
@@ -28,7 +28,7 @@ def upload_score(newJob: JOB, mydb: conn.connection.MySQLConnection) -> bool:
                           )
         endTime = time()
     except Exception as ex:
-        print("Request Error:\\n" + str(ex))
+        print("Request Error:\n" + str(ex))
         return False
     finally:
         for fh in list(files.values()):
