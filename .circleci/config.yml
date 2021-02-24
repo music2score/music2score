@@ -21,9 +21,23 @@ jobs:
     steps:
       - checkout
       - run: python3 tests/python/test_hello_world.py
+  VisualRegression:
+    machine: 
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run: 
+          name: Initialize containers and Check Visual Regression
+          command: |
+            set -x
+            cd docker
+            docker-compose up -d
+            sleep 20
+            docker-compose run visual_regression_tests test
 
 workflows:
   Testing:
     jobs:
       - Codeception
       - Python
+      - VisualRegression

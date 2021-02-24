@@ -59,6 +59,14 @@ services:
         links:
             - apache_server:apache_server
     chrome:
+        build:
+            context: ../
         image: selenium/standalone-chrome
         links:
             - apache_server
+    visual_regression_tests:
+        image: backstopjs/backstopjs:latest
+        volumes:
+            - ../:/src
+        links:
+            - apache_server:apache_server
