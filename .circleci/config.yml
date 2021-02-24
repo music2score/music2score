@@ -38,6 +38,6 @@ jobs:
 workflows:
   Testing:
     jobs:
-      - Codeception
-      - Python
+      # - Codeception
+      # - Python
       - VisualRegression
