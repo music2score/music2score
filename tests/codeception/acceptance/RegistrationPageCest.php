@@ -16,24 +16,24 @@ class RegistrationPageCest
         $I->click('#registerbtn');
         $I->see('Enter First Name');
 
-        $I->fillField('fname', 'Ibrahim');
+        $I->fillField('fname', 'test');
         $I->click('#registerbtn');
         $I->see('Enter Last Name');
 
-        $I->fillField('lname', 'Ibrahim');
+        $I->fillField('lname', 'testing');
         $I->click('#registerbtn');
         $I->see('Enter Email');
 
-        $I->fillField('email', 'ibrahim@ibrahim.com');
+        $I->fillField('email', 'test@testing.com');
         $I->click('#registerbtn');
         $I->see('Enter Password');
 
-        $I->fillField('password', 'Ibrahim');
+        $I->fillField('password', '12345');
         $I->click('#registerbtn');
         $I->see('Confirm Password');
 
-        $I->fillField('password', 'Ibrahim');
-        $I->fillField('cpassword', 'Ibrahim');
+        $I->fillField('password', '12345');
+        $I->fillField('cpassword', '12345');
         $I->click('#registerbtn');
 
         $I->seeCurrentUrlEquals('/login.php');
