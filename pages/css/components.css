@@ -208,7 +208,7 @@
     color: #ffffff;
     background-color: #eb8927;
     padding: 6px 16px;
-    width: 220px;
+    width: 240px;
     margin-bottom: 5px;
     transition: all 0.35s;
 }
@@ -222,7 +222,7 @@
     color: #ffffff;
     background-color: #c3002d;
     padding: 6px 16px;
-    width: 220px;
+    width: 240px;
     transition: all 0.35s;
 }
 .footer_button_upload:hover{
