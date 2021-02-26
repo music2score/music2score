@@ -13,7 +13,7 @@ jobs:
             cd docker
             docker-compose up -d
             sleep 20
-            docker-compose run --rm codecept run -c codeception/
+            docker-compose run --rm codecept
   Python:
     working_directory: ~/circleci-python
     docker:
