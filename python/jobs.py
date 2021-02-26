@@ -54,7 +54,7 @@ class JOB(object):
         self.upDuration = upDuration
 
     def localFilePath(self) -> str:
-        return self._directory + "\\" + str(self.jobid)
+        return self._directory() + "\\" + str(self.jobid)
     
     def _directory(self) -> str:
         return self._cwd + str(self.jobid)
