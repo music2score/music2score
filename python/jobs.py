@@ -83,7 +83,7 @@ class JOB(object):
 # Retrun (True, <tuple>) if succeed;
 # Return (True, None) if no job remained;
 # Return (False, None) if failed. 
-def fetch_job(mycursor: conn.cursor.MySQLCursor) -> (bool, tuple):
+def fetch_job(mycursor: conn.cursor.MySQLCursor) -> tuple(bool, tuple):
     sqlSel = "SELECT * FROM jobs WHERE processing != %s AND completed != %s LIMIT %s FOR UPDATE"
     sqlUpd = "UPDATE jobs SET processing = %s WHERE jobid = %s"
     paraSel = (1, 1, 1)
