@@ -7,7 +7,14 @@
 actor: AcceptanceTester
 modules:
     enabled:
-        - PhpBrowser:
+        - WebDriver:
             url: http://apache_server
+            browser: chrome
+            host: chrome
+            capabilities:
+                cssSelectorsEnabled: true
+                javascriptEnabled: true
+                webStorageEnabled: true
+                elementScrollBehavior: true
         - \Helper\Acceptance
-step_decorators: ~        
+step_decorators: ~

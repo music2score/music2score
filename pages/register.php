@@ -55,7 +55,7 @@ Documentation / Guidelines:
     if($RUser->validateFormRequest($_POST)){
         if($RUser->validateFormFields()){
             if($RUser->registerUser($db)){
-                header("Location: ./login");
+                header("Location: ./login.php");
             }
         }
     }
@@ -76,7 +76,7 @@ Documentation / Guidelines:
 <?php include("./components/navbar.php"); ?>
 <div class="body_content_container">
 
-<form action="./register.php" method="POST">
+<form action="./register.php" method="POST" id="update_form">
 <div class="form_container">
 <div class="register_container">
 <h2>Registration Form</h2><br>
@@ -109,7 +109,7 @@ Documentation / Guidelines:
   <input type="password" id="cpassword" name="cpassword" class="form-control" placeholder="*****">
 </div>
 <hr><br>
-  <input id="registerbtn" name="registerbtn" type="submit" class="btn btn-default register_submit_button" value="Sign Up">
+  <input id="registerbtn" name="registerbtn" type="submit" class="btn btn-default register_submit_button" value="Register">
   <div class="clear"></div>
 </form> 
 </div>
