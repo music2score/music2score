@@ -65,6 +65,6 @@ services:
     visual_regression_tests:
         image: backstopjs/backstopjs:latest
         volumes:
-            - ../:/src
+            - ../backstopJS/:/src
         links:
             - apache_server:apache_server
