@@ -66,7 +66,7 @@ Class LUser{
                 $this->errortxt="Invalid Credentials!";
                 return false;
             }
-
+            $_SESSION["id"]=$result["id"];
             $_SESSION["email"]=$result["email"];
             $_SESSION["fname"]=$result["fname"];
             $_SESSION["lname"]=$result["lname"];

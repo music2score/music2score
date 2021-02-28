@@ -18,14 +18,17 @@ COMMIT;
 DROP TABLE IF EXISTS `jobs`;
 CREATE TABLE `jobs` (
   `jobid` bigint NOT NULL,
-  `filename` text NOT NULL,
+  `filename` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `userid` bigint NOT NULL,
   `processing` int NOT NULL DEFAULT '0',
-  `completed` int NOT NULL DEFAULT '0'
+  `completed` int NOT NULL DEFAULT '0',
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 ALTER TABLE `jobs`
-  ADD PRIMARY KEY (`jobid`);
-  
+  ADD PRIMARY KEY (`jobid`),
+  ADD UNIQUE KEY `filename` (`filename`);
+
 ALTER TABLE `jobs`
   MODIFY `jobid` bigint NOT NULL AUTO_INCREMENT;
 COMMIT;
