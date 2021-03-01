@@ -14,7 +14,7 @@ def upload_score(newJob: JOB, mydb: conn.connection.MySQLConnection) -> bool:
         print("Request Error:\n" + str(ex))
         return False
 
-    form = {"jobid": str(newJob.jobid)}
+    args = {"jobid": str(newJob.jobid)}
 
     files = {"pdf": open(newJob.localFilePath() + ".pdf", "rb"), 
              "png": open(newJob.localFilePath() + ".png", "rb")}
@@ -22,13 +22,14 @@ def upload_score(newJob: JOB, mydb: conn.connection.MySQLConnection) -> bool:
     # Upload .pdf and .png files
     try:
         staTime = time()
-        r = requests.post(url_fShare, form, 
+        r = requests.post(url_fShare + "/post", 
+                          params = args, 
                           files = files, 
                           timeout = (timeOut_connect, timeOut_read)
                           )
         endTime = time()
     except Exception as ex:
-        print("Request Error:\n" + str(ex))
+        print("Upload Error:\n" + str(ex))
         return False
     finally:
         for fh in list(files.values()):
