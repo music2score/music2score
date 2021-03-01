@@ -17,13 +17,18 @@ def download_src(newJob: JOB) -> bool:
     
     # Download the source file
     try:
-        r = requests.get(url_fShare + "/get", 
-                         params = args, 
-                         timeout = (timeOut_connect, timeOut_read)
-                         )
+        r = requests.post(url_fShare + "/post", 
+                          params = args, 
+                          timeout = (timeOut_connect, timeOut_read)
+                          )
     except Exception as ex:
         print("Download Error:\n" + str(ex))
         return False
+
+    # Post succeeded, but server returns errormsg
+    if "errormsg" in r.json():
+        print("ErrorMsg from php server:", r.json()["errormsg"])
+        return True
 
     newJob.create_dir()
 
