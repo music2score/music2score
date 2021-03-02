@@ -1,0 +1,66 @@
+.body_content_container {
+    background-image: url("../images/login_background.jpg");
+    background-repeat: repeat-x repeat-y;
+}
+.form_container{
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+.upload_container{
+    border: 2px solid #c7c3c3;
+    max-width: 900px;
+    padding: 30px;
+    border-radius: .25rem;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+    display: flex;
+}
+.main_container{
+    width: 100%;
+    max-width: 440px
+}
+.design_container{
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+}
+.small_image{
+    display: none;
+}
+.upload_submit_button{
+    background-color: #f68e1e;
+    padding: .5rem 1rem;
+    color: #ffffff;
+    float: right;
+    transition: transform 450ms;
+}
+.upload_submit_button:hover{
+    transform: scale(1.05);
+}
+.upload_label{
+    font-weight: 600;
+    color: #eb8927
+}
+.field_container{
+    width: 100%;
+    padding-top: 30px;
+}
+@media screen and (max-width: 991px) {
+    .upload_container{
+        border: 2px solid #c7c3c3;
+        max-width: 500px;
+        padding: 30px;
+        border-radius: .25rem;
+        margin: 0 auto;
+        background-color: #f8f9fa;
+    }
+    .design_container{
+        display: none;
+    }
+    .small_image{
+        display: block;
+    }
+}

@@ -60,3 +60,11 @@ services:
             - apache_server:apache_server
     chrome:
         image: selenium/standalone-chrome
+        links:
+            - apache_server:apache_server
+    visual_regression_tests:
+        image: backstopjs/backstopjs:latest
+        volumes:
+            - ../backstopJS/:/src
+        links:
+            - apache_server:apache_server

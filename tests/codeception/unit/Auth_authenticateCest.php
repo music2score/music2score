@@ -3,6 +3,7 @@ use Codeception\Stub;
 
 class Auth_authenticateCest
 {
+    private $count=0;
     public function _before(UnitTester $I)
     {
     }
@@ -10,7 +11,8 @@ class Auth_authenticateCest
     // tests
     public function tryToTest(UnitTester $I)
     {
-        $I->wantTo('Testing Auth->authenticate() Function');
+        $this->count=$this->count+1;
+        $I->wantTo('Testing Auth->authenticate() Function '.$this->count);
         include_once './pages/helper/connect_class.php';
         
         $false=false;
