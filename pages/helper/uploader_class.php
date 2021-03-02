@@ -12,7 +12,7 @@ Documentation
     1. Uploader->validateFormRequest($post,$file) - Checks if form is submitted, validates it. Requires form post object to 
     access form field data.
     2. Uploader->movefile($x,$y) - It is protected method to be used to move files from tmp directory[$x] to specified directory[$y].
-    3. Uploader->createJob() - uploads the file and creates a job entry for it on the jobs table otherwise updates the error string.
+    3. Uploader->createJob($db,$sesssion,$file) - uploads the file and creates a job entry for it on the jobs table otherwise updates the error string.
     Requires pdo object as function parameter for connecting to database, session to link job back to user and also the respective file. 
     4. Uploader->getErrorTxt() - Returns error string which will be empty when no error is present.
 
