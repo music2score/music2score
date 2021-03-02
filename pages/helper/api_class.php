@@ -19,6 +19,7 @@ Documentation
     updates the error string. Requires pdo object as function parameter for connecting to database.
     4. Downloader_API->getErrorTxt() - Returns error string which will be empty when no error is present.
     5. Downloader_API->getUrl() - Returns url string which will be empty when there is an error present or if no url is generated.
+    6. file_checker($address) - Checks if the address or file exists in the upload folder or not.
 
 */
 class Downloader_API{
