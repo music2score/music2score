@@ -25,7 +25,7 @@ def download_src(newJob: JOB) -> bool:
         print("Download Error:\n" + str(ex))
         return False
 
-    # Post succeeded, but server returns errormsg
+    # Post succeeded, but php server returns errormsg
     if "errormsg" in r.json():
         print("ErrorMsg from php server:", r.json()["errormsg"])
         return True
@@ -35,7 +35,7 @@ def download_src(newJob: JOB) -> bool:
     # Save as a local file
     midiName = newJob.localFilePath() + ".mid"
     with open(midiName, "wb") as fh:
-        fh.whrite(r.json()["files"]["src"])
+        fh.write(r.json()["files"]["src"])
         newJob.set_file('mid')
     
     return True

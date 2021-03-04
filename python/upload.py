@@ -1,3 +1,4 @@
+from os import stat
 import requests
 from time import time, ctime
 
@@ -36,7 +37,7 @@ def upload_score(newJob: JOB, mydb: conn.connection.MySQLConnection) -> bool:
             fh.close()
     
     # Delete local files and record upload information
-    newJob.upload_done(ctime(), staTime - endTime)
+    newJob.upload_done(ctime(), endTime - staTime)
 
     # Set the 'completed' state in MySQL
     mycursor = mydb.cursor()

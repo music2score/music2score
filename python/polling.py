@@ -30,9 +30,9 @@ def polling(trigger: bool, jobList: deque) -> bool:
         newJob.set_job(myresult)
 
         var = False
-        if not download_src():
+        if not download_src(newJob):
             print("Failed to download the source file.", newJob)
-        elif not convert():
+        elif not convert(newJob):
             print("Failed to convert the music.", newJob)
         elif not upload_score(newJob, mydb):
             print("Failed to upload the score.", newJob)
