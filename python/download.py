@@ -35,7 +35,8 @@ def download_src(newJob: JOB) -> bool:
     # Save as a local file
     midiName = newJob.localFilePath() + ".mid"
     with open(midiName, "wb") as fh:
-        fh.write(r.json()["files"]["src"])
+        # fh.write(r.json()["files"]["src"])
+        fh.write(r.content)
         newJob.set_file('mid')
     
     return True
