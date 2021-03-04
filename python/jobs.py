@@ -3,6 +3,7 @@ import os
 
 
 class JOB(object):
+    
     def __init__(self):
         # Information of a job
         self.jobid = None
@@ -84,11 +85,14 @@ class JOB(object):
             return False
 
 
-# Fetch a waiting job from MySQL. 
-# Retrun (True, <tuple>) if succeed;
-# Return (True, None) if no job remained;
-# Return (False, None) if failed. 
+"""
+    Fetch a pending job from MySQL. 
+    Retrun  (True, <tuple>)  if succeed;
+    Return  (True, None)  if no job remained;
+    Return  (False, None)  if failed. 
+"""
 def fetch_job(mycursor: conn.cursor.MySQLCursor):
+
     sqlSel = "SELECT * FROM jobs WHERE processing != %s AND completed != %s LIMIT %s FOR UPDATE"
     sqlUpd = "UPDATE jobs SET processing = %s WHERE jobid = %s"
     paraSel = (1, 1, 1)
@@ -114,24 +118,9 @@ def fetch_job(mycursor: conn.cursor.MySQLCursor):
         print('Failed to mark the fetched job. {}'.format(ex))
         return False, None
 
-    # For testing, will be able to be removed
+    # For testing. This can be removed
     if rowCnt == 1:
         return True, myresult 
     else:
         print('Error: rowCnt != 1.')
         return False, None
-
-
-# Set the 'completed' state in MySQL
-def complete_job(mycursor: conn.cursor.MySQLCursor, jobid: int) -> bool:
-    sqlUpd = "UPDATE jobs SET completed = %s WHERE jobid = %s"
-    paraUpd = (1, jobid)
-
-    try:
-        mycursor.execute(sqlUpd, paraUpd)
-        mycursor.execute("commit")
-    except conn.Error as ex:
-        print('Failed to mark the completed job. {}'.format(ex))
-        return False
-
-    return True

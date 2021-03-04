@@ -5,17 +5,21 @@ from time import time, ctime
 from .constants import *
 from .jobs import *
 
+"""
+    Upload the sheet-score in .pdf and .png to file sharing system.
+    Return  True  if the file is successfully uploaded and deleted locally.
+    Return  False  if this function failed to upload.
 
-def upload_score(newJob: JOB, mydb: conn.connection.MySQLConnection) -> bool:
-    # Test connection
-    try:
-        r = requests.get(url_fShare, timeout = timeOut_connect)
-        r.raise_for_status()    # check if status == 200
-    except Exception as ex:
-        print("Request Error:\n" + str(ex))
-        return False
+    This function makes POST request to php API. 
+    The request is in json format. 
+        It contains 'args' and 'files' as keys.
+        The value of 'args' is a dictionary of 'jobno'.
+        The value of 'files' is a dictionary of two files.
+    The response message is not defined.
+"""
+def upload_score(newJob: JOB) -> bool:
 
-    args = {"jobid": str(newJob.jobid)}
+    args = {"jobno": newJob.jobid}
 
     files = {"pdf": open(newJob.localFilePath() + ".pdf", "rb"), 
              "png": open(newJob.localFilePath() + ".png", "rb")}
@@ -29,6 +33,7 @@ def upload_score(newJob: JOB, mydb: conn.connection.MySQLConnection) -> bool:
                           timeout = (timeOut_connect, timeOut_read)
                           )
         endTime = time()
+        r.raise_for_status()    # check if status == 200
     except Exception as ex:
         print("Upload Error:\n" + str(ex))
         return False
@@ -39,9 +44,4 @@ def upload_score(newJob: JOB, mydb: conn.connection.MySQLConnection) -> bool:
     # Delete local files and record upload information
     newJob.upload_done(ctime(), endTime - staTime)
 
-    # Set the 'completed' state in MySQL
-    mycursor = mydb.cursor()
-    compFlag = complete_job(mycursor, newJob.jobid)
-    mycursor.close()
-
-    return compFlag
+    return True
