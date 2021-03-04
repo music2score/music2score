@@ -10,7 +10,7 @@ from .upload import *
 
 
 # Retrieve and claim jobs
-def polling(trigger: bool, jobList: deque) -> bool:
+def polling(trigger: bool, jobQueue: deque) -> bool:
     mydb = conn.connect(dbTest)
 
     var = True
@@ -26,7 +26,7 @@ def polling(trigger: bool, jobList: deque) -> bool:
             continue
         
         newJob = JOB()
-        jobList.append(newJob)
+        jobQueue.append(newJob)
         newJob.set_job(myresult)
 
         var = False
@@ -44,21 +44,21 @@ def polling(trigger: bool, jobList: deque) -> bool:
         return True
     else:
         print("Polling system has terminated.")
-        print("len(jobList) =", len(jobList))
+        print("len(jobQueue) =", len(jobQueue))
         return False
 
 
 if __name__ == '__main__':
     trigger = True
-    jobList = deque()
+    jobQueue = deque()
 
-    polling(trigger, jobList)
+    polling(trigger, jobQueue)
 
     if not os.path.exists("logs"):
         os.makedirs("logs")
 
-    # Save the jobList
-    logDir = "logs\\log_jobList_%s.pkl" %round(time())
-    dump(jobList, open(logDir, "wb"), protocol=4)
-    print("'jobList' has been saved:", jobList)
+    # Save the jobQueue
+    logDir = "logs\\log_jobQueue_%s.pkl" %round(time())
+    dump(jobQueue, open(logDir, "wb"), protocol=4)
+    print("'jobQueue' has been saved:", jobQueue)
     print("Exited.")
