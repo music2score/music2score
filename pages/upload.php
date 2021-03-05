@@ -69,15 +69,15 @@ if($Uploader->validateFormRequest($_POST,$_FILES)){
 <body>
 <?php include("./components/navbar.php"); ?>
 <div class="body_content_container">
-<form action="./upload.php" method="POST" enctype="multipart/form-data">
+<form action="./upload.php" method="POST" enctype="multipart/form-data" id="sample-form">
 <div class="form_container">
 <div class="upload_container">
-<div class="design_container">
-<img class="large_image" src="./images/upload_image.jpg" style="width: 100%; padding-right: 30px;">
-</div>
+    <div class="design_container">
+    <img class="large_image" src="./images/upload_image.jpg" style="width: 100%; padding-right: 30px;">
+    </div>
 <div class="main_container">
 <h2>File Uploader</h2>
-<p>Easily convert any music midi file into music sheet.</p><br>
+<p>Easily convert any music midi file into sheet music.</p><br>
 <img class="small_image" src="images/upload_image2.jpg" style="width: 100%;"/>
 <div class="field_container">
 <hr>
@@ -90,10 +90,17 @@ if($Uploader->validateFormRequest($_POST,$_FILES)){
   <label for="file" class="upload_label">Select Music File :</label><br>
   <input type="file" id="file" name="file" class="form-control" />
 </div>
+<div class="form-group" id="process">
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background-color: #f68e1e;">
+
+        </div>
+    </div>
+</div>
 <!-- Sample Field Value Retention Implementation **Ends** --> 
 
 <hr><br>
-  <input id="uploadbtn" name="uploadbtn" type="submit" class="btn btn-default upload_submit_button" value="Upload">
+  <input id="uploadbtn" name="uploadbtn" type="submit" class="btn btn-default upload_submit_button" value="Upload" id="upload">
   <div class="clear"></div>
 </div>
 </form> 
@@ -106,3 +113,41 @@ if($Uploader->validateFormRequest($_POST,$_FILES)){
 <script src="plugins/jquery_v3.5.1/js/jquery.min.js"></script>
 <script src="plugins/bootstrap_v4.0/js/bootstrap.min.js"></script>
 </html>
+
+<script>
+    $(document).ready(function() {
+        $('#sample-form').on('submit', function() {
+            
+            event.preventDefault();
+
+            $.ajax({
+                url: "./upload.php",
+                method: "POST",
+                data: $(this).serialize(),
+                beforeSend: function() {
+                    $('#upload').attr('disabled', 'disabled');
+                    $('#process').css('display', 'block');
+                },
+                success: function(data) {
+                    var percentage = 0;
+                    var timer = setInterval(function() {
+                        percentage = percentage + 20;
+                        progress_bar_process(percentage, timer);
+                    }, 1000);
+                }
+            });
+        });
+
+        function progress_bar_process(percentage, timer) {
+            $('.progress-bar').css('width', percentage + '%');
+            if (percentage > 100) {
+                clearInterval(timer);
+                $('#sample-form')[0].reset();
+                $('#process').css('display', 'none');
+                $('.progress-bar').css('width', '0%');
+                $('#upload').attr('disabled', false);
+            }
+        }
+
+    });
+</script>
