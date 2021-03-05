@@ -63,7 +63,7 @@ class JOB(object):
             os.mkdirs(path)
     
     def _directory(self) -> str:
-        return self._cwd + str(self.jobid)
+        return self._cwd + "\\" + str(self.jobid)
 
     def _clear(self):
         self._del_files()
