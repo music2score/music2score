@@ -70,18 +70,5 @@ class Uploader_createJobCest
         $_FILES["file"]["tmp_name"]="/project/codeception/bin/_data/sample.mid";
         $Uploader=Stub::make(Uploader::class, ['movefile' => function($x,$y){ return true; }]);
         $I->assertFalse($Uploader->createJob($db,$_SESSION,$_FILES));
-        /*
-        unset($_SESSION);
-        unset($_FILES);
-        $_SESSION["id"]=999;
-        $Connector=Stub::make(Connectors::class, ['dbname' => 'testdb2']);
-        $db=$Connector->phptodbconnector();
-        $_FILES["file"]["name"]="sample.mid";
-        $_FILES["file"]["tmp_name"]="/project/codeception/bin/_data/sample.mid";
-        $Uploader=Stub::make(Uploader::class, ['createJob' => false]);
-        $I->assertFalse($Uploader->createJob($db,$_SESSION,$_FILES));
-       $I->assertFalse($Uploader->createJob($db,$_SESSION,$_FILES));
-        
-        */
     }
 }
