@@ -12,23 +12,26 @@ from .jobs import *
 
     This function makes POST request to php API. 
     The request is in json format. 
-        It contains 'args' and 'files' as keys.
-        The value of 'args' is a dictionary of 'jobno'.
+        It contains 'form' and 'files' as keys.
+        The value of 'form' is a dictionary of 'server_id', 'server_key', 'jobno'.
         The value of 'files' is a dictionary of two files.
     The response message is not defined.
 """
 def upload_score(newJob: JOB) -> bool:
 
-    args = {"jobno": newJob.jobid}
+    args = {"server_id": server_id, 
+            "server_key": server_key,
+            "jobno": newJob.jobid
+            }
 
-    files = {"pdf": open(newJob.localFilePath() + ".pdf", "rb"), 
-             "png": open(newJob.localFilePath() + ".png", "rb")}
+    files = {"file_pdf": open(newJob.localFilePath() + ".pdf", "rb"), 
+             "file_png": open(newJob.localFilePath() + ".png", "rb")}
 
     # Upload .pdf and .png files
     try:
         staTime = time()
         r = requests.post(url_fShare + "/post", 
-                          params = args, 
+                          data = args, 
                           files = files, 
                           timeout = (timeOut_connect, timeOut_read)
                           )
