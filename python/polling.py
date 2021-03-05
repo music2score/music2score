@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import mysql.connector as conn
 from time import sleep, time
 from collections import deque
 from pickle import dump, load
