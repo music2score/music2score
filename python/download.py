@@ -11,8 +11,8 @@ from .jobs import *
 
     This function makes POST request to php API. 
     The request is in json format. 
-        It contains 'args' as a key.
-        The value of 'args' is a dictionary of 'server_id', 'server_key', 'jobno'.
+        It contains 'form' as a key.
+        The value of 'form' is a dictionary of 'server_id', 'server_key', 'jobno'.
     The response message is either a bitstream of the file, 
     or an errormsg in json format.
 """
@@ -26,7 +26,7 @@ def download_src(newJob: JOB) -> bool:
     # Download the source file
     try:
         r = requests.post(url_fShare + "/post", 
-                          params = args, 
+                          data = args, 
                           timeout = (timeOut_connect, timeOut_read)
                           )
         r.raise_for_status()    # check if status == 200
