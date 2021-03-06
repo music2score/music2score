@@ -6,10 +6,17 @@ pollEmptyDelay = 5      # sleep duration if no job remained in database (s)
 timeOut_connect = 3.05
 timeOut_read = 15.05
 
-dbTest = {"host": "mysql_server",
+db = {"host": "mysql_server",
           "user": "root",
           "password": "12345",
           "database": "music2score_test",
+          "autocommit": False
+          }
+          
+dbTest = {"host": "mysql_server",
+          "user": "root",
+          "password": "12345",
+          "database": "testdb",
           "autocommit": False
           }
 
