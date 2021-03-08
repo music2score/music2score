@@ -5,14 +5,20 @@ from time import sleep, time
 from collections import deque
 from pickle import dump, load
 
-from .download import *
-from .convert import *
-from .upload import *
+from constants import *
+from download import *
+from convert import *
+from upload import *
 
 
 # Retrieve and claim jobs
 def polling(trigger: bool, jobQueue: deque) -> bool:
-    mydb = conn.connect(dbTest)
+    # mydb = conn.connect(dbTest)
+    mydb = conn.connect(host="mysql_server",
+                        user="root",
+                        password="12345",
+                        database="music2score_test",
+                        autocommit=True)
 
     var = True
     while trigger and var:
@@ -59,7 +65,7 @@ if __name__ == '__main__':
         os.makedirs("logs")
 
     # Save the jobQueue
-    logDir = "logs\\log_jobQueue_%s.pkl" %round(time())
+    logDir = "logs/log_jobQueue_%s.pkl" %round(time())
     dump(jobQueue, open(logDir, "wb"), protocol=4)
     print("'jobQueue' has been saved:", jobQueue)
     print("Exited.")

@@ -1,7 +1,7 @@
 import requests
 
-from .constants import *
-from .jobs import *
+from constants import *
+from jobs import *
 
 
 """
@@ -25,7 +25,7 @@ def download_src(newJob: JOB) -> bool:
     
     # Download the source file
     try:
-        r = requests.post(url_fShare + "/post", 
+        r = requests.post(url_fShare_download + "/post", 
                           data = args, 
                           timeout = (timeOut_connect, timeOut_read)
                           )
@@ -34,8 +34,14 @@ def download_src(newJob: JOB) -> bool:
         print("Download Error:\n" + str(ex))
         return False
 
+    # For debugging
+    print()
+    print(len(r.content))
+    print(r.content[:4])
+    print(r.content[:4] == b"MThd")
+
     # Post succeeded, but php server returns errormsg
-    if "errormsg" in r.json():
+    if r.content[:4] != b"MThd":
         print("ErrorMsg from php server:", r.json()["errormsg"])
         return False
 

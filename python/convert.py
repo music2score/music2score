@@ -1,5 +1,6 @@
+import os
 import subprocess
-from .jobs import *
+from jobs import *
 
 
 def convert(newJob: JOB) -> bool:
@@ -15,6 +16,20 @@ def convert(newJob: JOB) -> bool:
     except subprocess.CalledProcessError as e:
         print("stderr: ", e.stderr)
         return False
+
+    temID = str(newJob.jobid)
+    os.system("mv %s*.??? %s.midi %s/" %(temID, temID, newJob._directory()))
+    
+    # For debugging
+    print("\ndir ./")
+    os.system("dir")                    # ./
+
+    # # For debugging
+    # print("\ndir ./%s" %temID)
+    # os.system("dir ./%s" %temID)        # ./jobid/
+    print("\nls -lh ./%s" %temID)
+    os.system("ls -lh ./%s" %temID)     # ./jobid/
+    print()
 
     newJob.set_file('png', 'pdf')
     return True

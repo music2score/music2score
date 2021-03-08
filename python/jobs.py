@@ -16,13 +16,13 @@ class JOB(object):
         self.pdf = False
         self.png = False
         # Directory
-        self._cwd = os.getcwd() + "\\"
+        self._cwd = os.getcwd()
 
     def __repr__(self) -> str:
         ret = "jobid: " + str(self.jobid)
         ret += "\nfilename: " + self.filename
-        ret += "\nupTime: " + self.upTime
-        ret += "\nupDuration: " + self.upDuration + " s"
+        ret += "\nupTime: " + str(self.upTime)
+        ret += "\nupDuration: " + str(self.upDuration) + " s"
         ret += "\nsrc: " + str(self.sourceFile)
         ret += "\npdf: " + str(self.pdf)
         ret += "\npng: " + str(self.png)
@@ -55,7 +55,7 @@ class JOB(object):
         self.upDuration = upDuration
 
     def localFilePath(self) -> str:
-        return self._directory() + "\\" + str(self.jobid)
+        return self._directory() + "/" + str(self.jobid)
     
     def create_dir(self):
         path = self._directory()
@@ -63,7 +63,7 @@ class JOB(object):
             os.makedirs(path)
     
     def _directory(self) -> str:
-        return self._cwd + "\\" + str(self.jobid)
+        return self._cwd + str(self.jobid)
 
     def _clear(self):
         self._del_files()
@@ -79,7 +79,7 @@ class JOB(object):
         # Delete local files
         path = self._directory()
         if os.path.exists(path):
-            os.removedirs(path)
+            os.system("rm -rf %s" %path)
             return True
         else:
             return False
