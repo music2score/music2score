@@ -1,43 +1,74 @@
 version: 2.1
 
 jobs:
-  Codeception:
-    machine: 
-      image: ubuntu-2004:202101-01
+  # Codeception:
+  #   machine: 
+  #     image: ubuntu-2004:202101-01
+  #   steps:
+  #     - checkout
+  #     - run: 
+  #         name: Initialise Containers and Test Web App
+  #         command: |
+  #           set -x
+  #           cd docker
+  #           docker-compose up -d
+  #           sleep 40
+  #           docker-compose run --rm codecept
+  # Python:
+  #   working_directory: ~/circleci-python
+  #   docker:
+  #     - image: cimg/python:3.9.1
+  #   steps:
+  #     - checkout
+  #     - run: python3 tests/python/test_hello_world.py
+  VisualRegression:
+    # machine: 
+    #   image: ubuntu-2004:202101-01
+    # steps:
+    #   - checkout
+    #   - run: 
+    #       name: Initialize containers and Check Visual Regression
+    #       command: |
+    #         set -x
+    #         cd docker
+    #         docker-compose up -d
+    #         sleep 10
+    #         docker-compose run visual_regression_tests test
+    docker:
+      - image: cimg/base:2020.01
     steps:
       - checkout
-      - run: 
-          name: Initialise Containers and Test Web App
+      # - run:
+      #     name: Install Docker Client
+      #     command: |
+      #       sudo apt-get remove docker docker-engine docker.io containerd runc -y
+      #       sudo apt-get update
+      #       sudo apt-get install docker docker-ce docker-ce-cli containerd.io -y
+      - run:
+          name: Install Docker Compose
           command: |
             set -x
-            cd docker
-            docker-compose up -d
-            sleep 40
-            docker-compose run --rm codecept
-  Python:
-    working_directory: ~/circleci-python
-    docker:
-      - image: cimg/python:3.9.1
-    steps:
-      - checkout
-      - run: python3 tests/python/test_hello_world.py
-  VisualRegression:
-    machine: 
-      image: ubuntu-2004:202101-01
-    steps:
-      - checkout
-      - run: 
-          name: Initialize containers and Check Visual Regression
+            sudo rm /usr/local/bin/docker-compose
+            sudo curl -L "https://github.com/docker/compose/releases/download/1.28.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+            sudo chmod +x /usr/local/bin/docker-compose
+      - setup_remote_docker:
+          version: 19.03.13
+      - run:
+          name: Start Application Cluster
           command: |
             set -x
             cd docker
             docker-compose up -d
             sleep 10
-            docker-compose run visual_regression_tests test
+      - run:
+          name: Visual Regression Tests
+          command: |
+            set -x
+            docker-compose run --rm visual_regression_tests test
 
 workflows:
   Testing:
     jobs:
-      - Codeception
-      - Python
+      # - Codeception
+      # - Python
       - VisualRegression
