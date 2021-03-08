@@ -25,7 +25,7 @@ def upload_score(newJob: JOB) -> bool:
     # png2zip(newJob._directory(), str(newJob.jobid) + ".zip")
 
     # Join the png files as one
-    png_join(newJob._directory(), str(newJob.jobid) + ".png")
+    png_join(newJob._directory(), newJob.localFilePath())
 
     args = {"server_id": server_id, 
             "server_key": server_key,
@@ -59,12 +59,14 @@ def upload_score(newJob: JOB) -> bool:
 
 
 # Join several png files as one
-def png_join(path: str, pngName: str):
+def png_join(path: str, pngPath: str):
 
     files = list(filter(lambda x: x[-4:] == '.png', os.listdir(path)))
     if len(files) <= 1:
         return
 
+    # Sort the pages of png in the right order
+    files.sort(key = lambda x: int(x[:-4].split("page")[-1]))
     pngList = [Image.open(fpng) for fpng in files]
 
     width, height = pngList[0].size
@@ -74,10 +76,10 @@ def png_join(path: str, pngName: str):
     for i, image in enumerate(pngList):
         pngOut.paste(image, box=(0, i * height))
 
-    pngOut.save(pngName)
+    pngOut.save(pngPath + ".png")
 
 
-# # Zip (waiting for the update of php API)
+# # Zip (waiting for the update of php API) (has issue)
 # def png2zip(path: str, zipName: str):
 
 #     files = list(filter(lambda x: x[-4:] == '.png', os.listdir(path)))
