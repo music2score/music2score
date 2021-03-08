@@ -39,6 +39,7 @@ Documentation
     are renamed and moved properly to the respective folder. it requires the both the database object and the file object.
     4. Uploader_API->getErrortxt() - Returns error string which will be empty when no error is present.
 */
+
 class Downloader_API{
     private $errortxt="";
     private $authorization_keys = array(
@@ -142,7 +143,7 @@ class Uploader_API{
             $this->errortxt="File Error: PDF File Not Found!";
             return false;
         }
-        $ext = pathinfo($file["file_pdf"]["name"],PATHINFO_EXTENSION);
+        $ext = strtolower(pathinfo($file["file_pdf"]["name"],PATHINFO_EXTENSION));
         if($ext!=="pdf"){
             $this->errortxt="File Error: PDF File Format Not Supported!";
             return false;
@@ -151,7 +152,7 @@ class Uploader_API{
             $this->errortxt="File Error: PNG File Not Found!";
             return false;
         }
-        $ext = pathinfo($file["file_png"]["name"],PATHINFO_EXTENSION);
+        $ext = strtolower(pathinfo($file["file_png"]["name"],PATHINFO_EXTENSION));
         if($ext!=="png"){
             $this->errortxt="File Error: PNG File Format Not Supported!";
             return false;
@@ -166,8 +167,6 @@ class Uploader_API{
     public function closeJob($db,$file){
         if($db!=false&&$db!=null){
             $folder="./../uploads/";
-            $ext_pdf = pathinfo($file["file_pdf"]["name"],PATHINFO_EXTENSION);
-            $ext_png = pathinfo($file["file_png"]["name"],PATHINFO_EXTENSION);
             try{
                 $db->beginTransaction();
                 $query=$db->prepare("SELECT * FROM jobs WHERE jobid=:jobid");

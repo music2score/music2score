@@ -115,6 +115,7 @@ if($Uploader->validateFormRequest($_POST,$_FILES)){
 </html>
 
 <script>
+    /*
     $(document).ready(function() {
         $('#sample-form').on('submit', function() {
             
@@ -149,5 +150,5 @@ if($Uploader->validateFormRequest($_POST,$_FILES)){
             }
         }
 
-    });
+    });*/
 </script>
