@@ -1,0 +1,6 @@
+FROM python:3.9.1
+RUN mkdir python
+COPY /python/ ./python/
+RUN cd python \
+    && sh lilypond-2.22.0-1.linux-64.sh \
+    && python -m pip install mysql-connector-python
