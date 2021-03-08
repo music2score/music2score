@@ -68,3 +68,20 @@ services:
             - ../backstopJS/:/src
         links:
             - apache_server:apache_server
+    python_tests:
+        build: 
+            context: ../
+            dockerfile: docker/Dockerfile4
+        entrypoint: [ "python", "./python/pytest tests/python/unit"]
+        depends_on: 
+            -mysql_server
+            -phpmyadmin
+            -apache_server
+        volumes:
+            - ../tests/python/:/python/
+        links:
+            - apache_server:apache_server
+            - mysql_server:mysql_server
+        ports:
+            - 3001:3001
+        
