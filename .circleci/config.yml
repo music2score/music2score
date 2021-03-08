@@ -64,6 +64,7 @@ jobs:
           name: Visual Regression Tests
           command: |
             set -x
+            cd docker
             docker-compose run --rm visual_regression_tests test
 
 workflows:
