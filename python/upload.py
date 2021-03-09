@@ -1,7 +1,7 @@
 import os
 import zipfile
 import requests
-from PIL import Image
+# from PIL import Image
 from time import time, ctime
 
 from constants import *
@@ -21,11 +21,11 @@ from jobs import *
 """
 def upload_score(newJob: JOB) -> bool:
 
-    # # Zip the png files
-    # png2zip(newJob._directory(), str(newJob.jobid) + ".zip")
+    # Zip the png files
+    png2zip(newJob._directory(), newJob.localFilePath())
 
-    # Join the png files as one
-    png_join(newJob._directory(), str(newJob.jobid) + ".png")
+    # # Join the png files as one
+    # png_join(newJob._directory(), newJob.localFilePath())
 
     args = {"server_id": server_id, 
             "server_key": server_key,
@@ -33,7 +33,7 @@ def upload_score(newJob: JOB) -> bool:
             }
 
     files = {"file_pdf": open(newJob.localFilePath() + ".pdf", "rb"), 
-             "file_png": open(newJob.localFilePath() + ".png", "rb")}
+             "file_png": open(newJob.localFilePath() + ".zip", "rb")}
 
     # Upload .pdf and .png files
     try:
@@ -58,32 +58,32 @@ def upload_score(newJob: JOB) -> bool:
     return True
 
 
-# Join several png files as one
-def png_join(path: str, pngName: str):
-
-    files = list(filter(lambda x: x[-4:] == '.png', os.listdir(path)))
-    if len(files) <= 1:
-        return
-
-    pngList = [Image.open(fpng) for fpng in files]
-
-    width, height = pngList[0].size
-
-    pngOut = Image.new(pngList[0].mode, (width, height * len(pngList)))
-
-    for i, image in enumerate(pngList):
-        pngOut.paste(image, box=(0, i * height))
-
-    pngOut.save(pngName)
-
-
-# # Zip (waiting for the update of php API)
-# def png2zip(path: str, zipName: str):
+# # Join several png files as one
+# def png_join(path: str, pngPath: str):
 
 #     files = list(filter(lambda x: x[-4:] == '.png', os.listdir(path)))
+#     if len(files) <= 1:
+#         return
 
-#     zp = zipfile.ZipFile(zipName, 'w', zipfile.ZIP_DEFLATED)
+#     # Sort the pages of png in the right order
+#     files.sort(key = lambda x: int(x[:-4].split("page")[-1]))
+#     pngList = [Image.open(fpng) for fpng in files]
 
-#     for fpng in files:
-#         zp.write(fpng)
-#     zp.close()
+#     width, height = pngList[0].size
+
+#     pngOut = Image.new(pngList[0].mode, (width, height * len(pngList)))
+
+#     for i, image in enumerate(pngList):
+#         pngOut.paste(image, box=(0, i * height))
+
+#     pngOut.save(pngPath + ".png")
+
+
+# Zip several png files
+def png2zip(path: str, zipPath: str):
+
+    files = list(filter(lambda x: x[-4:] == '.png', os.listdir(path)))
+
+    with zipfile.ZipFile(zipPath + ".zip", 'w') as zp:
+        for fpng in files:
+            zp.write(path + "/" + fpng, fpng)

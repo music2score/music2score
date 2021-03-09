@@ -5,4 +5,3 @@ RUN cd python \
     && sh lilypond-2.22.0-1.linux-64.sh \
     && python -m pip install mysql-connector-python \
     && python -m pip install requests \
-    && python -m pip install Pillow
