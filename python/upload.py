@@ -22,10 +22,14 @@ from jobs import *
 def upload_score(newJob: JOB) -> bool:
 
     # Zip the png files
-    png2zip(newJob._directory(), newJob.localFilePath())
+    png2zip(newJob.filename, newJob.localFilePath())
 
     # # Join the png files as one
     # png_join(newJob._directory(), newJob.localFilePath())
+
+    # For testing
+    print()
+    os.system("ls -lh %s" %newJob._directory())
 
     args = {"server_id": server_id, 
             "server_key": server_key,
@@ -52,6 +56,9 @@ def upload_score(newJob: JOB) -> bool:
         for fh in list(files.values()):
             fh.close()
     
+    # For testing
+    print("\n", r.content)
+
     # Delete local files and record upload information
     newJob.upload_done(ctime(), endTime - staTime)
 
@@ -80,10 +87,11 @@ def upload_score(newJob: JOB) -> bool:
 
 
 # Zip several png files
-def png2zip(path: str, zipPath: str):
+def png2zip(fileName: str, zipPath: str):
 
-    files = list(filter(lambda x: x[-4:] == '.png', os.listdir(path)))
+    # files = list(filter(lambda x: x[-4:] == '.png', os.listdir(path)))
+    files = os.listdir(zipPath)
 
     with zipfile.ZipFile(zipPath + ".zip", 'w') as zp:
         for fpng in files:
-            zp.write(path + "/" + fpng, fpng)
+            zp.write(zipPath + "/" + fpng, fileName + "/" + fpng)

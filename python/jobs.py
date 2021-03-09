@@ -33,7 +33,8 @@ class JOB(object):
     def set_job(self, myresult: tuple) -> bool:
         self._clear()
         if myresult:
-            self.jobid, self.filename = myresult[:2]
+            self.jobid = myresult[0]
+            self.filename = myresult[1].split(".")[0]
             return True
         else:
             return False
@@ -55,7 +56,8 @@ class JOB(object):
         self.upDuration = upDuration
 
     def localFilePath(self) -> str:
-        return self._directory() + "/" + str(self.jobid)
+        # return self._directory() + "/" + str(self.jobid)
+        return self._directory() + "/" + self.filename
     
     def create_dir(self):
         path = self._directory()

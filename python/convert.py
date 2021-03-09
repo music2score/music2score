@@ -17,19 +17,32 @@ def convert(newJob: JOB) -> bool:
         print("stderr: ", e.stderr)
         return False
 
-    temID = str(newJob.jobid)
-    os.system("mv %s*.??? %s.midi %s/" %(temID, temID, newJob._directory()))
+    temName = newJob.filename
+    os.system("mv %s*.??? %s.midi %s/" %(temName , temName, newJob._directory()))
+    
+    # # Adapt to the php API
+    # pngFiles = list(filter(lambda x: x[-4:] == '.png', os.listdir(newJob._directory())))
+    # if len(pngFiles) == 1:
+    #     os.rename(newJob.localFilePath() + ".png", newJob.localFilePath() + "page1.png")
+    #     pngFiles = [newJob.filename + "page1.png"]
+    
+    pngFolder = newJob._directory() + "/" + newJob.filename
+    os.makedirs(pngFolder)
+    os.system("mv %s/*.png %s" %(newJob._directory(), pngFolder))
     
     # For debugging
     print("\ndir ./")
     os.system("dir")                    # ./
 
     # # For debugging
+    temID = str(newJob.jobid)
     # print("\ndir ./%s" %temID)
     # os.system("dir ./%s" %temID)        # ./jobid/
     print("\nls -lh ./%s" %temID)
     os.system("ls -lh ./%s" %temID)     # ./jobid/
     print()
+    print("\nls -lh ./%s/%s" %(temID, newJob.filename))
+    os.system("ls -lh ./%s/%s" %(temID, newJob.filename))     # ./jobid/filename/
 
     newJob.set_file('png', 'pdf')
     return True
