@@ -91,14 +91,15 @@ class JOB(object):
     Return  (True, None)  if no job remained;
     Return  (False, None)  if failed. 
 """
-def fetch_job(mycursor: conn.cursor.MySQLCursor):
-
+def fetch_job(mycursor):
     sqlSel = "SELECT * FROM jobs WHERE processing != %s AND completed != %s LIMIT %s FOR UPDATE"
+    #sqlSel = "SELECT * FROM jobs WHERE processing != 1 AND completed != 1 LIMIT 1 FOR UPDATE"
     sqlUpd = "UPDATE jobs SET processing = %s WHERE jobid = %s"
     paraSel = (1, 1, 1)
 
     try:
         mycursor.execute(sqlSel, paraSel)
+        #mycursor.execute(sqlSel)
         myresult = mycursor.fetchone()
     except conn.Error as ex:
         print('Failed to find a job. {}'.format(ex))
@@ -111,16 +112,20 @@ def fetch_job(mycursor: conn.cursor.MySQLCursor):
 
     paraUpd = (1, myresult[0])
     try:
+        #sqlUpd = "UPDATE jobs SET processing = 1 WHERE jobid = "+ str(myresult[0])
         mycursor.execute(sqlUpd, paraUpd)
-        rowCnt = mycursor.rowcount  # for testing
+        #mycursor.execute(sqlUpd)
+        #rowCnt = mycursor.rowcount  # for testing
         mycursor.execute("commit")
+        return True, myresult
     except conn.Error as ex:
         print('Failed to mark the fetched job. {}'.format(ex))
         return False, None
-
+    '''
     # For testing. This can be removed
     if rowCnt == 1:
         return True, myresult 
     else:
         print('Error: rowCnt != 1.')
         return False, None
+    '''

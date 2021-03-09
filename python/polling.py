@@ -13,7 +13,7 @@ from upload import *
 
 # Retrieve and claim jobs
 def polling(trigger: bool, jobQueue: deque) -> bool:
-    # mydb = conn.connect(dbTest)
+    #mydb = conn.connect(dbTest)
     mydb = conn.connect(host="mysql_server",
                         user="root",
                         password="12345",

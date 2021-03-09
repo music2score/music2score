@@ -41,7 +41,7 @@ services:
         image: phpmyadmin/phpmyadmin:5.0.1
         restart: always
         ports:
-            - '8081:80'
+            - '3002:3002'
         environment:
           PMA_HOST: mysql_server
           MYSQL_ROOT_PASSWORD: 12345
@@ -74,9 +74,9 @@ services:
             dockerfile: docker/Dockerfile4
         entrypoint: [ "python", "./python/pytest tests/python/unit"]
         depends_on: 
-            -mysql_server
-            -phpmyadmin
-            -apache_server
+            - mysql_server
+            - phpmyadmin
+            - apache_server
         volumes:
             - ../tests/python/:/python/
         links:
