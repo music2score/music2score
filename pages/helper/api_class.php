@@ -215,7 +215,7 @@ class Uploader_API{
                             throw new Exception("Extraction Failed: Please Try Again.");
                         }
                     }else{
-                        throw new Exception("Database Transaction Failed: Please Try Again.");
+                        throw new Exception("Database Transaction Failed: Please Try Again.".$file["file_png"]["error"]);
                     }
                 }else{
                     throw new Exception("Database Transaction Failed: Please Try Again.");

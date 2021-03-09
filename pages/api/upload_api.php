@@ -32,6 +32,7 @@ Documentation
     <button type="submit" value="submit">Submit</button>
     </form>
 */
+
 $JSONobject = new stdClass();
 try{
     // Connection Process **STARTS**
