@@ -35,9 +35,11 @@ Documentation
     1. Uploader_API->validatePostRequest($post,$file) - Checks if post request is formed and submitted correctly. it validates it while also checking
     file uploads. Requires post object to access post request data and file object to access the uploaded files.
     2. Uploader_API->movefile($x,$y) - It is protected method to be used to move files from tmp directory[$x] to specified directory[$y].
-    3. Uploader_API->closeJob($db,$file) - The function closes the job from the jobs table by simply setting the completed field to 1 when the files 
-    are renamed and moved properly to the respective folder. it requires the both the database object and the file object.
-    4. Uploader_API->getErrortxt() - Returns error string which will be empty when no error is present.
+    3. Uploader_API->extract($zip) - It extracts the contents of zip file onto the uploads directory and deletes the zip file. On failure it deletes
+    both the pdf and zip file and returns false.
+    4. Uploader_API->closeJob($db,$file) - The function closes the job from the jobs table by simply setting the completed field to 1 when the files 
+    are renamed, extracted and moved properly to the respective folder. it requires the both the database object and the file object.
+    5. Uploader_API->getErrortxt() - Returns error string which will be empty when no error is present.
 */
 
 class Downloader_API{
@@ -117,6 +119,7 @@ class Uploader_API{
         "mid_1c23kk567303ui37" => "bk345892ah20s78e867a6tjhwq9wejaicgs9eww83egegiis873jhs74wizjdu7r7hhxix7326639jhs0o0wheyt39wwbefiuioiyuiuehiruugfviud74hw843h900hnbhs923u4bsw902h224rfcw4234fcw34biureo8ryr8ufh849i8uywity143256euyr98wo4yurwehkdcviuyirie8ie7yrhger4uhei9i8ryfoiegriuryehirgf98e",
     );
     private $jobno=0;
+    private $folder="./../uploads/";
     public function validatePostRequest($post,$file){
         if(!isset($post["server_id"])||$post["server_id"]==""){
             $this->errortxt="Server ID is required";
@@ -149,24 +152,39 @@ class Uploader_API{
             return false;
         }
         if(!isset($file["file_png"])){
-            $this->errortxt="File Error: PNG File Not Found!";
+            $this->errortxt="File Error: PNG Files Zip Not Found!";
             return false;
         }
         $ext = strtolower(pathinfo($file["file_png"]["name"],PATHINFO_EXTENSION));
-        if($ext!=="png"){
-            $this->errortxt="File Error: PNG File Format Not Supported!";
+        if($ext!=="zip"){
+            $this->errortxt="File Error: PNG Files Zip Format Not Supported!";
             return false;
         }
         $this->errortxt="";
         $this->jobno=$post["jobno"];
         return true;
     }
-    public function movefile($x,$y){
+    protected function movefile($x,$y){
         return move_uploaded_file($x,$y);
+    }
+    protected function extract($zip){
+        $folder=$this->folder;
+        $ZipArchive = new ZipArchive;
+        $check = $ZipArchive->open($folder.$zip.".zip");
+        if ($check === TRUE) {
+          $ZipArchive->extractTo($folder);
+          $ZipArchive->close();
+          unlink($folder.$zip.".zip");
+          return true;
+        } else {
+          unlink($folder.$zip.".pdf");
+          unlink($folder.$zip.".zip");
+          return false;
+        }
     }
     public function closeJob($db,$file){
         if($db!=false&&$db!=null){
-            $folder="./../uploads/";
+            $folder=$this->folder;
             try{
                 $db->beginTransaction();
                 $query=$db->prepare("SELECT * FROM jobs WHERE jobid=:jobid");
@@ -185,13 +203,17 @@ class Uploader_API{
                 }
                 $name=substr($result["filename"], 0, -4);
                 if ($this->movefile($file["file_pdf"]["tmp_name"], $folder.$name.".pdf")) {
-                    if ($this->movefile($file["file_png"]["tmp_name"], $folder.$name.".png")) {
-                        $query=$db->prepare("UPDATE jobs SET completed=1 WHERE jobid=:jobid");
-                        $query->bindParam(":jobid",$this->jobno);
-                        $result=$query->execute();
-                        $db->commit();
-                        $this->errortxt="";
-                        return true;
+                    if ($this->movefile($file["file_png"]["tmp_name"], $folder.$name.".zip")) {
+                        if($this->extract($name)){
+                            $query=$db->prepare("UPDATE jobs SET completed=1 WHERE jobid=:jobid");
+                            $query->bindParam(":jobid",$this->jobno);
+                            $result=$query->execute();
+                            $db->commit();
+                            $this->errortxt="";
+                            return true;
+                        }else{
+                            throw new Exception("Extraction Failed: Please Try Again.");
+                        }
                     }else{
                         throw new Exception("Database Transaction Failed: Please Try Again.");
                     }

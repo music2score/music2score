@@ -12,6 +12,16 @@ Documentation
     5. $Connector - Object of Connectors class.
     6. $Connector->phptodbconnector() - Returns the pdo object for connecting to database.
 
+
+    PNG ZIP STRUCTURE FOR SINGLE PNG FILE:
+    - [filename].zip
+        - [filename]/[filename].png
+    PNG ZIP STRUCTURE FOR MULTITPLE PNG FILE:
+    - [filename].zip
+        - [filename]/[filename]-page[PageNumber].png
+    
+    Note: file_png expects a zip file in the above format.
+    
     Form Request Example
     <form method="POST" action="./upload_api.php" enctype="multipart/form-data">
     <input type="text" name="server_id" value="mid_1c23kk567303ui37"/><br/>
