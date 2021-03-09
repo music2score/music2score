@@ -1,0 +1,36 @@
+.body_content_container {
+	background-image: url("../images/login_background.jpg");
+	background-repeat: repeat-x repeat-y;
+}
+.form_container {
+	padding-top: 70px;
+	padding-bottom: 30px;
+}
+.sheetdownload_container {
+	border: 2px solid #c7c3c3;
+	max-width: 900px;
+	padding: 30px;
+	min-height: 300px;
+	border-radius: 0.25rem;
+	margin: 0 auto;
+	background-color: #f8f9fa;
+}
+.connection_error {
+	text-align: center;
+	height: 175px;
+}
+.connection_error_text {
+	padding-top: 68px;
+	color: #c50327;
+}
+@media screen and (max-width: 991px) {
+	.sheetdownload_container {
+		border: 2px solid #c7c3c3;
+		max-width: 500px;
+		padding: 30px;
+		min-height: 300px;
+		border-radius: 0.25rem;
+		margin: 0 auto;
+		background-color: #f8f9fa;
+	}
+}

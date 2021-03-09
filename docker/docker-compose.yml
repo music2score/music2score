@@ -1,70 +1,71 @@
 version: "3.8"
 services:
-    apache_server:
-        build:
-            context: ../
-            dockerfile: docker/Dockerfile
-        volumes:
-            - ../pages/:/var/www/html
-        links:
-            - mysql_server:mysql_server
-        ports:
-            - 80:80
-    mysql_server:
-        image: mysql:8.0.23
-        command: --default-authentication-plugin=mysql_native_password --init-file="/tmp/database/schema.sql"
-        volumes:
-            - ../mysql/production/:/tmp/database/
-        environment: 
-            MYSQL_ROOT_PASSWORD: 12345
-            MYSQL_DATABASE: music2score_test
-        ports:
-            - 3306:3306
-    lilypond_server:
-        build:
-            context: ../
-            dockerfile: docker/Dockerfile3
-        volumes:
-            - ../python/:/python/
-        entrypoint: [ "python", "./python/polling.py"]
-        depends_on:
-            - apache_server
-            - mysql_server
-        links:
-            - apache_server:apache_server
-            - mysql_server:mysql_server
-        ports:
-            - 3000:3000
-    phpmyadmin:
-        depends_on:
-            - mysql_server
-        image: phpmyadmin/phpmyadmin:5.0.1
-        restart: always
-        ports:
-            - '8081:80'
-        environment:
-          PMA_HOST: mysql_server
-          MYSQL_ROOT_PASSWORD: 12345
-    codecept:
-        build:
-            context: ../
-            dockerfile: docker/Dockerfile2
-        depends_on:
-            - chrome
-            - apache_server
-            - mysql_server
-            - phpmyadmin
-        volumes:
-            - ../:/project
-        links:
-            - apache_server:apache_server
-    chrome:
-        image: selenium/standalone-chrome
-        links:
-            - apache_server:apache_server
-    visual_regression_tests:
-        image: backstopjs/backstopjs:latest
-        volumes:
-            - ../backstopJS/:/src
-        links:
-            - apache_server:apache_server
+ apache_server:
+  build:
+   context: ../
+   dockerfile: docker/Dockerfile
+  volumes:
+   - ../pages/:/var/www/html
+   - ../php_config/:/usr/local/etc/php/
+  links:
+   - mysql_server:mysql_server
+  ports:
+   - 80:80
+ mysql_server:
+  image: mysql:8.0.23
+  command: --default-authentication-plugin=mysql_native_password --init-file="/tmp/database/schema.sql"
+  volumes:
+   - ../mysql/production/:/tmp/database/
+  environment:
+   MYSQL_ROOT_PASSWORD: 12345
+   MYSQL_DATABASE: music2score_test
+  ports:
+   - 3306:3306
+ lilypond_server:
+  build:
+   context: ../
+   dockerfile: docker/Dockerfile3
+  volumes:
+   - ../python/:/python/
+  entrypoint: ["python", "./python/polling.py"]
+  depends_on:
+   - apache_server
+   - mysql_server
+  links:
+   - apache_server:apache_server
+   - mysql_server:mysql_server
+  ports:
+   - 3000:3000
+ phpmyadmin:
+  depends_on:
+   - mysql_server
+  image: phpmyadmin/phpmyadmin:5.0.1
+  restart: always
+  ports:
+   - "8081:80"
+  environment:
+   PMA_HOST: mysql_server
+   MYSQL_ROOT_PASSWORD: 12345
+ codecept:
+  build:
+   context: ../
+   dockerfile: docker/Dockerfile2
+  depends_on:
+   - chrome
+   - apache_server
+   - mysql_server
+   - phpmyadmin
+  volumes:
+   - ../:/project
+  links:
+   - apache_server:apache_server
+ chrome:
+  image: selenium/standalone-chrome
+  links:
+   - apache_server:apache_server
+ visual_regression_tests:
+  image: backstopjs/backstopjs:latest
+  volumes:
+   - ../backstopJS/:/src
+  links:
+   - apache_server:apache_server

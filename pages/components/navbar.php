@@ -1,3 +1,6 @@
+<?php
+$pagename = basename($_SERVER['PHP_SELF'], ".php");
+?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar_container">
   <a class="navbar-brand" href="./">
     <img class="navbar_logo" src="images/navbar_logo.png" />
@@ -8,25 +11,23 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link navbar_link" href="./">Home</a>
+      <li class="nav-item">
+        <a class="nav-link <?php echo (($pagename=="index")?'navbar_link_active':'navbar_link'); ?>" href="./">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link navbar_link" href="./aboutus.php">About</a>
+        <a class="nav-link <?php echo (($pagename=="aboutus")?'navbar_link_active':'navbar_link'); ?>" href="./aboutus.php">About</a>
       </li>
       <li class="nav-item dropdown navbar_dropdown_container">
-        <a class="nav-link navbar_link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link <?php echo ((substr($pagename,0,6)=="browse")?'navbar_link_active':'navbar_link'); ?> dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Browse
         </a>
         <div class="dropdown-menu navbar_dropdown" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item navbar_dropdown_item" href="#">Action 1</a>
-          <a class="dropdown-item navbar_dropdown_item" href="#">Action 2</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item navbar_dropdown_item" href="#">Another Action 1</a>
+          <a class="dropdown-item navbar_dropdown_item" href="./browse_recent.php">Most Recent</a>
+          <a class="dropdown-item navbar_dropdown_item" href="./browse_instrument.php">By Instrument</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link navbar_link" href="./contactus.php">Contact</a>
+        <a class="nav-link  <?php echo (($pagename=="contactus")?'navbar_link_active':'navbar_link'); ?>" href="./contactus.php">Contact</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -48,8 +49,8 @@
           Account
         </a>
         <div class="dropdown-menu navbar_account_dropdown" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item navbar_dropdown_item" href="#">Action 1</a>
-          <a class="dropdown-item navbar_dropdown_item" href="#">Action 2</a>
+          <a class="dropdown-item navbar_dropdown_item" href="./upload.php">Upload New</a>
+          <a class="dropdown-item navbar_dropdown_item" href="./download.php">My Sheets</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item navbar_dropdown_item" href="./logout.php">Logout</a>
         </div>

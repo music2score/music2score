@@ -7,3 +7,12 @@ artist-link: https://www.pexels.com/@lamiko
 register_background:
 licence: Free to use with No attribution required.
 artist-link: https://www.pexels.com/@olly
+download_image
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@elina-sazonova
+downloadsheet_music
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@cottonbro
+upload_image & upload_image2
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@ashutoshsonwani
