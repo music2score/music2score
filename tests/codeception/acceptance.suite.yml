@@ -17,4 +17,12 @@ modules:
                 webStorageEnabled: true
                 elementScrollBehavior: true
         - \Helper\Acceptance
+        - Db:
+                dsn: 'mysql:host=mysql_server;dbname=music2score_test'
+                user: 'root'
+                password: '12345'
+                dump: 'codeception/bin/_data/acceptance_test_data.sql'
+                populate: true # run populator before all tests
+                cleanup: true # run populator before each test
+                populator: 'mysql -u $user -p12345 -h $host $dbname < $dump '
 step_decorators: ~

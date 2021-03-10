@@ -115,39 +115,39 @@ if($Uploader->validateFormRequest($_POST,$_FILES)){
 </html>
 
 <script>
-    $(document).ready(function() {
-        $('#sample-form').on('submit', function() {
+    // $(document).ready(function() {
+    //     $('#sample-form').on('submit', function() {
             
-            event.preventDefault();
+    //         event.preventDefault();
 
-            $.ajax({
-                url: "./upload.php",
-                method: "POST",
-                data: $(this).serialize(),
-                beforeSend: function() {
-                    $('#upload').attr('disabled', 'disabled');
-                    $('#process').css('display', 'block');
-                },
-                success: function(data) {
-                    var percentage = 0;
-                    var timer = setInterval(function() {
-                        percentage = percentage + 20;
-                        progress_bar_process(percentage, timer);
-                    }, 1000);
-                }
-            });
-        });
+    //         $.ajax({
+    //             url: "./upload.php",
+    //             method: "POST",
+    //             data: $(this).serialize(),
+    //             beforeSend: function() {
+    //                 $('#upload').attr('disabled', 'disabled');
+    //                 $('#process').css('display', 'block');
+    //             },
+    //             success: function(data) {
+    //                 var percentage = 0;
+    //                 var timer = setInterval(function() {
+    //                     percentage = percentage + 20;
+    //                     progress_bar_process(percentage, timer);
+    //                 }, 1000);
+    //             }
+    //         });
+    //     });
 
-        function progress_bar_process(percentage, timer) {
-            $('.progress-bar').css('width', percentage + '%');
-            if (percentage > 100) {
-                clearInterval(timer);
-                $('#sample-form')[0].reset();
-                $('#process').css('display', 'none');
-                $('.progress-bar').css('width', '0%');
-                $('#upload').attr('disabled', false);
-            }
-        }
+    //     function progress_bar_process(percentage, timer) {
+    //         $('.progress-bar').css('width', percentage + '%');
+    //         if (percentage > 100) {
+    //             clearInterval(timer);
+    //             $('#sample-form')[0].reset();
+    //             $('#process').css('display', 'none');
+    //             $('.progress-bar').css('width', '0%');
+    //             $('#upload').attr('disabled', false);
+    //         }
+    //     }
 
-    });
+    // });
 </script>
