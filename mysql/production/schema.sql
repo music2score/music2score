@@ -26,6 +26,7 @@ CREATE TABLE `jobs` (
 
 ALTER TABLE `jobs`
   ADD PRIMARY KEY (`jobid`),
+  ADD FOREIGN KEY (`userid`) REFERENCES user (`id`),
   ADD UNIQUE KEY `filename` (`filename`);
 
 ALTER TABLE `jobs`
@@ -59,6 +60,7 @@ CREATE TABLE `jobs` (
 
 ALTER TABLE `jobs`
   ADD PRIMARY KEY (`jobid`),
+  ADD FOREIGN KEY (`userid`) REFERENCES user (`id`),
   ADD UNIQUE KEY `filename` (`filename`);
 
 ALTER TABLE `jobs`

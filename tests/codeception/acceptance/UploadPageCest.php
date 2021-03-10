@@ -32,8 +32,18 @@ class UploadPageCest
         $I->amOnPage('/upload.php');
         $I->attachFile('#file', 'sample.mid');
         $I->click('#uploadbtn');
-        $I->wait(3);
-        $I->seeElement('.progress-bar');
+        // $I->wait(3);
+        // $I->seeElement('.progress-bar'); Will update once bar is fixed
+        $I->seeCurrentUrlEquals('/download.php');
     }
 
+    public function upload_incorrect_file(AcceptanceTester $I)
+    {
+        $this->_login($I);
+        $I->amOnPage('/upload.php');
+        $I->attachFile('#file', 'dummy.txt');
+        $I->click('#uploadbtn');
+        $I->see('File Extension Not Supported!');
+        $I->seeCurrentUrlEquals('/upload.php');
+    }
 }

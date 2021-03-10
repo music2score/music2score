@@ -21,9 +21,9 @@ class Uploader{
     private $errortxt="";
     public function validateFormRequest($post,$file){
         if(isset($post["uploadbtn"])&&isset($file["file"])){
-            $ext = pathinfo($file["file"]["name"],PATHINFO_EXTENSION);
+            $ext = strtolower(pathinfo($file["file"]["name"],PATHINFO_EXTENSION));
             switch($ext){
-                case "mid":
+                case "mid": case "midi":
                     $this->errortxt="";
                     return true;
                     break;
@@ -50,9 +50,9 @@ class Uploader{
         }
         if($db!=false&&$db!=null){
             $folder="./uploads/";
-            $ext = pathinfo($file["file"]["name"],PATHINFO_EXTENSION);
+            $ext = strtolower(pathinfo($file["file"]["name"],PATHINFO_EXTENSION));
             switch($ext){
-                case "mid":
+                case "mid": case "midi":
                     try{
                         $t = microtime(true);
                         $micro = sprintf("%06d",($t - floor($t)) * 1000000);

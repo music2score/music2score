@@ -10,6 +10,15 @@ class NavigationBarCest
         $I->amOnPage('/register.php');
     }
 
+    protected function _login (AcceptanceTester $I)
+    {
+        $I->amOnPage('/login.php');
+        $I->fillField('email', 'testuser@test.com');        
+        $I->fillField('password', '1234');
+        $I->click('#loginbtn');
+        $I->seeCurrentUrlEquals('/');
+    }
+
     // tests
     public function click_home(AcceptanceTester $I)
     {
@@ -26,12 +35,15 @@ class NavigationBarCest
     public function click_browse(AcceptanceTester $I)
     {
         $I->click('Browse');
-        $I->see('Action 1');
-        // Add test for clicking action 1
-        $I->see('Action 2');
-        // Add test for clicking action 2
-        $I->see('Another Action 1');
-        // Add test for clicking another action 1
+
+        $I->see('Most Recent');
+        $I->click('Most Recent');
+        $I->seeCurrentUrlEquals('/browse_recent.php');
+
+        $I->click('Browse');
+        $I->see('By Instrument');
+        $I->click('By Instrument');
+        $I->seeCurrentUrlEquals('/browse_instrument.php');
     }
 
     public function click_contact(AcceptanceTester $I)
@@ -54,6 +66,38 @@ class NavigationBarCest
         $I->click('Sign In/Up');
         $I->click('Register');
         $I->seeCurrentUrlEquals('/register.php');
+    }
+
+    // Logged in user does not see Sign Up/Sign In but Account button
+    public function click_Account(AcceptanceTester $I)
+    {
+        $this->_login($I);
+        $I->see('Account');
+        $I->click('Account');
+        $I->see('Upload New');
+        $I->see('My Sheets');
+        $I->see('Logout');
+        $I->makeScreenShot();
+
+        $I->click('Upload New');
+        $I->seeCurrentUrlEquals('/upload.php');
+
+        $I->wait(1);
+        $I->click('Account');
+        $I->wait(0.5);
+        $I->see('My Sheets');
+        $I->wait(0.5);
+        $I->click('My Sheets');
+        $I->seeCurrentUrlEquals('/download.php');
+
+        $I->wait(1);
+        $I->click('Account');
+        $I->wait(0.5);
+        $I->see('Logout');
+        $I->click('Logout');
+        $I->seeCurrentUrlEquals('/');
+        $I->see('Sign In/Up');
+        $I->dontSee('Account');
     }
 
     // public function serach_bar(AcceptanceTester $I) 
