@@ -134,4 +134,128 @@ class SheetDownloader{
         return $this->errortxt;
     }
 }
+
+class SheetViewer{
+    private $errortxt="";
+    private $jobno=0;
+    private $filename="";
+    private $folder="./../uploads/";
+    private $pageno=0;
+
+    private $url="";
+    private $maxfiles=0;
+    private $previous=0;
+    private $next=0;
+    
+    public function validatePageInfo($db,$session,$job,$page){
+        if(!isset($db)||$db==false||$db==null){
+            $this->errortxt="Connection Error: Cannot Connect to database.";
+            return false;
+        }
+        if(!isset($session["id"])){
+            $this->errortxt="Authentication Error: Cannot Identify User.";
+            return false;
+        }
+        if(!isset($job)||!is_numeric($job)||$job<1){
+            $this->errortxt="Request Error: Invalid Job Number.";
+            return false;
+        }
+        if(!isset($page)||!is_numeric($page)){
+            $this->errortxt="Request Error: Invalid Page Number.";
+            return false;
+        }
+        $query=$db->prepare("SELECT * FROM jobs WHERE jobid=:jobid");
+        $query->bindParam(":jobid",$job);
+        $query->execute();
+        $row=$query->rowCount();
+        if($row!=1){
+            $this->errortxt="Database Error: Cannot find/resolve job.";
+            return false;
+        }
+        $result=$query->fetch(PDO::FETCH_ASSOC);
+        if($result["userid"]!=$session["id"]){
+            $this->errortxt="Authentication Error: Job does not belong to signed-in user.";
+            return false;
+        }
+        if($result["filename"]==""){
+            $this->errortxt="Database Error: Cannot resolve filename.";
+            return false;
+        }
+        if($result["completed"]!=1){
+            $this->errortxt="Job Error: Job is not completed yet.";
+            return false;
+        }
+        if($page<1){
+            $page=1;
+        }
+        $this->jobno=$job;
+        $this->pageno=$page;
+        $this->filename=substr($result["filename"],0,-4);
+        $this->errortxt="";
+        return true;
+    }
+    protected function file_checker($address){
+        return file_exists($this->folder.$address);
+    }
+    protected function file_counter($address){
+        $directory_address=$this->folder.$address."/";
+        $file_iterator = new FilesystemIterator($directory_address);
+        return iterator_count($file_iterator);
+    }
+    public function generatePageInfo(){
+        $directory_address=$this->filename;
+        if(!$this->file_checker($directory_address)){
+            $this->errortxt="File System Error: Directory Does Not Exist.";
+            return false;
+        }
+        $file_count=$this->file_counter($directory_address);
+        if($file_count<1){
+            $this->errortxt="File System Error: Directory is Empty.";
+            return false;
+        }
+        if($this->pageno>$file_count){
+            $this->pageno=$file_count;
+        }
+        if($file_count==1){
+            $url_append=$this->filename."/".$this->filename.".png";
+        }else{
+            $url_append=$this->filename."/".$this->filename."-page".$this->pageno.".png";
+        }
+        if(!$this->file_checker($url_append)){
+            $this->errortxt="File System Error: Cannot Find Page.";
+            return false;
+        }
+        $this->url=$this->folder.$url_append;
+        $this->maxfiles=$file_count;
+        if($this->pageno!=1){
+            $this->previous=1;
+        }else{
+            $this->previous=0;
+        }
+        if($this->pageno!=$this->maxfiles){
+            $this->next=1;
+        }else{
+            $this->next=0;
+        }
+        return true;
+    }
+    public function getPageNo(){
+        return $this->pageno;
+    }
+    public function getImageUrl(){
+        return $this->url;
+    }
+    public function getMaxPages(){
+        return $this->maxfiles;
+    }
+    public function getNextExists(){
+        return $this->next;
+    }
+    public function getPreviousExists(){
+        return $this->previous;
+    }
+    public function getErrorTxt(){
+        return $this->errortxt;
+    }
+}
 ?>
