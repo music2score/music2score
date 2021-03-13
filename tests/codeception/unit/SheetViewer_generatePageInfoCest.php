@@ -26,6 +26,9 @@ class SheetViewer_generatePageInfoCest
 
         //Tests file_counter protected function.
         $SheetViewer2=Stub::make(SheetViewer::class,['folder'=>'/project/tests/codeception/unit/','filename'=>'filecounter_test','file_checker'=>function($address){ return true; }]);
+        $I->assertTrue($SheetViewer2->generatePageInfo());
+
+        $SheetViewer2=Stub::make(SheetViewer::class,['filename'=>"1",'pageno'=>3,'file_counter'=>function($address){ return 0; },'file_checker'=>function($address){ if($address!="1/1-page2.png"){ return true; }else{ return false; } }]);
         $I->assertFalse($SheetViewer2->generatePageInfo());
         
         $SheetViewer2=Stub::make(SheetViewer::class,['filename'=>"1",'pageno'=>3,'file_counter'=>function($address){ return 2; },'file_checker'=>function($address){ if($address!="1/1-page2.png"){ return true; }else{ return false; } }]);
