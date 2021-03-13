@@ -14,10 +14,7 @@ class Downloader{
             try{
                 $query=$db->prepare("SELECT * FROM jobs WHERE userid=:userid ORDER BY date DESC LIMIT 10");
                 $query->bindParam(":userid",$id);
-                $check=$query->execute();
-                if($check==false){
-                    throw new Exception("Database Error: Query Failed!");
-                }
+                $query->execute();
                 $row=$query->rowCount();
                 if($row==0){
                     $this->length=0;
@@ -97,10 +94,7 @@ class SheetDownloader{
             try{
                 $query=$db->prepare("SELECT * FROM jobs WHERE jobid=:jobid");
                 $query->bindParam(":jobid",$jobno);
-                $check=$query->execute();
-                if($check==false){
-                    throw new Exception("Database Error: Query Failed!");
-                }
+                $query->execute();
                 $row=$query->rowCount();
                 if($row==0){
                     throw new Exception("Database Error: Job Not Found!");
@@ -108,6 +102,10 @@ class SheetDownloader{
                 $result=$query->fetch(PDO::FETCH_ASSOC);
                 if($id!=$result["userid"]){
                     throw new Exception("Authentication Error: Invalid Attempt.");
+                }
+                if($result["completed"]!=1){
+                    $this->errortxt="Job Error: Job is not completed yet.";
+                    return false;
                 }
                 $filename=substr($result["filename"],0,-4).".pdf";
                 if(!$this->file_checker($filename)){
