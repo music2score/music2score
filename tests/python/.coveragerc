@@ -3,7 +3,6 @@ source = .
 omit =
     *test_int_*
     *__init__*
-    *test_unit*
     *test_hell*
 
 [html]
