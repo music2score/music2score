@@ -4,7 +4,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_RegistrationPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210227-200218/backstop_default_RegistrationPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210313-023631/backstop_default_RegistrationPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_RegistrationPage_0_document_0_phone.png",
         "label": "RegistrationPage",
@@ -28,7 +28,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_RegistrationPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210227-200218/backstop_default_RegistrationPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210313-023631/backstop_default_RegistrationPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_RegistrationPage_0_document_1_tablet.png",
         "label": "RegistrationPage",
@@ -52,7 +52,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_RegistrationPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210227-200218/backstop_default_RegistrationPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210313-023631/backstop_default_RegistrationPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_RegistrationPage_0_document_2_monitor.png",
         "label": "RegistrationPage",
@@ -76,7 +76,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_LoginPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210227-200218/backstop_default_LoginPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210313-023631/backstop_default_LoginPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_LoginPage_0_document_0_phone.png",
         "label": "LoginPage",
@@ -100,7 +100,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_LoginPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210227-200218/backstop_default_LoginPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210313-023631/backstop_default_LoginPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_LoginPage_0_document_1_tablet.png",
         "label": "LoginPage",
@@ -124,7 +124,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_LoginPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210227-200218/backstop_default_LoginPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210313-023631/backstop_default_LoginPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_LoginPage_0_document_2_monitor.png",
         "label": "LoginPage",

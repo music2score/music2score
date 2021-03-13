@@ -1,19 +1,16 @@
 paths:
-    tests: ../tests/codeception
-    output: bin/_output
-    data: bin/_data
-    support: bin/_support
-    envs: bin/_envs
+ tests: ../tests/codeception
+ output: bin/_output
+ data: bin/_data
+ support: bin/_support
+ envs: bin/_envs
 actor_suffix: Tester
 extensions:
-    enabled:
-        - Codeception\Extension\RunFailed
+ enabled:
+  - Codeception\Extension\RunFailed
 coverage:
-    enabled: true
-    include:
-        - ../pages/*
-    exclude:
-        - ../pages/images/*
-        - ../pages/plugins/*
-    remote: true
-    #workdir: ../codeception/
+ enabled: true
+ include:
+  - ../pages/helper/*
+ remote: true
+ #workdir: ../codeception/

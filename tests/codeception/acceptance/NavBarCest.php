@@ -26,12 +26,10 @@ class NavigationBarCest
     public function click_browse(AcceptanceTester $I)
     {
         $I->click('Browse');
-        $I->see('Action 1');
+        $I->see('Most Recent');
         // Add test for clicking action 1
-        $I->see('Action 2');
+        $I->see('By Instrument');
         // Add test for clicking action 2
-        $I->see('Another Action 1');
-        // Add test for clicking another action 1
     }
 
     public function click_contact(AcceptanceTester $I)
