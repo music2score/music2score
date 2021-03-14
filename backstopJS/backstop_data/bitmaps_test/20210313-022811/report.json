@@ -1,10 +1,10 @@
-report({
+{
   "testSuite": "BackstopJS",
   "tests": [
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_RegistrationPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210313-023631/backstop_default_RegistrationPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210313-022811/backstop_default_RegistrationPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_RegistrationPage_0_document_0_phone.png",
         "label": "RegistrationPage",
@@ -20,15 +20,17 @@ report({
             "width": 0,
             "height": 0
           },
-          "misMatchPercentage": "0.00"
-        }
+          "misMatchPercentage": "0.47",
+          "analysisTime": 80
+        },
+        "diffImage": "../bitmaps_test/20210313-022811/failed_diff_backstop_default_RegistrationPage_0_document_0_phone.png"
       },
-      "status": "pass"
+      "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_RegistrationPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210313-023631/backstop_default_RegistrationPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210313-022811/backstop_default_RegistrationPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_RegistrationPage_0_document_1_tablet.png",
         "label": "RegistrationPage",
@@ -44,15 +46,17 @@ report({
             "width": 0,
             "height": 0
           },
-          "misMatchPercentage": "0.00"
-        }
+          "misMatchPercentage": "0.18",
+          "analysisTime": 95
+        },
+        "diffImage": "../bitmaps_test/20210313-022811/failed_diff_backstop_default_RegistrationPage_0_document_1_tablet.png"
       },
-      "status": "pass"
+      "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_RegistrationPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210313-023631/backstop_default_RegistrationPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210313-022811/backstop_default_RegistrationPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_RegistrationPage_0_document_2_monitor.png",
         "label": "RegistrationPage",
@@ -68,7 +72,8 @@ report({
             "width": 0,
             "height": 0
           },
-          "misMatchPercentage": "0.00"
+          "misMatchPercentage": "0.10",
+          "analysisTime": 135
         }
       },
       "status": "pass"
@@ -76,7 +81,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_LoginPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210313-023631/backstop_default_LoginPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210313-022811/backstop_default_LoginPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_LoginPage_0_document_0_phone.png",
         "label": "LoginPage",
@@ -92,15 +97,17 @@ report({
             "width": 0,
             "height": 0
           },
-          "misMatchPercentage": "0.00"
-        }
+          "misMatchPercentage": "0.58",
+          "analysisTime": 69
+        },
+        "diffImage": "../bitmaps_test/20210313-022811/failed_diff_backstop_default_LoginPage_0_document_0_phone.png"
       },
-      "status": "pass"
+      "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_LoginPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210313-023631/backstop_default_LoginPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210313-022811/backstop_default_LoginPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_LoginPage_0_document_1_tablet.png",
         "label": "LoginPage",
@@ -116,15 +123,17 @@ report({
             "width": 0,
             "height": 0
           },
-          "misMatchPercentage": "0.00"
-        }
+          "misMatchPercentage": "0.23",
+          "analysisTime": 88
+        },
+        "diffImage": "../bitmaps_test/20210313-022811/failed_diff_backstop_default_LoginPage_0_document_1_tablet.png"
       },
-      "status": "pass"
+      "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_LoginPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210313-023631/backstop_default_LoginPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210313-022811/backstop_default_LoginPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_LoginPage_0_document_2_monitor.png",
         "label": "LoginPage",
@@ -140,11 +149,13 @@ report({
             "width": 0,
             "height": 0
           },
-          "misMatchPercentage": "0.00"
-        }
+          "misMatchPercentage": "0.12",
+          "analysisTime": 121
+        },
+        "diffImage": "../bitmaps_test/20210313-022811/failed_diff_backstop_default_LoginPage_0_document_2_monitor.png"
       },
-      "status": "pass"
+      "status": "fail"
     }
   ],
   "id": "backstop_default"
-});
+}
