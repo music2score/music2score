@@ -36,7 +36,8 @@ for($i=0;$i<$Downloader->getLength();$i++){
         </div>
         <div class="col-12 col-md-6">
             <?php if($Downloader->getStatus($i)=="Completed"){ ?>
-            <button type="button" class="button_class">View</button>
+            <button type="button" class="button_class"
+                onclick="window.location.href='./sheet_view.php?jobno=<?php echo $Downloader->getJobNo($i); ?>&page=1';">View</button>
             <button type="button" class="button_class"
                 onclick="window.location.href='./sheet_download.php?jobno=<?php echo $Downloader->getJobNo($i); ?>';">Download</button>
             <?php }else{ ?>
