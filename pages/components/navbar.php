@@ -49,10 +49,10 @@ $pagename = basename($_SERVER['PHP_SELF'], ".php");
           Account
         </a>
         <div class="dropdown-menu navbar_account_dropdown" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item navbar_dropdown_item" href="./upload.php">Upload New</a>
-          <a class="dropdown-item navbar_dropdown_item" href="./download.php">My Sheets</a>
+          <a class="dropdown-item navbar_dropdown_item" id="uploadbtn" href="./upload.php">Upload New</a>
+          <a class="dropdown-item navbar_dropdown_item" id="downloadbtn" href="./download.php">My Sheets</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item navbar_dropdown_item" href="./logout.php">Logout</a>
+          <a class="dropdown-item navbar_dropdown_item" id="logoutbtn" href="./logout.php">Logout</a>
         </div>
       </li>
       <?php }else{ ?>

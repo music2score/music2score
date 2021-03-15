@@ -3,9 +3,9 @@
   <testsuite name="BackstopJS" tests="6" failures="0" errors="0" skipped="0">
     <testcase classname="document" name=" ›› RegistrationPage"/>
     <testcase classname="document" name=" ›› RegistrationPage"/>
-    <testcase classname="document" name=" ›› RegistrationPage"/>
     <testcase classname="document" name=" ›› LoginPage"/>
     <testcase classname="document" name=" ›› LoginPage"/>
-    <testcase classname="document" name=" ›› LoginPage"/>
+    <testcase classname="document" name=" ›› UploadPage"/>
+    <testcase classname="document" name=" ›› UploadPage"/>
   </testsuite>
 </testsuites>

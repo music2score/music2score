@@ -5,13 +5,12 @@
 # Include one of framework modules (Symfony2, Yii2, Laravel5, Phalcon4) to use it
 # Remove this suite if you don't use frameworks
 
-actor: FunctionalTester
+actor: UnitTester
 modules:
     enabled:
         # add a framework module here
-        - \Helper\Functional
-        - PhpBrowser:
-                url: http://apache_server
+        - Asserts
+        - \Helper\Unit
         - Db:
                 dsn: 'mysql:host=mysql_server;dbname=testdb'
                 user: 'root'

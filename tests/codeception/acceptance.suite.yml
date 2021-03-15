@@ -16,6 +16,9 @@ modules:
                 javascriptEnabled: true
                 webStorageEnabled: true
                 elementScrollBehavior: true
+                chromeOptions:
+                    prefs:
+                        download.default_directory: "/project/codeception/bin/_data"
         - \Helper\Acceptance
         - Db:
                 dsn: 'mysql:host=mysql_server;dbname=music2score_test'
@@ -23,6 +26,7 @@ modules:
                 password: '12345'
                 dump: 'codeception/bin/_data/acceptance_test_data.sql'
                 populate: true # run populator before all tests
-                cleanup: false # run populator before each test
+                cleanup: true # run populator before each test
                 populator: 'mysql -u $user -p12345 -h $host $dbname < $dump '
+        - Filesystem
 step_decorators: ~
