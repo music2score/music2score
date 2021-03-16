@@ -1,19 +1,19 @@
 version: 2.1
 
 jobs:
-  # Codeception:
-  #   machine: 
-  #     image: ubuntu-2004:202101-01
-  #   steps:
-  #     - checkout
-  #     - run: 
-  #         name: Initialise Containers and Test Web App
-  #         command: |
-  #           set -x
-  #           cd docker
-  #           docker-compose up -d
-  #           sleep 40
-  #           docker-compose run --rm codecept
+  Codeception:
+    machine: 
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run: 
+          name: Initialise Containers and Test Web App
+          command: |
+            set -x
+            cd docker
+            docker-compose up -d
+            sleep 40
+            docker-compose run --rm codecept
   Python:
     machine: 
       image: ubuntu-2004:202101-01
@@ -24,24 +24,26 @@ jobs:
           command: |
             set -x
             cd docker
-            docker-compose run --rm pytest pytest -v
-  # VisualRegression:
-  #   machine: 
-  #     image: ubuntu-2004:202101-01
-  #   steps:
-  #     - checkout
-  #     - run: 
-  #         name: Initialize containers and Check Visual Regression
-  #         command: |
-  #           set -x
-  #           cd docker
-  #           docker-compose up -d
-  #           sleep 10
-  #           docker-compose run visual_regression_tests test
+            docker-compose up -d
+            sleep 25
+            docker-compose run --rm pytest
+  VisualRegression:
+    machine: 
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run: 
+          name: Initialize containers and Check Visual Regression
+          command: |
+            set -x
+            cd docker
+            docker-compose up -d
+            sleep 10
+            docker-compose run visual_regression_tests test
 
 workflows:
   Testing:
     jobs:
-      # - Codeception
+      - Codeception
       - Python
-      # - VisualRegression
+      - VisualRegression

@@ -75,3 +75,5 @@ services:
         volumes: 
             - ../python/:/project/python/
             - ../tests/:/project/tests/
+        links:
+            - mysql_server:mysql_server
