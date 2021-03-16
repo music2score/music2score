@@ -15,12 +15,10 @@ jobs:
   #           sleep 40
   #           docker-compose run --rm codecept
   Python:
-    docker:
-      - image: cimg/base:2021.03
+    machine: 
+      image: ubuntu-2004:202101-01
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 19.03.13
       - run:
           name: Initialize and Run pytest container
           command: |
