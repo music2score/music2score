@@ -32,7 +32,9 @@ jobs:
             set -x
             cd docker
             docker-compose up -d
-            sleep 10
+            sleep 15
+            docker exec -i docker_mysql_server_1 mysql -u root -p12345 < ../backstopJS/vrt_test_data.sql
+            sleep 5
             docker-compose run visual_regression_tests test
 
 workflows:
