@@ -1,0 +1,15 @@
+FROM python:3
+RUN mkdir -p /project/python
+RUN mkdir -p /project/tests
+#COPY /python ./python
+#COPY /tests/ ./tests/
+
+# Install any packages you want under here:
+# _________________________________________
+RUN python -m pip install pytest
+RUN pip install coverage
+
+#__________________________________________
+
+WORKDIR /project/tests/python
+CMD ["pytest"]

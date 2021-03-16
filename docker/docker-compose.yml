@@ -68,3 +68,10 @@ services:
             - ../backstopJS/:/src
         links:
             - apache_server:apache_server
+    pytest:
+        build:
+            context: ../
+            dockerfile: docker/Dockerfile4
+        volumes: 
+            - ../python/:/project/python/
+            - ../tests/:/project/tests/
