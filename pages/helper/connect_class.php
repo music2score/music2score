@@ -44,7 +44,7 @@ Class Connectors{
 	function phptodbconnector(){
 		try{
 			//$db = new PDO('mysql:host='.$_SERVER['REMOTE_ADDR'].';dbname=music2score_test;charset=utf8','root','12345'); 
-			$db = new PDO('mysql:host=localhost;dbname='.$this->dbname.';charset=utf8',$this->username,$this->password);
+			$db = new PDO('mysql:host=mysql-server;port=3306;dbname='.$this->dbname.';charset=utf8',$this->username,$this->password);
 		}
 		catch(Exception $e){
 			return false;
