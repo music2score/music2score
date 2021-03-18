@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-server
+  namespace: music2score
+  labels:
+    tier: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apache-server
+      tier: webapp
+  strategy:
+      type: Recreate
+  template:
+    metadata:
+      labels:
+        app: apache-server
+        tier: webapp
+    spec:
+      hostname: apache-server
+      initContainers:
+      - name: git-clone
+        image: alpine/git
+        args:
+          - clone
+          - --single-branch
+          - --branch 
+          - https://github.com/music2score/music2score/
+          - /music2score/
+        securityContext:
+          runAsUser: 1
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+        volumeMounts:
+          - name: apache-server-git-storage0
+            mountPath: /music2score/
+          - name: apache-server-git-storage1
+            mountPath: /music2score/
+      containers:
+      - image: muditsingh13/music2score:apache_server
+        name: apache-server
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /var/www/html/
+          name: apache-server-git-storage0
+          subPath: "pages"
+        - mountPath: /usr/local/etc/php/
+          name: apache-server-git-storage1
+          subPath: "php_config"
+      volumes:
+      - name: apache-server-git-storage0
+        emptyDir: {}
+      - name: apache-server-git-storage1
+        emptyDir: {}
+      restartPolicy: Always
+status: {}
