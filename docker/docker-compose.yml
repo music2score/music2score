@@ -15,7 +15,7 @@ services:
   image: mysql:8.0.23
   command: --default-authentication-plugin=mysql_native_password --init-file="/tmp/database/schema.sql"
   volumes:
-   - ../mysql/production/:/tmp/database/
+   - ../mysql/test/:/tmp/database/
   environment:
    MYSQL_ROOT_PASSWORD: 12345
    MYSQL_DATABASE: music2score_test

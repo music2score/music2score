@@ -26,6 +26,8 @@ spec:
         args:
           - clone
           - --single-branch
+          - --branch 
+          - deployment
           - --
           - https://github.com/music2score/music2score/
           - /tmp/database/ 
@@ -42,7 +44,7 @@ spec:
           - --init-file=/tmp/database/schema.sql
         env:
         - name: MYSQL_DATABASE
-          value: music2score_test
+          value: music2score
         - name: MYSQL_ROOT_PASSWORD
           value: "12345"
         image: mysql:8.0.23

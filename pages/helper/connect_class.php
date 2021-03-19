@@ -38,16 +38,21 @@ Documentation
 */
 Class Connectors{
 	private $dbname="music2score_test";
+	private $dbname_production="music2score";
 	private $username="root";
 	private $password="12345";
 	
 	function phptodbconnector(){
 		try{
-			//$db = new PDO('mysql:host='.$_SERVER['REMOTE_ADDR'].';dbname=music2score_test;charset=utf8','root','12345'); 
-			$db = new PDO('mysql:host=mysql-server;port=3306;dbname='.$this->dbname.';charset=utf8',$this->username,$this->password);
+			$db = new PDO('mysql:host=mysql_server;port=3306;dbname='.$this->dbname.';charset=utf8',$this->username,$this->password);
 		}
 		catch(Exception $e){
-			return false;
+			try{
+				$db = new PDO('mysql:host=mysql-server;port=3306;dbname='.$this->dbname_production.';charset=utf8',$this->username,$this->password);
+			}
+			catch(Exception $e){
+				return false;
+			}
 		}
 		return $db;
 	}
