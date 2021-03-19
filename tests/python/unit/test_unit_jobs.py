@@ -1,9 +1,12 @@
-from tests.python.data_handling_testdb import *
+#from tests.python.data_handling_testdb import *
 from python.jobs import *
 from python.constants import *
 import unittest
 from unittest import TestCase
 
+import pytest
+from .mydb import mysql
+'''
 class TestJobs(TestCase): 
     def load_data(self):
         try:
@@ -38,3 +41,26 @@ class TestJobs(TestCase):
         except Exception as ex:
             print("Delete data from testdb Error:\n" + str(ex))
             return False
+'''
+@pytest.fixture(scope="module")
+def cur():
+    db = mysql()
+    con = db.connect("server")
+    curs = con.cursor()
+    yield curs
+    curs.close()
+    con.close()
+'''
+#these two methods are for testing the mydb.py
+def test_johns_id(cur):
+    id = cur.execute("select id from employee_db where name=John")
+    assert id == 123
+
+def test_DBquery(cur):
+    ft,tl = cur.execute("SELECT * FROM jobs WHERE processing != %s AND completed != %s LIMIT %s FOR UPDATE")
+    assert tl[0] == 11
+'''
+def test_fetch_job(cur):
+    flag,result=fetch_job(cur)
+    assert flag==True
+    assert result[0]==11
