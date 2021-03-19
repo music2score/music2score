@@ -67,10 +67,15 @@ spec:
         - mountPath: /usr/local/etc/php/
           name: apache-server-git-storage1
           subPath: "php_config"
+        - mountPath: /var/www/html/uploads/
+          name: apache-server-claim-storage2
       volumes:
       - name: apache-server-git-storage0
         emptyDir: {}
       - name: apache-server-git-storage1
         emptyDir: {}
+      - name: apache-server-claim-storage2
+        persistentVolumeClaim:
+          claimName: apache-server-claim0
       restartPolicy: Always
 status: {}

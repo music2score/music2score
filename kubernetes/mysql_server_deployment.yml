@@ -55,8 +55,13 @@ spec:
         - mountPath: /tmp/database/
           name: mysql-server-git-storage0
           subPath: "mysql/production"
+        - mountPath: /var/lib/mysql/
+          name: mysql-server-claim-storage1
       volumes:
       - name: mysql-server-git-storage0
         emptyDir: {}
+      - name: mysql-server-claim-storage1
+        persistentVolumeClaim:
+          claimName: mysql-server-claim0
       restartPolicy: Always
 status: {}
