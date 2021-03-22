@@ -7,11 +7,12 @@ RUN mkdir -p /project/tests
 
 # Install any packages you want under here:
 # _________________________________________
+RUN python -m pip install requests
 RUN python -m pip install pytest
 RUN pip install coverage
 RUN python -m pip install mysql-connector-python
 
 #__________________________________________
 
-WORKDIR /project/tests/python
+WORKDIR /project/tests/python/
 CMD ["pytest"]

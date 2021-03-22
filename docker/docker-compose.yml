@@ -6,6 +6,7 @@ services:
             dockerfile: docker/Dockerfile
         volumes:
             - ../pages/:/var/www/html
+            - ../php_config/:/usr/local/etc/php/
         links:
             - mysql_server:mysql_server
         ports:
