@@ -34,11 +34,11 @@ class RegistrationAndLoginCest
     {
         // E2E test - User attempts to re-register with the same email
 
-        $I->fillField('fname', 'Bob');
-        $I->fillField('lname', 'Jones');
-        $I->fillField('email', 'bobjones@gmail.com');
-        $I->fillField('password', '12345');
-        $I->fillField('cpassword', '12345');
+        $I->fillField('fname', 'test');
+        $I->fillField('lname', 'user');
+        $I->fillField('email', 'testuser@test.com');
+        $I->fillField('password', '1234');
+        $I->fillField('cpassword', '1234');
         $I->click('#registerbtn');
 
         $I->see('Email already in use!');
@@ -51,8 +51,8 @@ class RegistrationAndLoginCest
                
         $I->amOnPage('/login.php');
         
-        $I->fillField('email', 'BobJones@gmail.com');
-        $I->fillField('password', '12345');
+        $I->fillField('email', 'TestUser@test.com');
+        $I->fillField('password', '1234');
         $I->click('#loginbtn');
         $I->see('Enter Correct Email');
 
@@ -65,7 +65,7 @@ class RegistrationAndLoginCest
         $I->amOnPage('/login.php');
 
         $I->fillField('email', '');
-        $I->fillField('email', 'bobjones@gmail.com');
+        $I->fillField('email', 'testuser@test.com');
         $I->fillField('password', 'abcdef');
         $I->click('#loginbtn');
         $I->see('Invalid Credentials!');

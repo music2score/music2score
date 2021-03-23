@@ -31,7 +31,7 @@ class UploadPageCest
         $this->_login($I);
         $I->amOnPage('/upload.php');
         $I->attachFile('#file', 'sample.mid');
-        $I->click('#uploadbtn');
+        $I->click('.upload_submit_button');
         $I->wait(2);
         $I->seeCurrentUrlEquals('/download.php');
     }

@@ -24,7 +24,8 @@ class UploadDownloadViewCest
         $this->_login($I);
         $I->amOnPage('/upload.php');
         $I->attachFile('#file', 'sample.mid');
-        $I->click('#uploadbtn');
+        $I->seeElement('#uploadbtn');
+        $I->click('.upload_submit_button');
 
         $I->wait(2);
         
@@ -48,12 +49,13 @@ class UploadDownloadViewCest
         $this->_login($I);
         $I->amOnPage('/upload.php');
         $I->attachFile('#file', 'sample.mid');
-        $I->click('#uploadbtn');
+        $I->seeElement('#uploadbtn');
+        $I->click('.upload_submit_button');
 
         $I->wait(2);
         
         $I->seeCurrentUrlEquals('/download.php');
-        $I->see('Status: Queued');
+        // $I->see('Status: Queued');
         
         $I->wait(10);
         
@@ -74,9 +76,10 @@ class UploadDownloadViewCest
         $this->_login($I);
         $I->amOnPage('/upload.php');
         $I->attachFile('#file', '500miles.mid');
-        $I->click('#uploadbtn');
+        $I->seeElement('#uploadbtn');
+        $I->click('.upload_submit_button');
 
-        $I->wait(2);
+        $I->wait(3);
         
         $I->seeCurrentUrlEquals('/download.php');
         $I->see('Status: Queued');
@@ -91,15 +94,17 @@ class UploadDownloadViewCest
 
         $I->seeElement('.previous_gray_button');
         $I->seeElement('.next_button');
-        $I->click('.next_button');
+        $I->wait(1);
+        $I->click('.fa-arrow-circle-right');
         $I->wait(1);
         $I->seeCurrentUrlEquals('/sheet_view.php?jobno=1&page=2');
 
         $I->seeElement('.next_gray_button');
         $I->seeElement('.previous_button');
-        $I->click('.previous_button');
+        $I->wait(1);
+        $I->click('.fa-arrow-circle-left');
         $I->wait(1);
         $I->seeCurrentUrlEquals('/sheet_view.php?jobno=1&page=1');
 
-    }  
+    }
 }
