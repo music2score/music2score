@@ -30,8 +30,14 @@ dbLocal = {"host": "localhost",
 # URL of file sharing system
 url_fShare = "http://httpbin.org/post"
 
-url_fShare_download = "http://apache_server/api/download_api.php"
-url_fShare_upload = "http://apache_server/api/upload_api.php"
+# url_fShare_download = "http://apache_server/api/download_api.php"
+# url_fShare_upload = "http://apache_server/api/upload_api.php"
+
+url_Docker_download = "http://apache_server/api/download_api.php"
+url_Docker_upload = "http://apache_server/api/upload_api.php"
+
+url_Kuber_download = "http://apache-server/api/download_api.php"
+url_Kuber_upload = "http://apache-server/api/upload_api.php"
 
 # Parameters for Download API
 server_id = "mid_1c23kk567303ui37"

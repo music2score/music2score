@@ -19,7 +19,7 @@ from jobs import *
         The value of 'files' is a dictionary of two files.
     The response message is not defined.
 """
-def upload_score(newJob: JOB) -> bool:
+def upload_score(newJob: JOB, urlUp: str) -> bool:
 
     # Zip the png files
     png2zip(newJob.filename, newJob.localFilePath())
@@ -42,7 +42,7 @@ def upload_score(newJob: JOB) -> bool:
     # Upload .pdf and .png files
     try:
         staTime = time()
-        r = requests.post(url_fShare_upload + "/post", 
+        r = requests.post(urlUp + "/post", 
                           data = args, 
                           files = files, 
                           timeout = (timeOut_connect, timeOut_read)

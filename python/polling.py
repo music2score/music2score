@@ -14,11 +14,29 @@ from upload import *
 # Retrieve and claim jobs
 def polling(trigger: bool, jobQueue: deque) -> bool:
     # mydb = conn.connect(dbTest)
-    mydb = conn.connect(host="mysql_server",
-                        user="root",
-                        password="12345",
-                        database="music2score_test",
-                        autocommit=True)
+
+    # Changes for deployment
+    hostDocker = "mysql_server"
+    hostKuber = "mysql-server"
+
+    try:
+        mydb = conn.connect(host=hostDocker,
+                            user="root",
+                            password="12345",
+                            database="music2score_test",
+                            autocommit=True)
+        
+        print("MySQL Host Name:", hostDocker)
+        urlDown, urlUp = url_Docker_download, url_Docker_upload
+    except:
+        mydb = conn.connect(host=hostKuber,
+                            user="root",
+                            password="12345",
+                            database="music2score_test",
+                            autocommit=True)
+
+        print("MySQL Host Name:", hostKuber)
+        urlDown, urlUp = url_Kuber_download, url_Kuber_upload
 
     var = True
     while trigger and var:
@@ -37,11 +55,11 @@ def polling(trigger: bool, jobQueue: deque) -> bool:
         newJob.set_job(myresult)
 
         var = False
-        if not download_src(newJob):
+        if not download_src(newJob, urlDown):
             print("Failed to download the source file.", newJob)
         elif not convert(newJob):
             print("Failed to convert the music.", newJob)
-        elif not upload_score(newJob):
+        elif not upload_score(newJob, urlUp):
             print("Failed to upload the score.", newJob)
         else:
             var = True

@@ -16,7 +16,7 @@ from jobs import *
     The response message is either a bitstream of the file, 
     or an errormsg in json format.
 """
-def download_src(newJob: JOB) -> bool:
+def download_src(newJob: JOB, urlDown: str) -> bool:
     
     args = {"server_id": server_id, 
             "server_key": server_key,
@@ -25,7 +25,7 @@ def download_src(newJob: JOB) -> bool:
     
     # Download the source file
     try:
-        r = requests.post(url_fShare_download + "/post", 
+        r = requests.post(urlDown + "/post", 
                           data = args, 
                           timeout = (timeOut_connect, timeOut_read)
                           )
