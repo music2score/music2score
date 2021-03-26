@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  k8s: digitalocean/k8s@0.1.1
-  cli: digitalocean/cli@0.1.1
+  kubernetes: digitalocean/k8s@0.1.1
+  digitalocean: digitalocean/cli@0.1.1
   docker: circleci/docker@1.5.0
 
 jobs:
@@ -44,9 +44,13 @@ jobs:
       - image: cimg/base:2020.01
     steps:
       - checkout
-      - digitalocean/install_and_initialize_cli:
-        cluster: music2score-k8s-test
-        digitalocean-access-token: DIGITALOCEAN_ACCESS_TOKEN
+      - kubernetes/install
+      - digitalocean/install
+      - digitalocean/initialize
+          # digitalocean-access-token: ${DIGITALOCEAN_ACCESS_TOKEN}
+          # cluster: music2score-k8s-test
+      - run: doctl kubernetes cluster kubeconfig save music2score-k8s-test
+      - run: cd ~/.kube && kubectl --kubeconfig="music2score-k8s-test-kubeconfig.yaml" get nodes
       - run: kubectl apply -f k8s/
 
 
@@ -57,12 +61,15 @@ workflows:
       - Python
       - VisualRegression
       - Deploy_to_k8s:
-        requires:
-          - Codeception
-          - Python
-          - VisualRegression
-        filters:
-          branches:
-            only:
-              - main
-              - deployment_cd
+          context: DigitalOcean
+          # cluster: music2score-k8s-test
+          # digitalocean-access-token: DIGITALOCEAN_ACCESS_TOKEN
+          requires:
+            - Codeception
+            - Python
+            - VisualRegression
+          filters:
+            branches:
+              only:
+                - main
+                - deployment_cd
