@@ -4,11 +4,12 @@ metadata:
   name: apache-server
   namespace: music2score
 spec:
-  type: NodePort
+  type: ClusterIP
+  selector:
+    tier: webapp
   ports:
   - name: default
     protocol: TCP
     port: 80
     targetPort: 80
-  selector:
-    tier: webapp
+  

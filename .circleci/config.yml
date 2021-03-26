@@ -1,5 +1,10 @@
 version: 2.1
 
+orbs:
+  k8s: digitalocean/k8s@0.1.1
+  cli: digitalocean/cli@0.1.1
+  docker: circleci/docker@1.5.0
+
 jobs:
   Codeception:
     machine: 
@@ -34,10 +39,30 @@ jobs:
             docker-compose up -d
             sleep 10
             docker-compose run visual_regression_tests test
+  Deploy_to_k8s:
+    docker:
+      - image: cimg/base:2020.01
+    steps:
+      - checkout
+      - digitalocean/install_and_initialize_cli:
+        cluster: music2score-k8s-test
+        digitalocean-access-token: DIGITALOCEAN_ACCESS_TOKEN
+      - run: kubectl apply -f k8s/
+
 
 workflows:
-  Testing:
+  Pipeline:
     jobs:
       - Codeception
       - Python
       - VisualRegression
+      - Deploy_to_k8s:
+        requires:
+          - Codeception
+          - Python
+          - VisualRegression
+        filters:
+          branches:
+            only:
+              - main
+              - deployment_cd
