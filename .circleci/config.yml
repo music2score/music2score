@@ -45,8 +45,10 @@ jobs:
     steps:
       - checkout
       - kubernetes/install
-      - digitalocean/install
-      - digitalocean/initialize
+      - kubernetes/initialize:
+          cluster: music2score-k8s-test
+      # - digitalocean/install
+      # - digitalocean/initialize
           # digitalocean-access-token: ${DIGITALOCEAN_ACCESS_TOKEN}
           # cluster: music2score-k8s-test
       - run: doctl kubernetes cluster kubeconfig save music2score-k8s-test
