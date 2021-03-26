@@ -62,8 +62,6 @@ workflows:
       - VisualRegression
       - Deploy_to_k8s:
           context: DigitalOcean
-          # cluster: music2score-k8s-test
-          # digitalocean-access-token: DIGITALOCEAN_ACCESS_TOKEN
           requires:
             - Codeception
             - Python
