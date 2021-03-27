@@ -2,11 +2,13 @@ FROM python:3
 
 RUN mkdir -p /project/python
 RUN mkdir -p /project/tests
-#COPY /python ./python
+COPY /python ./python/
 #COPY /tests/ ./tests/
 
 # Install any packages you want under here:
 # _________________________________________
+RUN cd python \
+    && sh lilypond-2.22.0-1.linux-64.sh
 RUN python -m pip install requests
 RUN python -m pip install pytest
 #RUN pip install coverage
