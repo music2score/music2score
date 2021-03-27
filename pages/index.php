@@ -23,7 +23,7 @@ if(!$Auth->authenticate($_SESSION,$db)){
 <body>
 <?php include("./components/navbar.php"); ?>
 
-<h2 style="margin: 300px auto; text-align: center;">BIG CHEESE PAGE</h2>
+<h2 style="margin: 300px auto; text-align: center;">Dummy Page</h2>
 <?php include("./components/footer.php"); ?>
 </body>
 <script src="plugins/jquery_v3.5.1/js/jquery.min.js"></script>

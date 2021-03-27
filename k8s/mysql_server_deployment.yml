@@ -12,7 +12,10 @@ spec:
       app: mysql-server
       tier: database
   strategy:
-      type: Recreate
+      type: RollingUpdate
+      rollingUpdate:
+        maxSurge: 2
+        maxUnavailable: 0
   template:
     metadata:
       labels:

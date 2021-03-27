@@ -54,6 +54,8 @@ jobs:
       - run: doctl kubernetes cluster kubeconfig save music2score-k8s-test
       # - run: cd ~/.kube && kubectl --kubeconfig="music2score-k8s-test-kubeconfig.yaml" get nodes
       - run: kubectl apply -f k8s/
+      - run: kubectl rollout restart deployment apache-server --namespace=music2score
+      - run: kubectl rollout restart deployment mysql-server --namespace=music2score
 
 
 workflows:
