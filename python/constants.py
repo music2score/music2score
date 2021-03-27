@@ -6,25 +6,20 @@ pollEmptyDelay = 5      # sleep duration if no job remained in database (s)
 timeOut_connect = 3.05
 timeOut_read = 15.05
 
-db = {"host": "mysql_server",
-          "user": "root",
-          "password": "12345",
-          "database": "music2score_test",
-          "autocommit": False
-          }
+
+hostDocker = "mysql_server"
+hostKuber = "mysql-server"
+
+db = {"user": "root",
+      "password": "12345",
+      "database": "music2score_test",
+      "autocommit": False
+      }
           
-dbTest = {"host": "mysql_server",
-          "user": "root",
+dbTest = {"user": "root",
           "password": "12345",
           "database": "testdb",
           "autocommit": False
-          }
-
-dbLocal = {"host": "localhost",
-           "user": "root",
-           "password": "123456",
-           "database": "test0",
-           "autocommit": False
           }
 
 # URL of file sharing system
