@@ -1,7 +1,6 @@
 import os
 import zipfile
 import requests
-# from PIL import Image
 from time import time, ctime
 
 from constants import *
@@ -9,7 +8,7 @@ from jobs import *
 
 """
     Upload the sheet-score in .pdf and .png to file sharing system.
-    Return  True  if the file is successfully uploaded and deleted locally.
+    Return  True   if the file is successfully uploaded and deleted locally.
     Return  False  if this function failed to upload.
 
     This function makes POST request to php API. 
@@ -24,12 +23,14 @@ def upload_score(newJob: JOB, urlUp: str) -> bool:
     # Zip the png files
     png2zip(newJob.filename, newJob.localFilePath())
 
-    # # Join the png files as one
-    # png_join(newJob._directory(), newJob.localFilePath())
-
     # For testing
     print()
     os.system("ls -lh %s" %newJob._directory())
+
+    # Check if the upload files are too large for php API
+    if not check_size(newJob.localFilePath()):
+        print("Upload Refused:\n  Files are larger than %s MB."% upSize_limit)
+        return False
 
     args = {"server_id": server_id, 
             "server_key": server_key,
@@ -65,27 +66,6 @@ def upload_score(newJob: JOB, urlUp: str) -> bool:
     return True
 
 
-# # Join several png files as one
-# def png_join(path: str, pngPath: str):
-
-#     files = list(filter(lambda x: x[-4:] == '.png', os.listdir(path)))
-#     if len(files) <= 1:
-#         return
-
-#     # Sort the pages of png in the right order
-#     files.sort(key = lambda x: int(x[:-4].split("page")[-1]))
-#     pngList = [Image.open(fpng) for fpng in files]
-
-#     width, height = pngList[0].size
-
-#     pngOut = Image.new(pngList[0].mode, (width, height * len(pngList)))
-
-#     for i, image in enumerate(pngList):
-#         pngOut.paste(image, box=(0, i * height))
-
-#     pngOut.save(pngPath + ".png")
-
-
 # Zip several png files
 def png2zip(fileName: str, zipPath: str):
 
@@ -95,3 +75,13 @@ def png2zip(fileName: str, zipPath: str):
     with zipfile.ZipFile(zipPath + ".zip", 'w') as zp:
         for fpng in files:
             zp.write(zipPath + "/" + fpng, fileName + "/" + fpng)
+
+
+"""
+    Check the size of upload files
+    Return  True   if they are allowed
+    Return  False  if they exceed the limit
+"""
+def check_size(filePath: str) -> bool:
+    fSize = os.path.getsize(filePath + ".pdf") + os.path.getsize(filePath + ".zip")
+    return fSize < upSize_limit * 2 ** 20

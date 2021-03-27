@@ -22,6 +22,9 @@ dbTest = {"user": "root",
           "autocommit": False
           }
 
+# Upper-bound size of uploaded files
+upSize_limit = 100
+
 # URL of file sharing system
 url_fShare = "http://httpbin.org/post"
 
