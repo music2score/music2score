@@ -4,8 +4,18 @@ import requests
 # from PIL import Image
 from time import time, ctime
 
-from constants import *
-from jobs import *
+#from constants import *
+#from jobs import *
+
+try:
+    from python.constants import * 
+except ImportError:
+    from constants import *
+try: 
+    from python.jobs import *             
+except ImportError:
+    from jobs import * 
+
 
 """
     Upload the sheet-score in .pdf and .png to file sharing system.

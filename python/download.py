@@ -1,8 +1,15 @@
 import requests
 
-from constants import *
-from jobs import *
-
+#from constants import *
+#from jobs import *
+try:
+    from python.constants import * 
+except ImportError:
+    from constants import *
+try: 
+    from python.jobs import *             
+except ImportError:
+    from jobs import *   
 
 """
     Download the source file of music from file sharing system.
