@@ -65,7 +65,7 @@ if($LUser->validateFormRequest($_POST)){
 <html>
 
 <head>
-    <title>NOPE Page - Music2Score</title>
+    <title>Login Page - Music2Score</title>
     <link rel="shortcut icon" type="image/jpg" href="images/favicon.ico" />
     <link rel="stylesheet" href="plugins/bootstrap_v4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="plugins/fontawesome_v5.15.2/css/all.css">
