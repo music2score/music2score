@@ -22,7 +22,7 @@ dbTest = {"user": "root",
           "autocommit": False
           }
 
-# Upper-bound size of uploaded files
+# Upper-bound size of uploaded files (MB)
 upSize_limit = 100
 
 # URL of file sharing system
