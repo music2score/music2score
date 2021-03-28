@@ -8,3 +8,4 @@ mydb = mysql.connector.connect(
         )
 
 mydb.is_connected()
+print(mydb.is_connected())
