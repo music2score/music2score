@@ -8,7 +8,7 @@ timeOut_read = 15.05
 
 
 hostDocker = "mysql_server"
-hostKuber = "mysql-server"
+hostKuber = "mysql-server.music2score.svc.cluster.local"
 
 db = {"user": "root",
       "password": "12345",
