@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import mysql.connector as conn
+from mysql.connector import errorcode
 from time import sleep, time
 from collections import deque
 from pickle import dump, load
@@ -69,7 +70,7 @@ def env_connect():
         dbAttempt["host"] = hostDocker
         mydb = conn.connect(**dbAttempt)
         urlDown, urlUp = url_Docker_download, url_Docker_upload
-    except (OSError, ImportError):
+    except (OSError, ImportError, conn.Error):
         dbAttempt["host"] = hostKuber
         mydb = conn.connect(**dbAttempt)
         urlDown, urlUp = url_Kuber_download, url_Kuber_upload
