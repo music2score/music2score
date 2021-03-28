@@ -10,6 +10,8 @@ mydb = mysql.connector.connect(
 mydb.is_connected()
 print(mydb.is_connected())
 
+mycursor = mydb.cursor(buffered=True)
+
 # sql = "INSERT INTO jobs (jobid, filename, userid, processing, completed, date) \
 #                VALUES (%s, %s, %s, %s, %s, %s)"
 # vals = (1, 'sample.mid', 1, 0, 0, '2021-03-23')
@@ -17,8 +19,10 @@ print(mydb.is_connected())
 # mydb.commit()
 
 sql = "show databases"
-mydb.mycursor.execute(sql, vals)
+mycursor.execute(sql)
 mydb.commit()
 
-ans = mydb.mycursor.fetchone()
-print(ans)
+ans = mycursor.fetchall()
+
+for x in ans:
+  print(x)
