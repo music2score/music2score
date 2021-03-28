@@ -46,13 +46,8 @@ jobs:
       - checkout
       - kubernetes/install
       - kubernetes/initialize:
-          cluster: music2score-k8s-test
-      # - digitalocean/install
-      # - digitalocean/initialize
-          # digitalocean-access-token: ${DIGITALOCEAN_ACCESS_TOKEN}
-          # cluster: music2score-k8s-test
-      - run: doctl kubernetes cluster kubeconfig save music2score-k8s-test
-      # - run: cd ~/.kube && kubectl --kubeconfig="music2score-k8s-test-kubeconfig.yaml" get nodes
+          cluster: music2score-k8s-test #change when moving to production env
+      - run: doctl kubernetes cluster kubeconfig save music2score-k8s-test #change when moving to production env
       - run: kubectl apply -f k8s/
       - run: kubectl rollout restart deployment apache-server --namespace=music2score
       - run: kubectl rollout restart deployment mysql-server --namespace=music2score
@@ -74,4 +69,4 @@ workflows:
             branches:
               only:
                 - main
-                - deployment_cd
+                - deployment_cd #remove later
