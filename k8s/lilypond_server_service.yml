@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lilypond-server
+  namespace: music2score
+spec:
+  type: ClusterIP
+  selector:
+    app: lilypond-server
+    tier: algorithm
+  ports:
+    - port: 3000
+      targetPort: 3000
