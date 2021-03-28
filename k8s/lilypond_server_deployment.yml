@@ -46,7 +46,7 @@ spec:
             - containerPort: 3000
           command:
             - python
-            - ./python/test.py
+            - ./python/polling.py
           volumeMounts:
               - mountPath: /python/
                 name: lilypond-server-git-storage0

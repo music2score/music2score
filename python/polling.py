@@ -65,14 +65,14 @@ def env_connect():
 
     dbAttempt = cp(db)
     
-    # try:
-    #     dbAttempt["host"] = hostDocker
-    #     mydb = conn.connect(**dbAttempt)
-    #     urlDown, urlUp = url_Docker_download, url_Docker_upload
-    # except:
-    dbAttempt["host"] = hostKuber
-    mydb = conn.connect(**dbAttempt)
-    urlDown, urlUp = url_Kuber_download, url_Kuber_upload
+    try:
+        dbAttempt["host"] = hostDocker
+        mydb = conn.connect(**dbAttempt)
+        urlDown, urlUp = url_Docker_download, url_Docker_upload
+    except (OSError, ImportError):
+        dbAttempt["host"] = hostKuber
+        mydb = conn.connect(**dbAttempt)
+        urlDown, urlUp = url_Kuber_download, url_Kuber_upload
     
     print("MySQL Host Name:", dbAttempt["host"])
     return mydb, urlDown, urlUp
