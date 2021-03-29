@@ -17,6 +17,7 @@ class TestDownload(TestCase):
         mynewjob = JOB()
         myrestuple=(1, 'sample.mid', 1, 0, 0, datetime.datetime(2021, 3, 23, 0, 0))
         mynewjob.set_job(myrestuple)
+        myurl= "dummyurl"
         with patch('python.download.requests.post') as mock_post:
             # Configure the mock with a error in response.
             stri="\x00"+"\x00"
@@ -26,13 +27,14 @@ class TestDownload(TestCase):
             mock_post.return_value.content=data
             mock_post.return_value.OK =True
             
-            ret=download_src(mynewjob)
+            ret=download_src(mynewjob,myurl)
         self.assertFalse(ret)
 
     def test_status_200_good_response(self):
         mynewjob = JOB()
         myrestuple=(1, 'sample.mid', 1, 0, 0, datetime.datetime(2021, 3, 23, 0, 0))
         mynewjob.set_job(myrestuple)
+        myurl= "dummyurl"
         with patch('python.download.requests.post') as mock_post:
             # Configure the mock with a error in response.
             stri="MThd"+"\x00"+"\x00"
@@ -41,7 +43,7 @@ class TestDownload(TestCase):
             mock_post.return_value.content=data
             mock_post.return_value.OK =True
             
-            ret=download_src(mynewjob)
+            ret=download_src(mynewjob,myurl)
             self.assertTrue(ret)
 
             retval=os.path.exists('/project/tests/python/1' +"/" + 'sample.mid')
@@ -53,8 +55,9 @@ class TestDownload(TestCase):
         mynewjob = JOB()
         myrestuple=(1, 'sample.mid', 1, 0, 0, datetime.datetime(2021, 3, 23, 0, 0))
         mynewjob.set_job(myrestuple)
+        myurl= "dummyurl"
         with patch('python.download.requests.post') as mock_post:
             # Configure the mock with a connection error.
             mock_post.side_effect = requests.exceptions.ConnectionError()
-            ret=download_src(mynewjob)
+            ret=download_src(mynewjob,myurl)
         self.assertFalse(ret)

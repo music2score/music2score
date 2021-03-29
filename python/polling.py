@@ -5,11 +5,22 @@ from time import sleep, time
 from collections import deque
 from pickle import dump, load
 from copy import deepcopy as cp
-
-from constants import *
-from download import *
-from convert import *
-from upload import *
+try:
+    from constants import *
+except ImportError:
+    from python.constants import *
+try:
+    from download import *
+except ImportError:
+    from python.download import *
+try:
+    from convert import *
+except ImportError:
+    from python.convert import *
+try:
+    from upload import *
+except ImportError:
+    from python.upload import *
 
 
 # Retrieve and claim jobs
@@ -61,9 +72,9 @@ def polling(trigger: bool, jobQueue: deque,
     --- urlUp
         URL for connecting with the upload API
 """
-def env_connect():
+def env_connect(mydb):
 
-    dbAttempt = cp(db)
+    dbAttempt = cp(mydb)
     
     try:
         dbAttempt["host"] = hostDocker
@@ -82,7 +93,7 @@ if __name__ == '__main__':
     trigger = True
     jobQueue = deque()
 
-    mydb, urlDown, urlUp = env_connect()
+    mydb, urlDown, urlUp = env_connect(db)
 
     polling(trigger, jobQueue, mydb, urlDown, urlUp)
 

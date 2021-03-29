@@ -13,6 +13,7 @@ RUN python -m pip install requests
 RUN python -m pip install pytest
 #RUN pip install coverage
 RUN pip install pytest-cov
+RUN pip install mock
 RUN python -m pip install mysql-connector-python
 
 #__________________________________________

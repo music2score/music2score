@@ -7,13 +7,13 @@ from time import time, ctime
 #from jobs import *
 
 try:
-    from python.constants import * 
+    from constants import * 
 except ImportError:
-    from constants import *
+    from python.constants import *
 try: 
-    from python.jobs import *             
+    from jobs import *             
 except ImportError:
-    from jobs import * 
+    from python.jobs import * 
 
 
 """
@@ -40,6 +40,7 @@ def upload_score(newJob: JOB, urlUp: str) -> bool:
     # Check if the upload files are too large for php API
     if not check_size(newJob.localFilePath()):
         print("Upload Refused:\n  Files are larger than %s MB."% upSize_limit)
+        newJob._del_files()
         return False
 
     args = {"server_id": server_id, 

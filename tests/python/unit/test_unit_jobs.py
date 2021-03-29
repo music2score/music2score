@@ -81,6 +81,12 @@ class TestJobs(TestCase):
         self.mydb.close()
         ret = fetch_job(self.mycursor)
         self.assertEqual(ret, (False, None))
+    
+    def test_set_jobs_failure(self):
+        mynewjob = JOB()
+        myrestuple=()
+        ret=mynewjob.set_job(myrestuple)
+        self.assertFalse(ret)
   
 
     # def load_data(self):

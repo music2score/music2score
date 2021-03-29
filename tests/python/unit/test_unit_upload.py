@@ -39,6 +39,7 @@ class TestUpload(TestCase):
         mynewjob = JOB()
         myrestuple=(1, 'sample', 1, 0, 0, datetime.datetime(2021, 3, 23, 0, 0))
         mynewjob.set_job(myrestuple)
+        mynewjob.__repr__
 
         #check if .zip file is created in the specified directory
         png2zip(mynewjob.filename,mynewjob.localFilePath())
@@ -59,25 +60,44 @@ class TestUpload(TestCase):
         mynewjob = JOB()
         myrestuple=(1, 'sample', 1, 0, 0, datetime.datetime(2021, 3, 23, 0, 0))
         mynewjob.set_job(myrestuple)
+        myurl= "dummyurl"
 
         with patch('python.upload.requests.post') as mock_post:
             # Configure the mock with connection error.
             mock_post.side_effect = requests.exceptions.ConnectionError()
-            ret=upload_score(mynewjob)
+            ret=upload_score(mynewjob,myurl)
         
         self.assertFalse(ret)
     
-    def test_upload(self):
+    def test_upload_optimal_size(self):
         mynewjob = JOB()
         myrestuple=(1, 'sample', 1, 0, 0, datetime.datetime(2021, 3, 23, 0, 0))
         mynewjob.set_job(myrestuple)
+        myurl= "dummyurl"
         
         with patch('python.upload.requests.post') as mock_post:
             # Configure the mock with proper response.
             mock_post.return_value.OK =True
             mock_post.return_value.status_code=200
-            ret=upload_score(mynewjob)
+            ret=upload_score(mynewjob,myurl)
             self.assertTrue(ret)
+            retval=os.path.exists('/project/tests/python/1' +"/" + 'sample.zip')
+            self.assertFalse(retval)
+    
+    def test_upload_size_exceeds_100MB(self):
+        mynewjob = JOB()
+        myrestuple=(1, 'sample', 1, 0, 0, datetime.datetime(2021, 3, 23, 0, 0))
+        mynewjob.set_job(myrestuple)
+        myurl= "dummyurl"
+        
+        with patch('python.upload.requests.post') as mock_post, patch('python.upload.check_size') as mock_check_size:
+            # Configure the mock with proper response.
+            mock_post.return_value.OK =True
+            mock_post.return_value.status_code=200
+
+            mock_check_size.return_value=False
+            ret=upload_score(mynewjob,myurl)
+            self.assertFalse(ret)
             retval=os.path.exists('/project/tests/python/1' +"/" + 'sample.zip')
             self.assertFalse(retval)
 
