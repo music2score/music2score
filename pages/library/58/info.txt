@@ -1,0 +1,8 @@
+RecordNo: 58
+InstrumentName: flute
+MusicName: auclair_fl
+Folder:
+58/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

@@ -1,0 +1,8 @@
+RecordNo: 57
+InstrumentName: flute
+MusicName: scene_finale_fl
+Folder:
+57/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

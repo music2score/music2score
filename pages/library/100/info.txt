@@ -1,0 +1,8 @@
+RecordNo: 100
+InstrumentName: flute
+MusicName: borodin_polovtsian
+Folder:
+100/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid
