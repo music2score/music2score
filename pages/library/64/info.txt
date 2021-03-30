@@ -1,0 +1,8 @@
+RecordNo: 64
+InstrumentName: flute
+MusicName: bach_bist_du_bei_mir_vo
+Folder:
+64/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

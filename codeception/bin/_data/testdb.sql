@@ -32,3 +32,20 @@ ALTER TABLE `jobs`
 ALTER TABLE `jobs`
   MODIFY `jobid` bigint NOT NULL AUTO_INCREMENT;
 COMMIT;
+
+DROP TABLE IF EXISTS `music`;
+CREATE TABLE `music` (
+  `id` bigint NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `filename` varchar(255) NOT NULL,
+  `instrument` varchar(255) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+ALTER TABLE `music`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `filename` (`filename`);
+
+ALTER TABLE `music`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;

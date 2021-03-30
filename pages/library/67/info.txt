@@ -1,0 +1,8 @@
+RecordNo: 67
+InstrumentName: flute
+MusicName: mozart_sym40_fl
+Folder:
+67/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

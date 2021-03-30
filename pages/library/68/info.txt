@@ -1,0 +1,8 @@
+RecordNo: 68
+InstrumentName: flute
+MusicName: maple_leaf_rag_fl
+Folder:
+68/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

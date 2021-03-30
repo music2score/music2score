@@ -1,0 +1,8 @@
+RecordNo: 59
+InstrumentName: flute
+MusicName: satie_gymnopedie_no1_fl
+Folder:
+59/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

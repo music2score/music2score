@@ -1,0 +1,8 @@
+RecordNo: 99
+InstrumentName: flute
+MusicName: beautiful_dreamer_FL
+Folder:
+99/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid
