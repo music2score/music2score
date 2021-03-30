@@ -1,0 +1,8 @@
+RecordNo: 5
+InstrumentName: violin
+MusicName: bach_minuet-2AVLN
+Folder:
+5/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

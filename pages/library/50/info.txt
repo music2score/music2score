@@ -1,0 +1,8 @@
+RecordNo: 50
+InstrumentName: violin
+MusicName: pirates
+Folder:
+50/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

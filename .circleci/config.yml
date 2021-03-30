@@ -46,8 +46,8 @@ jobs:
       - checkout
       - kubernetes/install
       - kubernetes/initialize:
-          cluster: music2score-k8s-test #change when moving to production env
-      - run: doctl kubernetes cluster kubeconfig save music2score-k8s-test #change when moving to production env
+          cluster: music2score-k8s-deployment #change when moving to production env
+      - run: doctl kubernetes cluster kubeconfig save music2score-k8s-deployment #change when moving to production env
       - run: kubectl apply -f k8s/
       - run: kubectl rollout restart deployment apache-server --namespace=music2score
       - run: kubectl rollout restart deployment mysql-server --namespace=music2score

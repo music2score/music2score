@@ -1,0 +1,8 @@
+RecordNo: 37
+InstrumentName: violin
+MusicName: cool_blues
+Folder:
+37/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

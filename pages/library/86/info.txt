@@ -1,0 +1,8 @@
+RecordNo: 86
+InstrumentName: flute
+MusicName: drunken_sailor
+Folder:
+86/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

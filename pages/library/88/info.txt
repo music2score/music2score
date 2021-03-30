@@ -1,0 +1,8 @@
+RecordNo: 88
+InstrumentName: flute
+MusicName: mendelssohn_nocturne
+Folder:
+88/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid
