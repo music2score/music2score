@@ -51,6 +51,7 @@ jobs:
       - run: kubectl apply -f k8s/
       - run: kubectl rollout restart deployment apache-server --namespace=music2score
       - run: kubectl rollout restart deployment mysql-server --namespace=music2score
+      - run: kubectl rollout restart deployment lilypond-server --namespace=music2score
 
 
 workflows:
