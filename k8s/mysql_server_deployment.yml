@@ -30,7 +30,7 @@ spec:
           - clone
           - --single-branch
           - --branch 
-          - deployment_cd
+          - main
           - --
           - https://github.com/music2score/music2score/
           - /tmp/database/ 
