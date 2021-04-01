@@ -34,6 +34,7 @@ class TestPolling(TestCase):
     urlUp ="dummyupurl"
 
     with patch('python.polling.fetch_job') as mock_fetch:
+      #mock_fetch = Mock(side_effect=[(False, ()), (True, (1, 'sample.mid', 1, 0, 0, datetime.datetime(2021, 3, 23, 0, 0)))])
       mock_fetch.return_value=(False,())
       ret=polling(trigger, jobQueue, self.mydb, urlDown, urlUp)
     self.assertFalse(ret)
@@ -94,11 +95,15 @@ class TestPolling(TestCase):
             "autocommit": False}
     urlDown ="dummydownurl"
     urlUp ="dummyupurl"
-    with patch('python.polling.env_connect') as mock_conn:
+    with patch('python.polling.conn.connect') as mock_conn:
             # Configure the mock with connection error.
-            #mock_conn= mysql.connector.Error(errno=2006)
+            #mock_conn.side_effect = mysql.connector.Error()
+            mock_conn = Mock(side_effect=[mysql.connector.Error(), mysql.connector.connect(dbtest)])
+            #mock_conn.side_effect = Exception('Data')
+            #mock_conn.return_value=
             #mydb, urlDown, urlUp = env_connect(dbtest)
-            env_connect.return_value=dbtest,urlDown,urlUp
+            env_connect(dbtest)
+            #env_connect.return_value=dbtest,urlDown,urlUp
 
 
             # self.assertFalse(ret)
