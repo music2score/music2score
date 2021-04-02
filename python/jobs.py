@@ -114,7 +114,7 @@ def fetch_job(mycursor: conn.cursor.MySQLCursor):
     paraUpd = (1, myresult[0])
     try:
         mycursor.execute(sqlUpd, paraUpd)
-        rowCnt = mycursor.rowcount  # for testing
+        # rowCnt = mycursor.rowcount  # for testing
         mycursor.execute("commit")
     except conn.Error as ex:
         print('Failed to mark the fetched job. {}'.format(ex))
