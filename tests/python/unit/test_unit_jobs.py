@@ -10,7 +10,7 @@ class TestJobs(TestCase):
 
     def setUp(self):
         self.mydb = mysql.connector.connect(
-            host="mysql_server",
+            host="mysql_server_1",
             user="root",
             password="12345",
             database="testdb"
