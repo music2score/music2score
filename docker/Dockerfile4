@@ -19,4 +19,4 @@ RUN python -m pip install mysql-connector-python
 #__________________________________________
 
 WORKDIR /project/tests/python/
-CMD ["pytest"]
+CMD ["pytest -v"]
