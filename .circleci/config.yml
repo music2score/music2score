@@ -25,7 +25,7 @@ jobs:
             set -x
             cd docker
             docker-compose up -d
-            sleep 25
+            sleep 40
             docker-compose run --rm pytest
   VisualRegression:
     machine: 
