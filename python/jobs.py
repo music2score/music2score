@@ -119,10 +119,5 @@ def fetch_job(mycursor: conn.cursor.MySQLCursor):
     except conn.Error as ex:
         print('Failed to mark the fetched job. {}'.format(ex))
         return False, None
-
-    # For testing. This can be removed
-    if rowCnt == 1:
-        return True, myresult 
-    else:
-        print('Error: rowCnt != 1.')
-        return False, None
+    
+    return True, myresult
