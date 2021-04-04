@@ -1,0 +1,8 @@
+RecordNo: 62
+InstrumentName: flute
+MusicName: el_condor_passa_fl
+Folder:
+62/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

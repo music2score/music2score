@@ -1,0 +1,8 @@
+RecordNo: 76
+InstrumentName: flute
+MusicName: rossini_william_tell
+Folder:
+76/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid
