@@ -1,0 +1,8 @@
+RecordNo: 80
+InstrumentName: flute
+MusicName: tico_tico_fl
+Folder:
+80/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

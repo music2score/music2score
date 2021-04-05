@@ -1,0 +1,8 @@
+RecordNo: 73
+InstrumentName: flute
+MusicName: schubert_serenade_FL
+Folder:
+73/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

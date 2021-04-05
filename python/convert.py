@@ -1,7 +1,11 @@
 import os
 import subprocess
-from jobs import *
+#from .jobs import *
 
+try:
+    from jobs import *               
+except ImportError:
+    from python.jobs import *
 
 def convert(newJob: JOB) -> bool:
     midiName = newJob.localFilePath() + ".mid"

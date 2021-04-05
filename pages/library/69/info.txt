@@ -1,0 +1,8 @@
+RecordNo: 69
+InstrumentName: flute
+MusicName: god_rest_fl
+Folder:
+69/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

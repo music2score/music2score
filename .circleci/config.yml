@@ -15,12 +15,18 @@ jobs:
             sleep 40
             docker-compose run --rm codecept
   Python:
-    working_directory: ~/circleci-python
-    docker:
-      - image: cimg/python:3.9.1
+    machine: 
+      image: ubuntu-2004:202101-01
     steps:
       - checkout
-      - run: python3 tests/python/test_hello_world.py
+      - run:
+          name: Initialize and Run pytest container
+          command: |
+            set -x
+            cd docker
+            docker-compose up -d
+            sleep 60
+            docker-compose run --rm pytest
   VisualRegression:
     machine: 
       image: ubuntu-2004:202101-01

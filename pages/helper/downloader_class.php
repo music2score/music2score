@@ -1,4 +1,67 @@
 <?php
+/*
+Documentation
+
+    Class:
+    1. Downloader - used to encapsulate File Downloader process.
+    2. SheetDownloader - used to encapsulate Sheet Downloader process.
+    3. SheetViewer - used to encapsulate Sheet Viewer process.
+    
+    Data Members:
+
+    - Downloader
+        1. $errortxt - used for storing error messages.
+        2. $length - used for storing length of array.
+        3. $jobno - used for storing array of jobnos.
+        4. $date - used for storing array of dates.
+        5. $status - used for storing array of statuses of jobs.
+
+    - SheetDownloader
+        1. $errortxt - used for storing error messages.
+        2. $url - used for storing url for download.
+
+    - SheetViewer
+        1. $errortxt - used for storing error string.
+        2. $jobno - used for storing job number.
+        3. $filename - used for storing name of file.
+        4. $folder - used for storing folder path.
+        5. $pageno - used for storing page number.
+        6. $url - used for storing url.
+        7. $maxfiles - used for storing number of files.
+        8. $previous - used for storing 0 or 1 based on availablitiy of previous page.
+        9. $next - used for storing 0 or 1 based on availablity of next page.
+
+    Member Functions:
+    
+    - Downloader
+        1. Downloader->generateRecentListing($db,$id) - generates a list of recent jobs, requires userid and database connection.
+        2. Downloader->getErrorTxt() - Returns error string which will be empty when no error is present.
+        3. Downloader->getLength() - Returns the length of the array which would be 0 when no element is present.
+        4. Downloader->getJobNo() - Returns the array containing jobnos of recent jobs which is empty when no jobs are present.
+        5. Downloader->getDate() - Returns the array containing dates of recent jobs which is empty when no jobs are present.
+        5. Downloader->getStatus() - Returns the array containing statuses of recent jobs which is empty when no jobs are present.
+
+    -SheetDownloader
+        1. SheetDownloader->file_checker($address) - checks if a file or directory exists within uploads directory or not, requires
+        directory or file name/path within the upload directory.
+        2. SheetDownloader->generateUrl($db,$id,$jobno) - generates the url for downloading the sheet music file, requires connection 
+        to the database, user id and jobno.
+        3. SheetDownloader->getUrl() - return Downloadable Url which is empty when no Url is available.
+        4. SheetDownloader->getErrorTxt() - return error string which is empty when no error is present.
+
+    -SheetDownloader
+        1. SheetDownloader->validatePageInfo($db,$session,$job,$page) - used to validate if all information is correct, requires database connection,
+        user session, job number, page number.
+        2. SheetDownloader->file_checker($address) - used for checking if an address is available within a folder or not, requires path of the folder.
+        3. SheetDownloader->file_counter($address) - used for counting the number of files present within a given folder, requires path of the folder.
+        4. SheetDownloader->generatePageInfo() - used to generate page information.
+        5. SheetDownloader->getPageNo() - returns page number which is 0 when no page is present.
+        6. SheetDownloader->getImageUrl() - returns image url which is empty when no url is present.
+        7. SheetDownloader->getMaxPages() - return number of available pages which is 0 when no pages are present.
+        8. SheetDownloader->getNextExists() - returns 1 when next page is available otherwise returns 0.
+        9. SheetDownloader->getPreviousExists() - returns 1 when previous page is available otherwise returns 0.
+        10. SheetDownloader->getErrorTxt() - returns error string which is empty when no error is present.
+*/
 class Downloader{
     private $errortxt="";
     private $length=0;

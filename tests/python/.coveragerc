@@ -2,6 +2,13 @@
 source = .
 omit =
     *__init__*
+    *test_int*
+    *test_hello*
+
+[report]
+exclude_lines =
+    if __name__ == '__main__':
+    def __repr__
 
 [html]
-directory = ./tests/python/output
+directory = ./CoverageOutput

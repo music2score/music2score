@@ -1,0 +1,8 @@
+RecordNo: 20
+InstrumentName: violin
+MusicName: bach_air_vn
+Folder:
+20/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

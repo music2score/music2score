@@ -2,45 +2,52 @@
 $pagename = basename($_SERVER['PHP_SELF'], ".php");
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar_container">
-  <a class="navbar-brand" href="./">
-    <img class="navbar_logo" src="images/navbar_logo.png" />
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <a class="navbar-brand" href="./">
+        <img class="navbar_logo" src="images/navbar_logo.png" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link <?php echo (($pagename=="index")?'navbar_link_active':'navbar_link'); ?>" href="./">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link <?php echo (($pagename=="aboutus")?'navbar_link_active':'navbar_link'); ?>" href="./aboutus.php">About</a>
-      </li>
-      <li class="nav-item dropdown navbar_dropdown_container">
-        <a class="nav-link <?php echo ((substr($pagename,0,6)=="browse")?'navbar_link_active':'navbar_link'); ?> dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Browse
-        </a>
-        <div class="dropdown-menu navbar_dropdown" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item navbar_dropdown_item" href="./browse_recent.php">Most Recent</a>
-          <a class="dropdown-item navbar_dropdown_item" href="./browse_instrument.php">By Instrument</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link  <?php echo (($pagename=="contactus")?'navbar_link_active':'navbar_link'); ?>" href="./contactus.php">Contact</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link <?php echo (($pagename=="index")?'navbar_link_active':'navbar_link'); ?>"
+                    href="./">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?php echo (($pagename=="aboutus")?'navbar_link_active':'navbar_link'); ?>"
+                    href="./aboutus.php">About</a>
+            </li>
+            <li class="nav-item dropdown navbar_dropdown_container">
+                <a class="nav-link <?php echo ((substr($pagename,0,6)=="browse")?'navbar_link_active':'navbar_link'); ?> dropdown-toggle"
+                    id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Browse
+                </a>
+                <div class="dropdown-menu navbar_dropdown" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item navbar_dropdown_item" href="./browse_recent.php?page=1">Most Recent</a>
+                    <a class="dropdown-item navbar_dropdown_item" href="./browse_instrument.php?type=All&page=1">By
+                        Instrument</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link  <?php echo (($pagename=="contactus")?'navbar_link_active':'navbar_link'); ?>"
+                    href="./contactus.php">Contact</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
 
-        <div class="input-group">
-            <input type="text" class="form-control navbar_search_input" type="search" placeholder="Search Scores" aria-label="Search">
-        <div class="input-group-append" >
-            <button class="input-group-text btn navbar_search_button" type="submit">
-                <span class="fa fa-search navbar_search_icon"></span>
-            </button>
-        </div>
-        </div>
-    </form>
+            <div class="input-group">
+                <input type="text" class="form-control navbar_search_input" type="search" placeholder="Search Scores"
+                    aria-label="Search">
+                <div class="input-group-append">
+                    <button class="input-group-text btn navbar_search_button" type="submit">
+                        <span class="fa fa-search navbar_search_icon"></span>
+                    </button>
+                </div>
+            </div>
+        </form>
 
     <ul class="navbar-nav">
         <?php if($Auth->is_authenticated()){ ?>

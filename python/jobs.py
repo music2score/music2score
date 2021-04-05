@@ -65,7 +65,7 @@ class JOB(object):
             os.makedirs(path)
     
     def _directory(self) -> str:
-        return self._cwd + str(self.jobid)
+        return self._cwd.rstrip("/") + "/" + str(self.jobid)
 
     def _clear(self):
         self._del_files()
@@ -114,15 +114,10 @@ def fetch_job(mycursor: conn.cursor.MySQLCursor):
     paraUpd = (1, myresult[0])
     try:
         mycursor.execute(sqlUpd, paraUpd)
-        rowCnt = mycursor.rowcount  # for testing
+        # rowCnt = mycursor.rowcount  # for testing
         mycursor.execute("commit")
     except conn.Error as ex:
         print('Failed to mark the fetched job. {}'.format(ex))
         return False, None
-
-    # For testing. This can be removed
-    if rowCnt == 1:
-        return True, myresult 
-    else:
-        print('Error: rowCnt != 1.')
-        return False, None
+    
+    return True, myresult
