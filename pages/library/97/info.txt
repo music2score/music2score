@@ -1,0 +1,8 @@
+RecordNo: 97
+InstrumentName: flute
+MusicName: god_gloryFL
+Folder:
+97/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

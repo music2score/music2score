@@ -1,0 +1,8 @@
+RecordNo: 87
+InstrumentName: flute
+MusicName: arndt_nolaFL
+Folder:
+87/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

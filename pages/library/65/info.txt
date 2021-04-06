@@ -1,0 +1,8 @@
+RecordNo: 65
+InstrumentName: flute
+MusicName: gounod_ave_maria_fl
+Folder:
+65/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

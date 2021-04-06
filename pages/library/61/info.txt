@@ -1,0 +1,8 @@
+RecordNo: 61
+InstrumentName: flute
+MusicName: faure_pavane_fl
+Folder:
+61/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

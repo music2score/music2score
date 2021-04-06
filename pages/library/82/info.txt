@@ -1,0 +1,8 @@
+RecordNo: 82
+InstrumentName: flute
+MusicName: a_blast_of_wind_FL
+Folder:
+82/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

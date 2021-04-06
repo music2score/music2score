@@ -1,0 +1,8 @@
+RecordNo: 78
+InstrumentName: flute
+MusicName: the_doll_song_FL
+Folder:
+78/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

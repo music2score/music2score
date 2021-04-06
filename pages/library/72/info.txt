@@ -1,0 +1,8 @@
+RecordNo: 72
+InstrumentName: flute
+MusicName: gesu_bambinoFL
+Folder:
+72/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

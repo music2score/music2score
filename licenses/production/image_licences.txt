@@ -16,3 +16,11 @@ artist-link: https://www.pexels.com/@cottonbro
 upload_image & upload_image2
 licence: Free to use with No attribution required.
 artist-link: https://www.pexels.com/@ashutoshsonwani
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@tirachard-kumtanom-112571
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@vishnurnair
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@lilzidesigns
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@pixabay

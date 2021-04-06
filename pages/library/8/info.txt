@@ -1,0 +1,8 @@
+RecordNo: 8
+InstrumentName: violin
+MusicName: massenet_meditationPNO
+Folder:
+8/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

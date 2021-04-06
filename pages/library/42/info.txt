@@ -1,0 +1,8 @@
+RecordNo: 42
+InstrumentName: violin
+MusicName: rossini_william_tell_vn
+Folder:
+42/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid

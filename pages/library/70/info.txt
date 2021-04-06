@@ -1,0 +1,8 @@
+RecordNo: 70
+InstrumentName: flute
+MusicName: bob_cat
+Folder:
+70/
+- sheet_images/sheet_music*.png
+- sheet_music.pdf
+- *.mid
