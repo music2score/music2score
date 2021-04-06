@@ -1,21 +1,21 @@
-# apiVersion: cert-manager.io/v1
-# kind: Certificate
-# metadata:
-#   name: music2score-tls
-# spec:
-#   secretName: music2score-xyz
-#   issuerRef:
-#     name: letsencrypt-prod
-#     kind: ClusterIssuer
-#     group: cert-manager.io
-#   commonName: music2score.xyz
-#   dnsNames:
-#     - music2score.xyz
-#     - www.music2score.xyz
-#   # acme:
-#   #   config:
-#   #     - http01:
-#   #         ingressClass: nginx
-#   #       domains:
-#   #         - music2score.xyz
-#   #         - www.music2score.xyz
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: music2score-tls
+spec:
+  secretName: music2score-xyz
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+    group: cert-manager.io
+  commonName: music2score.xyz
+  dnsNames:
+    - music2score.xyz
+    - www.music2score.xyz
+  # acme:
+  #   config:
+  #     - http01:
+  #         ingressClass: nginx
+  #       domains:
+  #         - music2score.xyz
+  #         - www.music2score.xyz
