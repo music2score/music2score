@@ -38,12 +38,12 @@ class NavigationBarCest
 
         $I->see('Most Recent');
         $I->click('Most Recent');
-        $I->seeCurrentUrlEquals('/browse_recent.php');
+        $I->seeCurrentUrlEquals('/browse_recent.php?page=1');
 
         $I->click('Browse');
         $I->see('By Instrument');
         $I->click('By Instrument');
-        $I->seeCurrentUrlEquals('/browse_instrument.php');
+        $I->seeCurrentUrlEquals('/browse_instrument.php?type=All&page=1');
     }
 
     public function click_contact(AcceptanceTester $I)
