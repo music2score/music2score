@@ -58,6 +58,12 @@ spec:
         volumeMounts:
           - name: apache-server-git-storage1
             mountPath: /music2score1/
+      - name: changeowner
+        image: busybox
+        command: ["/bin/chmod","-R","777", "/var/www/html/uploads/"]
+        volumeMounts:
+          - name: apache-server-claim-storage2
+            mountPath: /var/www/html/uploads/
       containers:
       - image: muditsingh13/music2score:apache_server
         name: apache-server
