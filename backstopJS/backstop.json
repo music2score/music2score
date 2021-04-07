@@ -74,7 +74,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold" : 0.1,
+      "misMatchThreshold" : 0.5,
       "requireSameDimensions": true
     },
     {
@@ -93,7 +93,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold" : 0.1,
+      "misMatchThreshold" : 0.5,
       "requireSameDimensions": true
     },
     {
@@ -199,7 +199,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold" : 0.1,
+      "misMatchThreshold" : 0.5,
       "requireSameDimensions": true,
       "keyPressSelectors": [
         {
@@ -245,7 +245,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold" : 0.1,
+      "misMatchThreshold" : 0.5,
       "requireSameDimensions": true,
       "keyPressSelectors": [
         {
