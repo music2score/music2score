@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS `jobs`;
 DROP TABLE IF EXISTS `user`;
 DROP TABLE IF EXISTS `music`;
 
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id` bigint NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
@@ -18,7 +18,7 @@ ALTER TABLE `user`
   MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
 COMMIT;
 
-CREATE TABLE `jobs` (
+CREATE TABLE IF NOT EXISTS `jobs` (
   `jobid` bigint NOT NULL,
   `filename` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `userid` bigint NOT NULL,
@@ -42,7 +42,7 @@ DELETE FROM jobs;
 
 -- docker exec -i docker_mysql_server_1 mysql -u root -p12345 < ../codeception/bin/_data/acceptance_test_data.sql
 
-CREATE TABLE `music` (
+CREATE TABLE IF NOT EXISTS `music` (
   `id` bigint NOT NULL,
   `name` varchar(255) NOT NULL,
   `filename` varchar(255) NOT NULL,

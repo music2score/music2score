@@ -26,7 +26,7 @@ class FooterCest
 
         $I->see('Browse Existing Library');
         $I->click('.footer_button_browse');
-        $I->seeCurrentUrlEquals('/browse_recent.php');
+        $I->seeCurrentUrlEquals('/browse_recent.php?page=1');
     }
 
     public function footer_button_upload(AcceptanceTester $I)
