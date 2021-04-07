@@ -13,6 +13,7 @@ jobs:
             cd docker
             docker-compose up -d
             sleep 240
+            docker-compose start lilypond_server
             docker-compose run --rm codecept
   Python:
     machine: 
