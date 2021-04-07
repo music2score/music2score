@@ -34,6 +34,8 @@ class UploadPageCest
         $I->click('.upload_submit_button');
         $I->wait(2);
         $I->seeCurrentUrlEquals('/download.php');
+        $I->wait(10);
+        $I->see('Status: Completed');
     }
 
     // public function upload_incorrect_file(AcceptanceTester $I) Looks like this has been changed. All files allowed now?

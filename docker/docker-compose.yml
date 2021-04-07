@@ -61,6 +61,7 @@ services:
    - apache_server
    - mysql_server
    - phpmyadmin
+   - lilypond_server
   volumes:
    - ../:/project
   links:
@@ -75,6 +76,10 @@ services:
    - ../backstopJS/:/src
   links:
    - apache_server:apache_server
+  depends_on:
+   - apache_server
+   - mysql_server
+   - lilypond_server
  pytest:
   build:
    context: ../
@@ -84,3 +89,6 @@ services:
    - ../tests/:/project/tests/
   links:
    - mysql_server:mysql_server
+  depends_on:
+   - mysql_server
+   - lilypond_server

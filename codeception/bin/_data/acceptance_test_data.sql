@@ -1,3 +1,5 @@
+DROP DATABASE music2score_test;
+CREATE DATABASE music2score_test;
 USE music2score_test;
 DROP TABLE IF EXISTS `jobs`;
 DROP TABLE IF EXISTS `user`;

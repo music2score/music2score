@@ -40,6 +40,7 @@ class NavigationBarCest
         $I->click('Most Recent');
         $I->seeCurrentUrlEquals('/browse_recent.php?page=1');
 
+        $I->wait(2);
         $I->click('Browse');
         $I->see('By Instrument');
         $I->click('By Instrument');
