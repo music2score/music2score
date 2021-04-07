@@ -37,6 +37,9 @@ services:
   depends_on:
    mysql_server:
     condition: service_healthy
+  deploy:
+    restart_policy:
+      condition: any
   links:
    - apache_server:apache_server
    - mysql_server:mysql_server
