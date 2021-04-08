@@ -8,6 +8,7 @@ class NavigationBarCest
     public function _before(AcceptanceTester $I)
     {
         $I->amOnPage('/register.php');
+        $I->wait(2);
     }
 
     protected function _login (AcceptanceTester $I)

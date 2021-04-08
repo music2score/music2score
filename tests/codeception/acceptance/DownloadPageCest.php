@@ -7,6 +7,7 @@ class DownloadPageCest
 
     public function _before(AcceptanceTester $I)
     {
+        $I->wait(2);
     }
 
     protected function _login (AcceptanceTester $I)

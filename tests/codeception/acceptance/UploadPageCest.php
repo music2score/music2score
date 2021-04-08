@@ -7,6 +7,7 @@ class UploadPageCest
 
     public function _before(AcceptanceTester $I)
     {
+        $I->wait(2);
     }
 
     protected function _login (AcceptanceTester $I)
@@ -26,17 +27,17 @@ class UploadPageCest
         $I->see('File Uploader');
     }
 
-    public function upload_attach_file(AcceptanceTester $I)
-    {
-        $this->_login($I);
-        $I->amOnPage('/upload.php');
-        $I->attachFile('#file', 'sample.mid');
-        $I->click('.upload_submit_button');
-        $I->wait(2);
-        $I->seeCurrentUrlEquals('/download.php');
-        $I->wait(10);
-        $I->see('Status: Completed');
-    }
+    // public function upload_attach_file(AcceptanceTester $I)
+    // {
+    //     $this->_login($I);
+    //     $I->amOnPage('/upload.php');
+    //     $I->attachFile('#file', 'sample.mid');
+    //     $I->click('.upload_submit_button');
+    //     $I->wait(2);
+    //     $I->seeCurrentUrlEquals('/download.php');
+    //     $I->wait(10);
+    //     $I->see('Status: Completed');
+    // }
 
     // public function upload_incorrect_file(AcceptanceTester $I) Looks like this has been changed. All files allowed now?
     // {

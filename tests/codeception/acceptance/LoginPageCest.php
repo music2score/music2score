@@ -5,6 +5,7 @@ class LoginPageCest
 {
     public function _before(AcceptanceTester $I)
     {
+        $I->wait(2);
         $I->amOnPage('/login.php');
     }
 

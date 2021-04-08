@@ -5,6 +5,7 @@ class RegistrationPageCest
 {
     public function _before(AcceptanceTester $I)
     {
+        $I->wait(2);
         $I->amOnPage('/register.php');
     }
 

@@ -245,7 +245,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold" : 20,
+      "misMatchThreshold" : 50,
       "requireSameDimensions": true,
       "keyPressSelectors": [
         {
