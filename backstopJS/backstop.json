@@ -27,7 +27,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 0,
+      "delay": 1000,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
@@ -46,7 +46,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 0,
+      "delay": 1000,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
@@ -57,6 +57,242 @@
       "expect": 0,
       "misMatchThreshold" : 0.1,
       "requireSameDimensions": true
+    },
+    {
+      "label": "BrowseMostRecentPage",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://apache_server/browse_recent.php",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 3000,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0.5,
+      "requireSameDimensions": true,
+      "viewports": [
+        {
+          "label": "tablet",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "label": "monitor",
+          "width": 1920,
+          "height": 1080
+        }
+      ]
+    },
+    {
+      "label": "BrowseByInstrumentPage",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://apache_server/browse_instrument.php",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 3000,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0.5,
+      "requireSameDimensions": true,
+      "viewports": [
+        {
+          "label": "tablet",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "label": "monitor",
+          "width": 1920,
+          "height": 1080
+        }
+      ]
+    },
+    {
+      "label": "ContactPage",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://apache_server/contactus.php",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 1000,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "AboutPage",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://apache_server/aboutus.php",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 1000,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "UploadPageNormal",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://apache_server/login.php",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 3000,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": [
+        "#loginbtn",
+        ".navbar_account_button",
+        "#uploadbtn"
+      ],
+      "postInteractionWait": 1000,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true,
+      "keyPressSelectors": [
+        {
+          "selector": "#email",
+          "keyPress": "testuser@test.com"
+        },
+        {
+          "selector": "#password",
+          "keyPress": "1234"
+        }
+      ],
+      "viewports": [
+        {
+          "label": "tablet",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "label": "monitor",
+          "width": 1920,
+          "height": 1080
+        }
+      ]
+    },
+    {
+      "label": "DownloadPageNormal",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://apache_server/login.php",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 3000,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": [
+        "#loginbtn",
+        ".navbar_account_button",
+        "#downloadbtn"
+      ],
+      "postInteractionWait": 1000,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0.5,
+      "requireSameDimensions": true,
+      "keyPressSelectors": [
+        {
+          "selector": "#email",
+          "keyPress": "testuser@test.com"
+        },
+        {
+          "selector": "#password",
+          "keyPress": "1234"
+        }
+      ],
+      "viewports": [
+        {
+          "label": "tablet",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "label": "monitor",
+          "width": 1920,
+          "height": 1080
+        }
+      ]
+    },
+    {
+      "label": "ViewPageNormal",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://apache_server/login.php",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 3000,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": [
+        "#loginbtn",
+        ".navbar_account_button",
+        "#downloadbtn",
+        ".viewbtn"
+      ],
+      "postInteractionWait": 1000,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 20,
+      "requireSameDimensions": true,
+      "keyPressSelectors": [
+        {
+          "selector": "#email",
+          "keyPress": "testuser@test.com"
+        },
+        {
+          "selector": "#password",
+          "keyPress": "1234"
+        }
+      ],
+      "viewports": [
+        {
+          "label": "tablet",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "label": "monitor",
+          "width": 1920,
+          "height": 1080
+        }
+      ]
     }
   ],
   "paths": {
