@@ -1,10 +1,10 @@
-report({
+{
   "testSuite": "BackstopJS",
   "tests": [
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_RegistrationPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_RegistrationPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_RegistrationPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_RegistrationPage_0_document_0_phone.png",
         "label": "RegistrationPage",
@@ -28,7 +28,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_RegistrationPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_RegistrationPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_RegistrationPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_RegistrationPage_0_document_1_tablet.png",
         "label": "RegistrationPage",
@@ -52,7 +52,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_RegistrationPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_RegistrationPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_RegistrationPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_RegistrationPage_0_document_2_monitor.png",
         "label": "RegistrationPage",
@@ -76,7 +76,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_LoginPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_LoginPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_LoginPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_LoginPage_0_document_0_phone.png",
         "label": "LoginPage",
@@ -100,7 +100,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_LoginPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_LoginPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_LoginPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_LoginPage_0_document_1_tablet.png",
         "label": "LoginPage",
@@ -124,7 +124,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_LoginPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_LoginPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_LoginPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_LoginPage_0_document_2_monitor.png",
         "label": "LoginPage",
@@ -147,10 +147,34 @@ report({
     },
     {
       "pair": {
-        "reference": "../bitmaps_reference/backstop_default_BrowseMostRecentPage_0_document_0_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_BrowseMostRecentPage_0_document_0_tablet.png",
+        "reference": "../bitmaps_reference/backstop_default_BrowseMostRecentPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_BrowseMostRecentPage_0_document_0_phone.png",
         "selector": "document",
-        "fileName": "backstop_default_BrowseMostRecentPage_0_document_0_tablet.png",
+        "fileName": "backstop_default_BrowseMostRecentPage_0_document_0_phone.png",
+        "label": "BrowseMostRecentPage",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 0.5,
+        "url": "http://apache_server/browse_recent.php",
+        "referenceUrl": "",
+        "expect": 0,
+        "viewportLabel": "phone",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/backstop_default_BrowseMostRecentPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_BrowseMostRecentPage_0_document_1_tablet.png",
+        "selector": "document",
+        "fileName": "backstop_default_BrowseMostRecentPage_0_document_1_tablet.png",
         "label": "BrowseMostRecentPage",
         "requireSameDimensions": true,
         "misMatchThreshold": 0.5,
@@ -171,10 +195,10 @@ report({
     },
     {
       "pair": {
-        "reference": "../bitmaps_reference/backstop_default_BrowseMostRecentPage_0_document_1_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_BrowseMostRecentPage_0_document_1_monitor.png",
+        "reference": "../bitmaps_reference/backstop_default_BrowseMostRecentPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_BrowseMostRecentPage_0_document_2_monitor.png",
         "selector": "document",
-        "fileName": "backstop_default_BrowseMostRecentPage_0_document_1_monitor.png",
+        "fileName": "backstop_default_BrowseMostRecentPage_0_document_2_monitor.png",
         "label": "BrowseMostRecentPage",
         "requireSameDimensions": true,
         "misMatchThreshold": 0.5,
@@ -195,10 +219,36 @@ report({
     },
     {
       "pair": {
-        "reference": "../bitmaps_reference/backstop_default_BrowseByInstrumentPage_0_document_0_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_BrowseByInstrumentPage_0_document_0_tablet.png",
+        "reference": "../bitmaps_reference/backstop_default_BrowseByInstrumentPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_BrowseByInstrumentPage_0_document_0_phone.png",
         "selector": "document",
-        "fileName": "backstop_default_BrowseByInstrumentPage_0_document_0_tablet.png",
+        "fileName": "backstop_default_BrowseByInstrumentPage_0_document_0_phone.png",
+        "label": "BrowseByInstrumentPage",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 0.5,
+        "url": "http://apache_server/browse_instrument.php",
+        "referenceUrl": "",
+        "expect": 0,
+        "viewportLabel": "phone",
+        "diff": {
+          "isSameDimensions": false,
+          "dimensionDifference": {
+            "width": 0,
+            "height": -2697
+          },
+          "misMatchPercentage": "0.00",
+          "analysisTime": 36
+        },
+        "diffImage": "../bitmaps_test/20210408-020904/failed_diff_backstop_default_BrowseByInstrumentPage_0_document_0_phone.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/backstop_default_BrowseByInstrumentPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_BrowseByInstrumentPage_0_document_1_tablet.png",
+        "selector": "document",
+        "fileName": "backstop_default_BrowseByInstrumentPage_0_document_1_tablet.png",
         "label": "BrowseByInstrumentPage",
         "requireSameDimensions": true,
         "misMatchThreshold": 0.5,
@@ -219,10 +269,10 @@ report({
     },
     {
       "pair": {
-        "reference": "../bitmaps_reference/backstop_default_BrowseByInstrumentPage_0_document_1_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_BrowseByInstrumentPage_0_document_1_monitor.png",
+        "reference": "../bitmaps_reference/backstop_default_BrowseByInstrumentPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_BrowseByInstrumentPage_0_document_2_monitor.png",
         "selector": "document",
-        "fileName": "backstop_default_BrowseByInstrumentPage_0_document_1_monitor.png",
+        "fileName": "backstop_default_BrowseByInstrumentPage_0_document_2_monitor.png",
         "label": "BrowseByInstrumentPage",
         "requireSameDimensions": true,
         "misMatchThreshold": 0.5,
@@ -244,7 +294,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_ContactPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_ContactPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_ContactPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_ContactPage_0_document_0_phone.png",
         "label": "ContactPage",
@@ -268,7 +318,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_ContactPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_ContactPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_ContactPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_ContactPage_0_document_1_tablet.png",
         "label": "ContactPage",
@@ -292,7 +342,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_ContactPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_ContactPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_ContactPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_ContactPage_0_document_2_monitor.png",
         "label": "ContactPage",
@@ -316,7 +366,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_AboutPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_AboutPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_AboutPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_AboutPage_0_document_0_phone.png",
         "label": "AboutPage",
@@ -340,7 +390,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_AboutPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_AboutPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_AboutPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_AboutPage_0_document_1_tablet.png",
         "label": "AboutPage",
@@ -364,7 +414,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_AboutPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_AboutPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_AboutPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_AboutPage_0_document_2_monitor.png",
         "label": "AboutPage",
@@ -388,7 +438,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_UploadPageNormal_0_document_0_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_UploadPageNormal_0_document_0_tablet.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_UploadPageNormal_0_document_0_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_UploadPageNormal_0_document_0_tablet.png",
         "label": "UploadPageNormal",
@@ -412,7 +462,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_UploadPageNormal_0_document_1_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_UploadPageNormal_0_document_1_monitor.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_UploadPageNormal_0_document_1_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_UploadPageNormal_0_document_1_monitor.png",
         "label": "UploadPageNormal",
@@ -436,7 +486,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_DownloadPageNormal_0_document_0_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_DownloadPageNormal_0_document_0_tablet.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_DownloadPageNormal_0_document_0_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_DownloadPageNormal_0_document_0_tablet.png",
         "label": "DownloadPageNormal",
@@ -452,8 +502,7 @@ report({
             "width": 0,
             "height": 0
           },
-          "misMatchPercentage": "0.50",
-          "analysisTime": 39
+          "misMatchPercentage": "0.00"
         }
       },
       "status": "pass"
@@ -461,7 +510,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_DownloadPageNormal_0_document_1_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_DownloadPageNormal_0_document_1_monitor.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_DownloadPageNormal_0_document_1_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_DownloadPageNormal_0_document_1_monitor.png",
         "label": "DownloadPageNormal",
@@ -477,8 +526,7 @@ report({
             "width": 0,
             "height": 0
           },
-          "misMatchPercentage": "0.23",
-          "analysisTime": 64
+          "misMatchPercentage": "0.00"
         }
       },
       "status": "pass"
@@ -486,7 +534,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_ViewPageNormal_0_document_0_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_ViewPageNormal_0_document_0_tablet.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_ViewPageNormal_0_document_0_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_ViewPageNormal_0_document_0_tablet.png",
         "label": "ViewPageNormal",
@@ -510,7 +558,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_ViewPageNormal_0_document_1_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_ViewPageNormal_0_document_1_monitor.png",
+        "test": "../bitmaps_test/20210408-020904/backstop_default_ViewPageNormal_0_document_1_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_ViewPageNormal_0_document_1_monitor.png",
         "label": "ViewPageNormal",
@@ -533,4 +581,4 @@ report({
     }
   ],
   "id": "backstop_default"
-});
+}

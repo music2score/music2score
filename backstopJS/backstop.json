@@ -27,7 +27,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 0,
+      "delay": 1000,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
@@ -46,7 +46,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 0,
+      "delay": 1000,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
@@ -65,7 +65,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 0,
+      "delay": 2000,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
@@ -75,7 +75,19 @@
       "selectorExpansion": true,
       "expect": 0,
       "misMatchThreshold" : 0.5,
-      "requireSameDimensions": true
+      "requireSameDimensions": true,
+      "viewports": [
+        {
+          "label": "tablet",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "label": "monitor",
+          "width": 1920,
+          "height": 1080
+        }
+      ]
     },
     {
       "label": "BrowseByInstrumentPage",
@@ -84,7 +96,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 0,
+      "delay": 2000,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
@@ -94,7 +106,19 @@
       "selectorExpansion": true,
       "expect": 0,
       "misMatchThreshold" : 0.5,
-      "requireSameDimensions": true
+      "requireSameDimensions": true,
+      "viewports": [
+        {
+          "label": "tablet",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "label": "monitor",
+          "width": 1920,
+          "height": 1080
+        }
+      ]
     },
     {
       "label": "ContactPage",
@@ -103,7 +127,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 0,
+      "delay": 1000,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
@@ -122,7 +146,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 0,
+      "delay": 1000,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
@@ -141,7 +165,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 2,
+      "delay": 2000,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
@@ -186,7 +210,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 2,
+      "delay": 2000,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
@@ -231,7 +255,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 2,
+      "delay": 2000,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
@@ -245,7 +269,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold" : 50,
+      "misMatchThreshold" : 20,
       "requireSameDimensions": true,
       "keyPressSelectors": [
         {

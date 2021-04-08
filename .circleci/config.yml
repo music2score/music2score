@@ -13,7 +13,7 @@ jobs:
             cd docker
             docker-compose up -d
             docker-compose kill codecept 
-            sleep 40
+            sleep 120
             docker-compose run --rm codecept
   Python:
     machine: 

@@ -5,7 +5,7 @@ class RegistrationAndLoginCest
 {
     public function _before(AcceptanceTester $I)
     {
-        $I->wait(2);
+        $I->wait(1);
         $I->amOnPage('/register.php');
     }
 
