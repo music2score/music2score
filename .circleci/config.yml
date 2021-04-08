@@ -12,7 +12,8 @@ jobs:
             set -x
             cd docker
             docker-compose up -d
-            sleep 240
+            docker-compose kill codecept 
+            sleep 40
             docker-compose start lilypond_server
             docker-compose run --rm codecept
   Python:
@@ -39,7 +40,8 @@ jobs:
             set -x
             cd docker
             docker-compose up -d
-            sleep 15
+            docker-compose kill codecept
+            sleep 20
             docker exec -i docker_mysql_server_1 mysql -u root -p12345 < ../backstopJS/vrt_test_data.sql
             sleep 10
             docker-compose run visual_regression_tests test
