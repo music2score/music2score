@@ -10,10 +10,11 @@ jobs:
           name: Initialise Containers and Test Web App
           command: |
             set -x
+            sudo chmod 777 pages/uploads
             cd docker
             docker-compose up -d
             docker-compose kill codecept 
-            sleep 120
+            sleep 40
             docker-compose run --rm codecept
   Python:
     machine: 
@@ -26,6 +27,7 @@ jobs:
             set -x
             cd docker
             docker-compose up -d
+            docker-compose kill codecept
             sleep 60
             docker-compose run --rm pytest
   VisualRegression:
@@ -37,6 +39,7 @@ jobs:
           name: Initialize containers and Check Visual Regression
           command: |
             set -x
+            mv codeception/bin/_data/1_20210314_050829893404_6164539564972943 pages/uploads
             cd docker
             docker-compose up -d
             docker-compose kill codecept

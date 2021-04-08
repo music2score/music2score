@@ -36,7 +36,7 @@ class UploadDownloadViewCest
         $I->dontSee('Download', 'button');
         
         $I->wait(10);
-        
+
         $I->see('Status: Completed');
         $I->see('View', 'button');
         $I->see('Download', 'button');

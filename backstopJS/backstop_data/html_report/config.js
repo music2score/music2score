@@ -4,7 +4,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_RegistrationPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_RegistrationPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_RegistrationPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_RegistrationPage_0_document_0_phone.png",
         "label": "RegistrationPage",
@@ -28,7 +28,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_RegistrationPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_RegistrationPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_RegistrationPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_RegistrationPage_0_document_1_tablet.png",
         "label": "RegistrationPage",
@@ -52,7 +52,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_RegistrationPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_RegistrationPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_RegistrationPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_RegistrationPage_0_document_2_monitor.png",
         "label": "RegistrationPage",
@@ -76,7 +76,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_LoginPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_LoginPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_LoginPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_LoginPage_0_document_0_phone.png",
         "label": "LoginPage",
@@ -100,7 +100,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_LoginPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_LoginPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_LoginPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_LoginPage_0_document_1_tablet.png",
         "label": "LoginPage",
@@ -124,7 +124,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_LoginPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_LoginPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_LoginPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_LoginPage_0_document_2_monitor.png",
         "label": "LoginPage",
@@ -148,7 +148,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_BrowseMostRecentPage_0_document_0_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_BrowseMostRecentPage_0_document_0_tablet.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_BrowseMostRecentPage_0_document_0_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_BrowseMostRecentPage_0_document_0_tablet.png",
         "label": "BrowseMostRecentPage",
@@ -172,7 +172,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_BrowseMostRecentPage_0_document_1_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_BrowseMostRecentPage_0_document_1_monitor.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_BrowseMostRecentPage_0_document_1_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_BrowseMostRecentPage_0_document_1_monitor.png",
         "label": "BrowseMostRecentPage",
@@ -196,7 +196,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_BrowseByInstrumentPage_0_document_0_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_BrowseByInstrumentPage_0_document_0_tablet.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_BrowseByInstrumentPage_0_document_0_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_BrowseByInstrumentPage_0_document_0_tablet.png",
         "label": "BrowseByInstrumentPage",
@@ -220,7 +220,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_BrowseByInstrumentPage_0_document_1_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_BrowseByInstrumentPage_0_document_1_monitor.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_BrowseByInstrumentPage_0_document_1_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_BrowseByInstrumentPage_0_document_1_monitor.png",
         "label": "BrowseByInstrumentPage",
@@ -244,7 +244,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_ContactPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_ContactPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_ContactPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_ContactPage_0_document_0_phone.png",
         "label": "ContactPage",
@@ -268,7 +268,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_ContactPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_ContactPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_ContactPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_ContactPage_0_document_1_tablet.png",
         "label": "ContactPage",
@@ -292,7 +292,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_ContactPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_ContactPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_ContactPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_ContactPage_0_document_2_monitor.png",
         "label": "ContactPage",
@@ -316,7 +316,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_AboutPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_AboutPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_AboutPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_AboutPage_0_document_0_phone.png",
         "label": "AboutPage",
@@ -340,7 +340,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_AboutPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_AboutPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_AboutPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_AboutPage_0_document_1_tablet.png",
         "label": "AboutPage",
@@ -364,7 +364,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_AboutPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_AboutPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_AboutPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_AboutPage_0_document_2_monitor.png",
         "label": "AboutPage",
@@ -388,7 +388,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_UploadPageNormal_0_document_0_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_UploadPageNormal_0_document_0_tablet.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_UploadPageNormal_0_document_0_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_UploadPageNormal_0_document_0_tablet.png",
         "label": "UploadPageNormal",
@@ -412,7 +412,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_UploadPageNormal_0_document_1_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_UploadPageNormal_0_document_1_monitor.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_UploadPageNormal_0_document_1_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_UploadPageNormal_0_document_1_monitor.png",
         "label": "UploadPageNormal",
@@ -436,7 +436,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_DownloadPageNormal_0_document_0_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_DownloadPageNormal_0_document_0_tablet.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_DownloadPageNormal_0_document_0_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_DownloadPageNormal_0_document_0_tablet.png",
         "label": "DownloadPageNormal",
@@ -453,7 +453,7 @@ report({
             "height": 0
           },
           "misMatchPercentage": "0.50",
-          "analysisTime": 39
+          "analysisTime": 36
         }
       },
       "status": "pass"
@@ -461,7 +461,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_DownloadPageNormal_0_document_1_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_DownloadPageNormal_0_document_1_monitor.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_DownloadPageNormal_0_document_1_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_DownloadPageNormal_0_document_1_monitor.png",
         "label": "DownloadPageNormal",
@@ -477,8 +477,7 @@ report({
             "width": 0,
             "height": 0
           },
-          "misMatchPercentage": "0.23",
-          "analysisTime": 64
+          "misMatchPercentage": "0.00"
         }
       },
       "status": "pass"
@@ -486,7 +485,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_ViewPageNormal_0_document_0_tablet.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_ViewPageNormal_0_document_0_tablet.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_ViewPageNormal_0_document_0_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_ViewPageNormal_0_document_0_tablet.png",
         "label": "ViewPageNormal",
@@ -510,7 +509,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_ViewPageNormal_0_document_1_monitor.png",
-        "test": "../bitmaps_test/20210408-021333/backstop_default_ViewPageNormal_0_document_1_monitor.png",
+        "test": "../bitmaps_test/20210408-181339/backstop_default_ViewPageNormal_0_document_1_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_ViewPageNormal_0_document_1_monitor.png",
         "label": "ViewPageNormal",
