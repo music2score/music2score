@@ -79,12 +79,15 @@ def env_connect(mydb):
     
     try:
         dbAttempt["host"] = hostDocker
+        dbAttempt["database"] = "music2score_test"
         mydb = conn.connect(**dbAttempt)
         urlDown, urlUp = url_Docker_download, url_Docker_upload
     except (OSError, ImportError, conn.Error):
         dbAttempt["host"] = hostKuber
         mydb = conn.connect(**dbAttempt)
         urlDown, urlUp = url_Kuber_download, url_Kuber_upload
+    finally:
+        print("Everything is broken")
     
     print("MySQL Host Name:", dbAttempt["host"])
     return mydb, urlDown, urlUp
