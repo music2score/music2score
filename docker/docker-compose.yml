@@ -7,6 +7,7 @@ services:
   volumes:
    - ../pages/:/var/www/html
    - ../php_config/:/usr/local/etc/php/
+  #  - ../pages/uploads/:/var/www/html/uploads/
   links:
    - mysql_server:mysql_server
   ports:
@@ -21,6 +22,11 @@ services:
    MYSQL_DATABASE: music2score_test
   ports:
    - 3306:3306
+  healthcheck:
+   test: ["CMD", "mysql", "-uroot", "-p12345", "-hmysql_server"]
+   interval: 10s
+   timeout: 10s
+   retries: 6
  lilypond_server:
   build:
    context: ../
@@ -29,8 +35,11 @@ services:
    - ../python/:/python/
   entrypoint: ["python", "./python/polling.py"]
   depends_on:
-   - apache_server
-   - mysql_server
+   mysql_server:
+    condition: service_healthy
+  deploy:
+    restart_policy:
+      condition: any
   links:
    - apache_server:apache_server
    - mysql_server:mysql_server
@@ -55,6 +64,7 @@ services:
    - apache_server
    - mysql_server
    - phpmyadmin
+   - lilypond_server
   volumes:
    - ../:/project
   links:
@@ -69,3 +79,19 @@ services:
    - ../backstopJS/:/src
   links:
    - apache_server:apache_server
+  depends_on:
+   - apache_server
+   - mysql_server
+   - lilypond_server
+ pytest:
+  build:
+   context: ../
+   dockerfile: docker/Dockerfile4
+  volumes: 
+   - ../python/:/project/python/
+   - ../tests/:/project/tests/
+  links:
+   - mysql_server:mysql_server
+  depends_on:
+   - mysql_server
+   - lilypond_server

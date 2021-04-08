@@ -49,33 +49,31 @@ $pagename = basename($_SERVER['PHP_SELF'], ".php");
             </div>
         </form>
 
-        <ul class="navbar-nav">
-            <?php if($Auth->is_authenticated()){ ?>
-            <li class="nav-item dropdown navbar_dropdown_container">
-                <a class="nav-link dropdown-toggle navbar_account_button" id="navbarDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Account
-                </a>
-                <div class="dropdown-menu navbar_account_dropdown" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item navbar_dropdown_item" href="./upload.php">Upload New</a>
-                    <a class="dropdown-item navbar_dropdown_item" href="./download.php">My Sheets</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item navbar_dropdown_item" href="./logout.php">Logout</a>
-                </div>
-            </li>
-            <?php }else{ ?>
-            <li class="nav-item dropdown navbar_dropdown_container">
-                <a class="nav-link dropdown-toggle navbar_account_button" id="navbarDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Sign In/Up
-                </a>
-                <div class="dropdown-menu navbar_account_dropdown" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item navbar_dropdown_item" href="./register.php">Register</a>
-                    <a class="dropdown-item navbar_dropdown_item" href="./login.php">Login</a>
-                </div>
-            </li>
-            <?php } ?>
-        </ul>
-    </div>
+    <ul class="navbar-nav">
+        <?php if($Auth->is_authenticated()){ ?>
+        <li class="nav-item dropdown navbar_dropdown_container">
+        <a class="nav-link dropdown-toggle navbar_account_button" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account
+        </a>
+        <div class="dropdown-menu navbar_account_dropdown" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item navbar_dropdown_item" id="uploadbtn" href="./upload.php">Upload New</a>
+          <a class="dropdown-item navbar_dropdown_item" id="downloadbtn" href="./download.php">My Sheets</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item navbar_dropdown_item" id="logoutbtn" href="./logout.php">Logout</a>
+        </div>
+      </li>
+      <?php }else{ ?>
+        <li class="nav-item dropdown navbar_dropdown_container">
+        <a class="nav-link dropdown-toggle navbar_account_button" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sign In/Up
+        </a>
+        <div class="dropdown-menu navbar_account_dropdown" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item navbar_dropdown_item" href="./register.php">Register</a>
+          <a class="dropdown-item navbar_dropdown_item" href="./login.php">Login</a>
+        </div>
+      </li>
+      <?php } ?>
+    </ul>
+  </div>
 </nav>
 <div class="navbar_spacer"></div>

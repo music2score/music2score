@@ -6,66 +6,65 @@ orbs:
   docker: circleci/docker@1.5.0
 
 jobs:
-  # Codeception:
-  #   machine: 
-  #     image: ubuntu-2004:202101-01
-  #   steps:
-  #     - checkout
-  #     - run: 
-  #         name: Initialise Containers and Test Web App
-  #         command: |
-  #           set -x
-  #           cd docker
-  #           docker-compose up -d
-  #           sleep 40
-  #           docker-compose run --rm codecept
-  # Python:
-  #   working_directory: ~/circleci-python
-  #   docker:
-  #     - image: cimg/python:3.9.1
-  #   steps:
-  #     - checkout
-  #     - run: python3 tests/python/test_hello_world.py
-  # VisualRegression:
-  #   machine: 
-  #     image: ubuntu-2004:202101-01
-  #   steps:
-  #     - checkout
-  #     - run: 
-  #         name: Initialize containers and Check Visual Regression
-  #         command: |
-  #           set -x
-  #           cd docker
-  #           docker-compose up -d
-  #           sleep 10
-  #           docker-compose run visual_regression_tests test
-  Deploy_to_k8s:
-    docker:
-      - image: cimg/base:2020.01
+  Codeception:
+    machine: 
+      image: ubuntu-2004:202101-01
     steps:
       - checkout
-      - kubernetes/install
-      - kubernetes/initialize:
-          cluster: music2score-k8s-deployment #change when moving to production env
-      - run: doctl kubernetes cluster kubeconfig save music2score-k8s-deployment #change when moving to production env
-      - run: kubectl apply -f k8s/
-      - run: kubectl rollout restart deployment apache-server --namespace=music2score
-      - run: kubectl rollout restart deployment mysql-server --namespace=music2score
-      - run: kubectl rollout restart deployment lilypond-server --namespace=music2score
-
+      - run: 
+          name: Initialise Containers and Test Web App
+          command: |
+            set -x
+            sudo chmod 777 pages/uploads
+            cd docker
+            docker-compose up -d
+            docker-compose kill codecept 
+            sleep 40
+            docker-compose run --rm codecept
+  Python:
+    machine: 
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: Initialize and Run pytest container
+          command: |
+            set -x
+            cd docker
+            docker-compose up -d
+            docker-compose kill codecept
+            sleep 60
+            docker-compose run --rm pytest
+  VisualRegression:
+    machine: 
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run: 
+          name: Initialize containers and Check Visual Regression
+          command: |
+            set -x
+            mv codeception/bin/_data/1_20210314_050829893404_6164539564972943 pages/uploads
+            cd docker
+            docker-compose up -d
+            docker-compose kill codecept
+            sleep 20
+            docker exec -i docker_mysql_server_1 mysql -u root -p12345 < ../backstopJS/vrt_test_data.sql
+            sleep 10
+            docker-compose run visual_regression_tests test
 
 workflows:
   Pipeline:
     jobs:
-      # - Codeception
-      # - Python
-      # - VisualRegression
+      - Codeception
+      - Python
+      - VisualRegression
       - Deploy_to_k8s:
           context: DigitalOcean
-          # requires:
-          #   - Codeception
-          #   - Python
-          #   - VisualRegression
+          requires:
+            - Codeception
+            - Python
+            - VisualRegression
           filters:
             branches:
               only:

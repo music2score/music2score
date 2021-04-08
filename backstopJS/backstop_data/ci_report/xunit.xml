@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="BackstopJS" tests="6" failures="0" errors="0" skipped="0">
+  <testsuite name="BackstopJS" tests="22" failures="0" errors="0" skipped="0">
     <testcase classname="document" name=" ›› RegistrationPage"/>
     <testcase classname="document" name=" ›› RegistrationPage"/>
     <testcase classname="document" name=" ›› RegistrationPage"/>
     <testcase classname="document" name=" ›› LoginPage"/>
     <testcase classname="document" name=" ›› LoginPage"/>
     <testcase classname="document" name=" ›› LoginPage"/>
+    <testcase classname="document" name=" ›› BrowseMostRecentPage"/>
+    <testcase classname="document" name=" ›› BrowseMostRecentPage"/>
+    <testcase classname="document" name=" ›› BrowseByInstrumentPage"/>
+    <testcase classname="document" name=" ›› BrowseByInstrumentPage"/>
+    <testcase classname="document" name=" ›› ContactPage"/>
+    <testcase classname="document" name=" ›› ContactPage"/>
+    <testcase classname="document" name=" ›› ContactPage"/>
+    <testcase classname="document" name=" ›› AboutPage"/>
+    <testcase classname="document" name=" ›› AboutPage"/>
+    <testcase classname="document" name=" ›› AboutPage"/>
+    <testcase classname="document" name=" ›› UploadPageNormal"/>
+    <testcase classname="document" name=" ›› UploadPageNormal"/>
+    <testcase classname="document" name=" ›› DownloadPageNormal"/>
+    <testcase classname="document" name=" ›› DownloadPageNormal"/>
+    <testcase classname="document" name=" ›› ViewPageNormal"/>
+    <testcase classname="document" name=" ›› ViewPageNormal"/>
   </testsuite>
 </testsuites>

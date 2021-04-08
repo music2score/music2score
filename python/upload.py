@@ -3,8 +3,18 @@ import zipfile
 import requests
 from time import time, ctime
 
-from constants import *
-from jobs import *
+#from constants import *
+#from jobs import *
+
+try:
+    from constants import * 
+except ImportError:
+    from python.constants import *
+try: 
+    from jobs import *             
+except ImportError:
+    from python.jobs import * 
+
 
 """
     Upload the sheet-score in .pdf and .png to file sharing system.
@@ -30,6 +40,7 @@ def upload_score(newJob: JOB, urlUp: str) -> bool:
     # Check if the upload files are too large for php API
     if not check_size(newJob.localFilePath()):
         print("Upload Refused:\n  Files are larger than %s MB."% upSize_limit)
+        newJob._del_files()
         return False
 
     args = {"server_id": server_id, 
