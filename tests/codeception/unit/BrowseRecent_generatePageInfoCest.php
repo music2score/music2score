@@ -30,5 +30,18 @@ class BrowseRecent_generatePageInfoCest
         $I->assertTrue($BrowseRecent->generatePageInfo($db,"All",2));
         $BrowseRecent =Stub::make(BrowseRecent::class, ['limit' => 5]);
         $I->assertTrue($BrowseRecent->generatePageInfo($db,"Flute",1));
+        $I->haveInDatabase('music', array('id' => 6, 'name' => 'Mozart Sym 123', 'filename' => './some_file6.mid','instrument' => 'Violin','date' => '2021-03-26 12:07:06'));
+        $I->haveInDatabase('music', array('id' => 7, 'name' => 'Mozart Sym 456', 'filename' => './some_file7.mid','instrument' => 'Flute','date' => '2021-03-26 12:07:07'));
+        $I->assertTrue($BrowseRecent->generatePageInfo($db,"Violin",1));
+        $BrowseRecent =Stub::make(BrowseRecent::class, ['querystring' => "Mozart & Flute"]);
+        $I->assertTrue($BrowseRecent->generatePageInfo($db,"Search",1));
+        $BrowseRecent =Stub::make(BrowseRecent::class, ['querystring' => "Mozart & Violin"]);
+        $I->assertTrue($BrowseRecent->generatePageInfo($db,"Search",1));
+        $BrowseRecent =Stub::make(BrowseRecent::class, ['querystring' => "Mozart"]);
+        $I->assertTrue($BrowseRecent->generatePageInfo($db,"Search",1));
+        $BrowseRecent =Stub::make(BrowseRecent::class, ['querystring' => "Flute"]);
+        $I->assertTrue($BrowseRecent->generatePageInfo($db,"Search",1));
+        $BrowseRecent =Stub::make(BrowseRecent::class, ['querystring' => "Violin"]);
+        $I->assertTrue($BrowseRecent->generatePageInfo($db,"Search",1));
     }
 }

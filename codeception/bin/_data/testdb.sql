@@ -45,7 +45,22 @@ CREATE TABLE `music` (
 ALTER TABLE `music`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `filename` (`filename`);
+ALTER TABLE `music` ADD FULLTEXT KEY `name` (`name`);
 
 ALTER TABLE `music`
   MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+
+DROP TABLE IF EXISTS `feedback`;
+CREATE TABLE `feedback` (
+  `id` bigint NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `feedback`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
 COMMIT;

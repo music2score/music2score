@@ -21,7 +21,13 @@ try{
     // API Process **STARTS**
     include("./../helper/browse_class.php");
     $BrowseRecent = new BrowseRecent;
-    if($BrowseRecent->validatePageInfo($db,$_POST["type"],$_POST["page"])){
+    
+    if($_POST["type"]=="Search"){
+        $check=$BrowseRecent->validateSearchPageInfo($db,$_POST["query"],$_POST["page"]);
+    }else{
+        $check=$BrowseRecent->validatePageInfo($db,$_POST["type"],$_POST["page"]);
+    }
+    if($check){
         if($BrowseRecent->generatePageInfo($db,$_POST["type"],$_POST["page"])){
             $JSONobject->status="Success";
             $JSONobject->length=$BrowseRecent->getLength();
@@ -34,6 +40,9 @@ try{
             $JSONobject->page=$BrowseRecent->getPageNo();
             $JSONobject->pages=$BrowseRecent->getMaxPages();
             $JSONobject->type=$BrowseRecent->getType();
+            if($_POST["type"]=="Search"){
+            $JSONobject->query=$BrowseRecent->getQuery();
+            }
         }else{
             $JSONobject->status="Error";
             $JSONobject->errortxt=$BrowseRecent->getErrorTxt();

@@ -33,6 +33,19 @@ ALTER TABLE `jobs`
   MODIFY `jobid` bigint NOT NULL AUTO_INCREMENT;
 COMMIT;
 
+CREATE TABLE `feedback` (
+  `id` bigint NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `feedback`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 CREATE TABLE `music` (
   `id` bigint NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -44,6 +57,7 @@ CREATE TABLE `music` (
 ALTER TABLE `music`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `filename` (`filename`);
+ALTER TABLE `music` ADD FULLTEXT KEY `name` (`name`);
 
 INSERT INTO `music` (`id`, `name`, `filename`, `instrument`, `date`) VALUES
 (1, 'Beethoven Ode to Joy ', 'beethoven_ode_to_joy_vn', 'Violin', '2021-03-26 12:07:23'),
