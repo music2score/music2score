@@ -21,6 +21,8 @@ jobs:
             docker-compose kill codecept 
             sleep 40
             docker-compose run --rm codecept
+      - store_artifacts:
+          path: ~/project/codeception/bin/_output/
   Python:
     machine: 
       image: ubuntu-2004:202101-01
@@ -52,6 +54,8 @@ jobs:
             docker exec -i docker_mysql_server_1 mysql -u root -p12345 < ../backstopJS/vrt_test_data.sql
             sleep 10
             docker-compose run visual_regression_tests test
+      - store_artifacts:
+            path: ~/project/backstopJS/backstop_data/bitmaps_test/
   Deploy_to_k8s:
     docker:
       - image: cimg/base:2020.01

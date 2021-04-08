@@ -13,6 +13,7 @@ class NavigationBarCest
 
     protected function _login (AcceptanceTester $I)
     {
+        $I->wait(1);
         $I->amOnPage('/login.php');
         $I->fillField('email', 'testuser@test.com');        
         $I->fillField('password', '1234');
@@ -79,7 +80,6 @@ class NavigationBarCest
         $I->see('Upload New');
         $I->see('My Sheets');
         $I->see('Logout');
-        $I->makeScreenShot();
 
         $I->click('Upload New');
         $I->seeCurrentUrlEquals('/upload.php');
@@ -94,7 +94,7 @@ class NavigationBarCest
 
         $I->wait(1);
         $I->click('Account');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->see('Logout');
         $I->click('Logout');
         $I->seeCurrentUrlEquals('/');
