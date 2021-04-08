@@ -14,7 +14,6 @@ jobs:
             docker-compose up -d
             docker-compose kill codecept 
             sleep 40
-            docker-compose start lilypond_server
             docker-compose run --rm codecept
   Python:
     machine: 
