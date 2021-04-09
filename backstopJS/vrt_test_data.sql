@@ -1,4 +1,55 @@
+DROP DATABASE music2score_test;
+CREATE DATABASE music2score_test;
 USE music2score_test;
+DROP TABLE IF EXISTS `jobs`;
+DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `music`;
+DROP TABLE IF EXISTS `feedback`;
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` bigint NOT NULL,
+  `fname` varchar(255) NOT NULL,
+  `lname` varchar(255) NOT NULL,
+  `email` varchar(400) NOT NULL,
+  `pass` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+ALTER TABLE `user`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+CREATE TABLE `feedback` (
+  `id` bigint NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `feedback`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+CREATE TABLE IF NOT EXISTS `jobs` (
+  `jobid` bigint NOT NULL,
+  `filename` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `userid` bigint NOT NULL,
+  `processing` int NOT NULL DEFAULT '0',
+  `completed` int NOT NULL DEFAULT '0',
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`jobid`),
+  ADD UNIQUE KEY `filename` (`filename`);
+
+ALTER TABLE `jobs`
+  MODIFY `jobid` bigint NOT NULL AUTO_INCREMENT;
+COMMIT;
 
 INSERT IGNORE INTO user (fname, lname, email, pass)
 VALUES ('test', 'user', 'testuser@test.com', 1234);
@@ -15,7 +66,19 @@ VALUES (1, '1_20210314_050829893404_6164539564972943.mid', 1, 1, 1, '2021-03-14 
 
 -- Just incase
 
-INSERT IGNORE INTO `music` (`id`, `name`, `filename`, `instrument`, `date`) VALUES
+CREATE TABLE IF NOT EXISTS `music` (
+  `id` bigint NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `filename` varchar(255) NOT NULL,
+  `instrument` varchar(255) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+ALTER TABLE `music`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `filename` (`filename`);
+
+INSERT INTO `music` (`id`, `name`, `filename`, `instrument`, `date`) VALUES
 (1, 'Beethoven Ode to Joy ', 'beethoven_ode_to_joy_vn', 'Violin', '2021-03-26 12:07:23'),
 (2, 'Scene Finale', 'scene_finaleVLN', 'Violin', '2021-03-26 12:10:52'),
 (3, 'Vivaldi Spring', 'vivaldi_spring_vn', 'Violin', '2021-03-26 12:13:14'),
@@ -116,3 +179,7 @@ INSERT IGNORE INTO `music` (`id`, `name`, `filename`, `instrument`, `date`) VALU
 (98, 'Bach Arioso BWV 156', 'BachAriosoBWV156FL', 'Flute', '2021-03-27 18:01:43'),
 (99, 'Beautiful Dreamer', 'beautiful_dreamer_FL', 'Flute', '2021-03-27 18:02:04'),
 (100, 'Borodin Polovtsian', 'borodin_polovtsian', 'Flute', '2021-03-27 18:02:30');
+
+ALTER TABLE `music`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+COMMIT;
