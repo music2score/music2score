@@ -50,7 +50,7 @@ jobs:
             cd docker
             docker-compose up -d
             docker-compose kill codecept
-            sleep 20
+            sleep 10
             docker exec -i docker_mysql_server_1 mysql -u root -p12345 < ../backstopJS/vrt_test_data.sql
             sleep 10
             docker-compose run visual_regression_tests test
