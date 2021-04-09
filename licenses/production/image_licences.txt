@@ -1,16 +1,11 @@
-login_image:
 licence: Free to use (CC0)
 artist-link: https://www.pexels.com/@burst
-login_background:
 licence: Free to use with No attribution required.
 artist-link: https://www.pexels.com/@lamiko
-register_background:
 licence: Free to use with No attribution required.
 artist-link: https://www.pexels.com/@olly
-download_image
 licence: Free to use with No attribution required.
 artist-link: https://www.pexels.com/@elina-sazonova
-downloadsheet_music
 licence: Free to use with No attribution required.
 artist-link: https://www.pexels.com/@cottonbro
 upload_image & upload_image2
@@ -24,3 +19,23 @@ licence: Free to use with No attribution required.
 artist-link: https://www.pexels.com/@lilzidesigns
 licence: Free to use with No attribution required.
 artist-link: https://www.pexels.com/@pixabay
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@aeppli
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@david-sun-345764
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@elina-sazonova
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@ethan-jones-1538109
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@thibault-trillet-44912
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@lemonzandtea
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@pixabay
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@kerber
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@kelvin809
+licence: Free to use with No attribution required.
+artist-link: https://www.pexels.com/@evgphotos

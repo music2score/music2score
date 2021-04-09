@@ -2,7 +2,8 @@
 
 class BrowseRecent {
     private $errortxt="";
-    private $validtypes=array("All","Violin","Flute");
+    private $querystring="";
+    private $validtypes=array("All","Violin","Flute","Search");
     private $type="All";
     
     private $pageno=0;
@@ -34,10 +35,49 @@ class BrowseRecent {
         $this->errortxt="";
         return true;
     }
+
+    public function validateSearchPageInfo($db,$query,$page){
+        if(!isset($db)||$db==false||$db==null){
+            $this->errortxt="Connection Error: Cannot Connect to database.";
+            return false;
+        }
+        if(!isset($query)||$query==false||$query==null||$query==""){
+            $this->querystring="All";
+        }else{
+            $this->querystring=htmlspecialchars_decode($query);
+        }
+        if(!isset($page)||!is_numeric($page)){
+            $this->errortxt="Request Error: Invalid Page Number.";
+            return false;
+        }
+        $this->errortxt="";
+        return true;
+    }
+
     public function generatePageInfo($db,$type,$page){
         //Fetch Total Number of Records
-        if($type=="All"){
+        if($type=="All"||$this->querystring=="All"){
             $query=$db->prepare("SELECT * FROM music");
+            $query->execute();
+        }elseif($type=="Search"){
+            if(preg_match("/VIOLIN/i",$this->querystring)&&!preg_match("/FLUTE/i",$this->querystring)){
+                if(str_replace(" ","",str_ireplace("VIOLIN","",$this->querystring))==""){
+                    $query=$db->prepare("SELECT * FROM music WHERE instrument='Violin'");
+                }else{
+                    $query=$db->prepare("SELECT * FROM (SELECT * FROM music WHERE instrument='Violin') AS a WHERE MATCH(name) AGAINST (:searchstring IN NATURAL LANGUAGE MODE)");
+                    $query->bindParam(":searchstring",$this->querystring);
+                }
+            }elseif(!preg_match("/VIOLIN/i",$this->querystring)&&preg_match("/FLUTE/i",$this->querystring)){
+                if(str_replace(" ","",str_ireplace("FLUTE","",$this->querystring))==""){
+                    $query=$db->prepare("SELECT * FROM music WHERE instrument='Flute'");
+                }else{
+                    $query=$db->prepare("SELECT * FROM (SELECT * FROM music WHERE instrument='Flute') AS a WHERE MATCH(name) AGAINST (:searchstring IN NATURAL LANGUAGE MODE)");
+                    $query->bindParam(":searchstring",$this->querystring);
+                }      
+            }else{
+                $query=$db->prepare("SELECT * FROM music WHERE MATCH(name) AGAINST (:searchstring IN NATURAL LANGUAGE MODE)");
+                $query->bindParam(":searchstring",$this->querystring);
+            }
             $query->execute();
         }else{
             $query=$db->prepare("SELECT * FROM music WHERE instrument=:instrument");
@@ -69,8 +109,30 @@ class BrowseRecent {
         }
         //Fetch Specific Data For Current Page 
         $offset=($page-1)*$this->limit;
-        if($type=="All"){
+        if($type=="All"||$this->querystring=="All"){
             $query1=$db->prepare("SELECT * FROM music ORDER BY date DESC LIMIT :limit OFFSET :offset");
+            $query1->bindParam(":limit",$this->limit,PDO::PARAM_INT);
+            $query1->bindParam(":offset",$offset,PDO::PARAM_INT);
+            $query1->execute();
+        }elseif($type=="Search"){
+            if(preg_match("/VIOLIN/i",$this->querystring)&&!preg_match("/FLUTE/i",$this->querystring)){
+                if(str_replace(" ","",str_ireplace("VIOLIN","",$this->querystring))==""){
+                    $query1=$db->prepare("SELECT * FROM music WHERE instrument='Violin' LIMIT :limit OFFSET :offset");
+                }else{
+                    $query1=$db->prepare("SELECT * FROM (SELECT * FROM music WHERE instrument='Violin') AS a WHERE MATCH(name) AGAINST (:searchstring IN NATURAL LANGUAGE MODE) LIMIT :limit OFFSET :offset");
+                    $query1->bindParam(":searchstring",$this->querystring);
+                }
+            }elseif(!preg_match("/VIOLIN/i",$this->querystring)&&preg_match("/FLUTE/i",$this->querystring)){
+                if(str_replace(" ","",str_ireplace("FLUTE","",$this->querystring))==""){
+                    $query1=$db->prepare("SELECT * FROM music WHERE instrument='Flute' LIMIT :limit OFFSET :offset");
+                }else{    
+                    $query1=$db->prepare("SELECT * FROM (SELECT * FROM music WHERE instrument='Flute') AS a WHERE MATCH(name) AGAINST (:searchstring IN NATURAL LANGUAGE MODE) LIMIT :limit OFFSET :offset");
+                    $query1->bindParam(":searchstring",$this->querystring);
+                }
+            }else{
+                $query1=$db->prepare("SELECT * FROM music WHERE MATCH(name) AGAINST (:searchstring IN NATURAL LANGUAGE MODE) LIMIT :limit OFFSET :offset");
+                $query1->bindParam(":searchstring",$this->querystring);
+            }
             $query1->bindParam(":limit",$this->limit,PDO::PARAM_INT);
             $query1->bindParam(":offset",$offset,PDO::PARAM_INT);
             $query1->execute();
@@ -142,6 +204,9 @@ class BrowseRecent {
         }else{
             return "All";
         }
+    }
+    public function getQuery(){
+        return htmlspecialchars($this->querystring);
     }
 }
 

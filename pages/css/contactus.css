@@ -1,0 +1,50 @@
+.form_container {
+	padding-top: 70px;
+	padding-bottom: 30px;
+}
+.contact_container {
+	border: 2px solid #c7c3c3;
+	max-width: 500px;
+	padding: 30px;
+	border-radius: 0.25rem;
+	margin: 0 auto;
+	background-color: #f8f9fa;
+}
+.contact_submit_button {
+	background-color: #f68e1e;
+	padding: 0.5rem 1rem;
+	color: #ffffff;
+	float: right;
+	transition: transform 450ms;
+}
+.contact_submit_button:hover {
+	transform: scale(1.05);
+}
+.contact_label {
+	font-weight: 600;
+	color: #eb8927;
+}
+.contact_thank_you_text {
+	font-size: 24px;
+	color: #01452c;
+	text-align: center;
+}
+.contact_thank_you_return_container {
+	text-align: center;
+}
+.contact_thank_you_return {
+	color: #eb8927 !important;
+	font-weight: 500;
+	font-size: 1.2rem;
+	display: inline-block;
+	transition: all 0.3s;
+}
+.contact_thank_you_return:hover {
+	color: #c3002d !important;
+	text-decoration: none;
+	transform: scale(1.05);
+}
+.body_content_container {
+	background-image: url("../images/login_background.jpg");
+	background-repeat: repeat-x repeat-y;
+}

@@ -17,10 +17,22 @@ $(document).ready(function() {
         requestimage(jobno, parseInt(page) - 1);
 
     });
-    $(document).on('change', '.pageno_editable', function() {
+    $(document).on('change', '.paginator_container_bottom .pageno_editable', function() {
         disablebuttons();
         jobno = getinfo("jobno");
-        page2 = $(".pageno_editable").val();
+        page2 = $(".paginator_container_bottom .pageno_editable").val();
+        if (!$.isNumeric(page2)) {
+            page2 = 1;
+        }
+        if (page2 < 1) {
+            page2 = 1;
+        }
+        requestimage(jobno, page2);
+    });
+    $(document).on('change', '.paginator_container_top .pageno_editable', function() {
+        disablebuttons();
+        jobno = getinfo("jobno");
+        page2 = $(".paginator_container_top .pageno_editable").val();
         if (!$.isNumeric(page2)) {
             page2 = 1;
         }
