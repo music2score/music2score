@@ -35,7 +35,8 @@ class UploadDownloadViewCest
         $I->dontSee('View', 'button');
         $I->dontSee('Download', 'button');
         
-        $I->wait(10);
+        // $I->wait(10);
+        $I->waitForElement(".viewbtn", 30);
 
         $I->see('Status: Completed');
         $I->see('View', 'button');
@@ -58,7 +59,7 @@ class UploadDownloadViewCest
         $I->seeCurrentUrlEquals('/download.php');
         // $I->see('Status: Queued');
         
-        $I->wait(10);
+        $I->waitForElement(".viewbtn", 30);
         
         $I->see('Status: Completed');
         $I->see('Download', 'button');
@@ -85,8 +86,9 @@ class UploadDownloadViewCest
         $I->seeCurrentUrlEquals('/download.php');
         $I->see('Status: Queued');
         
-        $I->wait(10);
-        
+        // $I->wait(10);
+        $I->waitForElement(".viewbtn", 30);
+
         $I->see('Status: Completed');
         $I->see('View', 'button');
 

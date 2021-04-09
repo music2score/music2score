@@ -21,6 +21,25 @@
   "onReadyScript": "puppet/onReady.js",
   "scenarios": [
     {
+      "label": "HomePage",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://apache_server/",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 10000,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 3000,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 35,
+      "requireSameDimensions": true
+    },
+    {
       "label": "RegistrationPage",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
       "url": "http://apache_server/register.php",
@@ -269,7 +288,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold" : 20,
+      "misMatchThreshold" : 1,
       "requireSameDimensions": true,
       "keyPressSelectors": [
         {

@@ -35,7 +35,8 @@ class UploadPageCest
         $I->click('.upload_submit_button');
         $I->wait(2);
         $I->seeCurrentUrlEquals('/download.php');
-        $I->wait(10);
+        // $I->wait(10);
+        $I->waitForElement(".viewbtn", 30);
         $I->see('Status: Completed');
     }
 

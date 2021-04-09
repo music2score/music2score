@@ -3,8 +3,80 @@ report({
   "tests": [
     {
       "pair": {
+        "reference": "../bitmaps_reference/backstop_default_HomePage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_HomePage_0_document_0_phone.png",
+        "selector": "document",
+        "fileName": "backstop_default_HomePage_0_document_0_phone.png",
+        "label": "HomePage",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 1,
+        "url": "http://apache_server/",
+        "referenceUrl": "",
+        "expect": 0,
+        "viewportLabel": "phone",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/backstop_default_HomePage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_HomePage_0_document_1_tablet.png",
+        "selector": "document",
+        "fileName": "backstop_default_HomePage_0_document_1_tablet.png",
+        "label": "HomePage",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 1,
+        "url": "http://apache_server/",
+        "referenceUrl": "",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/backstop_default_HomePage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_HomePage_0_document_2_monitor.png",
+        "selector": "document",
+        "fileName": "backstop_default_HomePage_0_document_2_monitor.png",
+        "label": "HomePage",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 1,
+        "url": "http://apache_server/",
+        "referenceUrl": "",
+        "expect": 0,
+        "viewportLabel": "monitor",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
         "reference": "../bitmaps_reference/backstop_default_RegistrationPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_RegistrationPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_RegistrationPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_RegistrationPage_0_document_0_phone.png",
         "label": "RegistrationPage",
@@ -28,7 +100,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_RegistrationPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_RegistrationPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_RegistrationPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_RegistrationPage_0_document_1_tablet.png",
         "label": "RegistrationPage",
@@ -52,7 +124,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_RegistrationPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_RegistrationPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_RegistrationPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_RegistrationPage_0_document_2_monitor.png",
         "label": "RegistrationPage",
@@ -76,7 +148,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_LoginPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_LoginPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_LoginPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_LoginPage_0_document_0_phone.png",
         "label": "LoginPage",
@@ -100,7 +172,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_LoginPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_LoginPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_LoginPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_LoginPage_0_document_1_tablet.png",
         "label": "LoginPage",
@@ -124,7 +196,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_LoginPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_LoginPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_LoginPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_LoginPage_0_document_2_monitor.png",
         "label": "LoginPage",
@@ -148,7 +220,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_BrowseMostRecentPage_0_document_0_tablet.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_BrowseMostRecentPage_0_document_0_tablet.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_BrowseMostRecentPage_0_document_0_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_BrowseMostRecentPage_0_document_0_tablet.png",
         "label": "BrowseMostRecentPage",
@@ -172,7 +244,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_BrowseMostRecentPage_0_document_1_monitor.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_BrowseMostRecentPage_0_document_1_monitor.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_BrowseMostRecentPage_0_document_1_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_BrowseMostRecentPage_0_document_1_monitor.png",
         "label": "BrowseMostRecentPage",
@@ -196,7 +268,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_BrowseByInstrumentPage_0_document_0_tablet.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_BrowseByInstrumentPage_0_document_0_tablet.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_BrowseByInstrumentPage_0_document_0_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_BrowseByInstrumentPage_0_document_0_tablet.png",
         "label": "BrowseByInstrumentPage",
@@ -220,7 +292,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_BrowseByInstrumentPage_0_document_1_monitor.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_BrowseByInstrumentPage_0_document_1_monitor.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_BrowseByInstrumentPage_0_document_1_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_BrowseByInstrumentPage_0_document_1_monitor.png",
         "label": "BrowseByInstrumentPage",
@@ -244,7 +316,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_ContactPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_ContactPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_ContactPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_ContactPage_0_document_0_phone.png",
         "label": "ContactPage",
@@ -268,7 +340,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_ContactPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_ContactPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_ContactPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_ContactPage_0_document_1_tablet.png",
         "label": "ContactPage",
@@ -292,7 +364,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_ContactPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_ContactPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_ContactPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_ContactPage_0_document_2_monitor.png",
         "label": "ContactPage",
@@ -316,7 +388,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_AboutPage_0_document_0_phone.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_AboutPage_0_document_0_phone.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_AboutPage_0_document_0_phone.png",
         "selector": "document",
         "fileName": "backstop_default_AboutPage_0_document_0_phone.png",
         "label": "AboutPage",
@@ -340,7 +412,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_AboutPage_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_AboutPage_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_AboutPage_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_AboutPage_0_document_1_tablet.png",
         "label": "AboutPage",
@@ -364,7 +436,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_AboutPage_0_document_2_monitor.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_AboutPage_0_document_2_monitor.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_AboutPage_0_document_2_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_AboutPage_0_document_2_monitor.png",
         "label": "AboutPage",
@@ -388,7 +460,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_UploadPageNormal_0_document_0_tablet.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_UploadPageNormal_0_document_0_tablet.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_UploadPageNormal_0_document_0_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_UploadPageNormal_0_document_0_tablet.png",
         "label": "UploadPageNormal",
@@ -412,7 +484,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_UploadPageNormal_0_document_1_monitor.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_UploadPageNormal_0_document_1_monitor.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_UploadPageNormal_0_document_1_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_UploadPageNormal_0_document_1_monitor.png",
         "label": "UploadPageNormal",
@@ -436,7 +508,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_DownloadPageNormal_0_document_0_tablet.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_DownloadPageNormal_0_document_0_tablet.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_DownloadPageNormal_0_document_0_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_DownloadPageNormal_0_document_0_tablet.png",
         "label": "DownloadPageNormal",
@@ -452,8 +524,7 @@ report({
             "width": 0,
             "height": 0
           },
-          "misMatchPercentage": "0.50",
-          "analysisTime": 36
+          "misMatchPercentage": "0.00"
         }
       },
       "status": "pass"
@@ -461,7 +532,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_DownloadPageNormal_0_document_1_monitor.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_DownloadPageNormal_0_document_1_monitor.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_DownloadPageNormal_0_document_1_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_DownloadPageNormal_0_document_1_monitor.png",
         "label": "DownloadPageNormal",
@@ -485,12 +556,12 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_ViewPageNormal_0_document_0_tablet.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_ViewPageNormal_0_document_0_tablet.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_ViewPageNormal_0_document_0_tablet.png",
         "selector": "document",
         "fileName": "backstop_default_ViewPageNormal_0_document_0_tablet.png",
         "label": "ViewPageNormal",
         "requireSameDimensions": true,
-        "misMatchThreshold": 20,
+        "misMatchThreshold": 1,
         "url": "http://apache_server/login.php",
         "referenceUrl": "",
         "expect": 0,
@@ -509,12 +580,12 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/backstop_default_ViewPageNormal_0_document_1_monitor.png",
-        "test": "../bitmaps_test/20210408-181339/backstop_default_ViewPageNormal_0_document_1_monitor.png",
+        "test": "../bitmaps_test/20210409-062916/backstop_default_ViewPageNormal_0_document_1_monitor.png",
         "selector": "document",
         "fileName": "backstop_default_ViewPageNormal_0_document_1_monitor.png",
         "label": "ViewPageNormal",
         "requireSameDimensions": true,
-        "misMatchThreshold": 20,
+        "misMatchThreshold": 1,
         "url": "http://apache_server/login.php",
         "referenceUrl": "",
         "expect": 0,

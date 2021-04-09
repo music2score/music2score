@@ -8,19 +8,29 @@ $(document).ready(function() {
         page = getinfo("page");
         type = getinfo("type");
         requestlist(type,parseInt(page) + 1);
-
     });
     $(document).on('click', '.previous_button', function() {
         disablebuttons();
         page = getinfo("page");
         type = getinfo("type");
         requestlist(type,parseInt(page) - 1);
-
     });
-    $(document).on('change', '.pageno_editable', function() {
+    $(document).on('change', '.paginator_container_bottom .pageno_editable', function() {
         disablebuttons();
         type = getinfo("type");
-        page2 = $(".pageno_editable").val();
+        page2 = $(".paginator_container_bottom .pageno_editable").val();
+        if (!$.isNumeric(page2)) {
+            page2 = 1;
+        }
+        if (page2 < 1) {
+            page2 = 1;
+        }
+        requestlist(type,page2);
+    });
+    $(document).on('change', '.paginator_container_top .pageno_editable', function() {
+        disablebuttons();
+        type = getinfo("type");
+        page2 = $(".paginator_container_top .pageno_editable").val();
         if (!$.isNumeric(page2)) {
             page2 = 1;
         }

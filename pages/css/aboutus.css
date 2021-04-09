@@ -1,0 +1,127 @@
+.team_container_outer {
+	width: 100%;
+	padding-top: 15px;
+	padding-bottom: 90px;
+	text-align: center;
+}
+.team_container_inner {
+	max-width: 1000px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 0 auto;
+}
+.team_card {
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 45px;
+}
+.team_image {
+	width: 100%;
+	max-width: 250px;
+	margin: 0 auto;
+	border-radius: 50%;
+}
+.team_name {
+	font-size: 1.4rem;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 550;
+	text-align: center;
+	margin-top: 15px;
+}
+.team_role {
+	font-size: 0.8rem;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 400;
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.team_heading {
+	margin-top: 90px;
+	font-size: 2.2rem;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 600;
+	color: #c50326;
+}
+.team_description {
+	font-size: 1.4rem;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 400;
+	color: #333;
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+.aboutus_heading {
+	margin-top: 15px;
+	font-size: 2.2rem;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 600;
+	color: #c50326;
+}
+.aboutus_description {
+	font-size: 1.4rem;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 400;
+	color: #333;
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+.aboutus_logo {
+	width: 80%;
+	border: 2px solid black;
+	margin: 15px;
+}
+.aboutus_icon {
+	max-width: 100px;
+	margin-top: 75px;
+}
+.aboutus_button_container {
+	text-align: center;
+	width: 100%;
+}
+.aboutus_linkedin_button {
+	color: #f68e1e;
+	border: 2px solid #f68e1e;
+	background-color: #ffffff;
+	border-radius: 10px;
+	padding: 4px 12px;
+	cursor: pointer;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 500;
+	transition: all 0.35s;
+}
+.aboutus_linkedin_button:hover {
+	transform: scale(1.09);
+	color: #c50326;
+	border-color: #c50326;
+}
+@media screen and (max-width: 991px) {
+	.team_heading {
+		font-size: 1.8rem;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-weight: 600;
+		color: #c50326;
+	}
+	.team_description {
+		font-size: 1rem;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-weight: 500;
+		color: #333;
+		padding-top: 20px;
+		padding-bottom: 40px;
+	}
+	.aboutus_heading {
+		font-size: 1.8rem;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-weight: 600;
+		color: #c50326;
+	}
+	.aboutus_description {
+		font-size: 1rem;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-weight: 500;
+		color: #333;
+		padding-top: 20px;
+		padding-bottom: 40px;
+	}
+}
