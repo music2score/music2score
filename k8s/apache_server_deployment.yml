@@ -1,0 +1,90 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-server
+  namespace: music2score
+  labels:
+    tier: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apache-server
+      tier: webapp
+  strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxSurge: 2
+        maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: apache-server
+        tier: webapp
+    spec:
+      hostname: apache-server
+      initContainers:
+      - name: git-clone0
+        image: alpine/git
+        args:
+          - clone
+          - --single-branch
+          - --branch 
+          - main
+          - --
+          - https://github.com/music2score/music2score/
+          - /music2score0/
+        securityContext:
+          runAsUser: 1
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+        volumeMounts:
+          - name: apache-server-git-storage0
+            mountPath: /music2score0/
+      - name: git-clone1
+        image: alpine/git
+        args:
+          - clone
+          - --single-branch
+          - --branch 
+          - main
+          - --
+          - https://github.com/music2score/music2score/
+          - /music2score1/
+        securityContext:
+          runAsUser: 1
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+        volumeMounts:
+          - name: apache-server-git-storage1
+            mountPath: /music2score1/
+      - name: changeowner
+        image: busybox
+        command: ["/bin/chmod","-R","777", "/var/www/html/uploads/"]
+        volumeMounts:
+          - name: apache-server-claim-storage2
+            mountPath: /var/www/html/uploads/
+      containers:
+      - image: muditsingh13/music2score:apache_server
+        name: apache-server
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /var/www/html/
+          name: apache-server-git-storage0
+          subPath: "pages"
+        - mountPath: /usr/local/etc/php/
+          name: apache-server-git-storage1
+          subPath: "php_config"
+        - mountPath: /var/www/html/uploads/
+          name: apache-server-claim-storage2
+      volumes:
+      - name: apache-server-git-storage0
+        emptyDir: {}
+      - name: apache-server-git-storage1
+        emptyDir: {}
+      - name: apache-server-claim-storage2
+        persistentVolumeClaim:
+          claimName: apache-server-claim0
+      restartPolicy: Always
+status: {}

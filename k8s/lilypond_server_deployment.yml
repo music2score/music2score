@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lilypond-server
+  namespace: music2score
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: lilypond-server
+      tier: algorithm
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: lilypond-server
+        tier: algorithm
+    spec:
+      hostname: lilypond-server
+      initContainers:
+      - name: git-clone
+        image: alpine/git 
+        args:
+          - clone
+          - --single-branch
+          - --branch 
+          - deployment_lilypond
+          - --
+          - https://github.com/music2score/music2score/
+          - /music2score/ 
+        securityContext:
+          runAsUser: 1
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+        volumeMounts:
+          - name: lilypond-server-git-storage0
+            mountPath: /music2score/
+      containers:
+        - name: lilypond-server
+          image: ibbyh92/lilypond:latest
+          ports:
+            - containerPort: 3000
+          command:
+            - python
+            - ./python/polling.py
+          volumeMounts:
+              - mountPath: /python/
+                name: lilypond-server-git-storage0
+                subPath: "python"
+      volumes:
+        - name: lilypond-server-git-storage0
+          # persistentVolumeClaim:
+          #   claimName: lilypond-server-claim0
+          emptyDir: {}
+      restartPolicy: Always

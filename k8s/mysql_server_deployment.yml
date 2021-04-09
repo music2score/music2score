@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-server
+  namespace: music2score
+  labels:
+    tier: database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql-server
+      tier: database
+  strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxSurge: 2
+        maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: mysql-server
+        tier: database
+    spec:
+      hostname: mysql-server
+      initContainers:
+      - name: git-clone
+        image: alpine/git 
+        args:
+          - clone
+          - --single-branch
+          - --branch 
+          - main
+          - --
+          - https://github.com/music2score/music2score/
+          - /tmp/database/ 
+        securityContext:
+          runAsUser: 1
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+        volumeMounts:
+          - name: mysql-server-git-storage0
+            mountPath: /tmp/database/
+      containers:
+      - args:
+          - --default-authentication-plugin=mysql_native_password
+          - --init-file=/tmp/database/schema.sql
+        env:
+        - name: MYSQL_DATABASE
+          value: music2score
+        - name: MYSQL_ROOT_PASSWORD
+          value: "12345"
+        image: mysql:8.0.23
+        name: mysql-server
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - mountPath: /tmp/database/
+          name: mysql-server-git-storage0
+          subPath: "mysql/production"
+        - mountPath: /var/lib/mysql/
+          name: mysql-server-claim-storage1
+      volumes:
+      - name: mysql-server-git-storage0
+        emptyDir: {}
+      - name: mysql-server-claim-storage1
+        persistentVolumeClaim:
+          claimName: mysql-server-claim0
+      restartPolicy: Always
+status: {}

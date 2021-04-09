@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import mysql.connector as conn
+from mysql.connector import errorcode
 from time import sleep, time
 from collections import deque
 from pickle import dump, load
@@ -80,10 +81,13 @@ def env_connect(mydb):
         dbAttempt["host"] = hostDocker
         mydb = conn.connect(**dbAttempt)
         urlDown, urlUp = url_Docker_download, url_Docker_upload
-    except:
+    except (OSError, ImportError, conn.Error):
         dbAttempt["host"] = hostKuber
+        dbAttempt["database"] = "music2score"
         mydb = conn.connect(**dbAttempt)
         urlDown, urlUp = url_Kuber_download, url_Kuber_upload
+    finally:
+        print("Everything is broken")
     
     print("MySQL Host Name:", dbAttempt["host"])
     return mydb, urlDown, urlUp
