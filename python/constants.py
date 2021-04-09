@@ -12,7 +12,7 @@ hostKuber = "mysql-server"
 
 db = {"user": "root",
       "password": "12345",
-      "database": "music2score",
+      "database": "music2score_test",
       "autocommit": False
       }
           
