@@ -14,7 +14,7 @@ $HomePage = new HomePage;
 ?>
 <!DOCTYPE html>
 <html>
-
+​
 <head>
     <title>Home Page - Music2Score</title>
     <link rel="shortcut icon" type="image/jpg" href="images/favicon.ico" />
@@ -23,18 +23,18 @@ $HomePage = new HomePage;
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
-
+​
 <body>
     <?php include("./components/navbar.php"); ?>
     <div id="carousel" class="carousel slide" data-ride="carousel">
-
+​
         <!-- Indicators -->
         <ul class="carousel-indicators">
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
             <li data-target="#carousel" data-slide-to="1"></li>
             <li data-target="#carousel" data-slide-to="2"></li>
         </ul>
-
+​
         <!-- The slideshow -->
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -47,7 +47,7 @@ $HomePage = new HomePage;
                 <img class="d-block w-100" src="./images/slide3.jpg" alt="New York">
             </div>
         </div>
-
+​
         <!-- Left and right controls -->
         <a class="carousel-control-prev" href="#carousel" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
@@ -55,7 +55,7 @@ $HomePage = new HomePage;
         <a class="carousel-control-next" href="#carousel" data-slide="next">
             <span class="carousel-control-next-icon"></span>
         </a>
-
+​
     </div>
     <div class="search_container_outer">
         <div class="search_container_inner">
@@ -111,7 +111,7 @@ $HomePage = new HomePage;
             <div class="library_card_container">
             </div>
             <hr>
-            <a href="./aboutus.php">
+            <a href="./browse_recent.php?page=1">
                 <button class="library_button"> View More</button>
             </a>
         </div>
@@ -130,7 +130,7 @@ $HomePage = new HomePage;
                         <input type="text" id="email" name="email" placeholder="John@Doe.com"
                             class="form-control feedback_input" value="">
                     </div>
-
+​
                     <div class="col-12 col-md-6">
                         <label for="text" class="feedback_label">Message:</label>
                     </div>
@@ -143,7 +143,7 @@ $HomePage = new HomePage;
                             class="btn btn-default feedback_submit_button" value="Submit">
                     </div>
                     <div class="clear"></div>
-
+​
                 </div>
             </form>
         </div>
@@ -163,7 +163,7 @@ $HomePage = new HomePage;
                 <p class="about_thankyou_text">Thank You!</p>
             </div>
             <hr>
-
+​
         </div>
     </div>
     <?php include("./components/footer.php"); ?>
@@ -171,5 +171,5 @@ $HomePage = new HomePage;
 <script src="plugins/jquery_v3.5.1/js/jquery.min.js"></script>
 <script src="plugins/bootstrap_v4.0/js/bootstrap.min.js"></script>
 <script src="js/index.js"></script>
-
+​
 </html>

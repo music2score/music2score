@@ -69,6 +69,8 @@ services:
    - ../:/project
   links:
    - apache_server:apache_server
+   - mysql_server:mysql_server
+   - lilypond_server:lilypond_server
  chrome:
   image: selenium/standalone-chrome
   links:

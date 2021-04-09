@@ -60,9 +60,9 @@ if(!$Auth->authenticate($_SESSION,$db)){
                     </div>
                     <h3 class="team_name">Ibrahim Hassan</h3>
                     <p class="team_role">Unit Testing (Visual Regression), Integration & Acceptance Testing
-                        (Codeception), Continous Integration
+                        (Codeception & Python), Continous Integration
                         (CircleCI), Continous
-                        Deployment(GCM), Kubernetes, Github, Presenter.</p>
+                        Deployment (GCP & Digital Ocean), Docker, Kubernetes, Github, Presenter.</p>
                     <div class="aboutus_button_container col-12">
                         <a target="_blank" href="https://www.linkedin.com/in/mibrahimhassan/">
                             <button type="button" class="aboutus_linkedin_button">
