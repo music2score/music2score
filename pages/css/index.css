@@ -47,6 +47,7 @@
 }
 .counter_container {
 	width: 100%;
+	overflow-x: hidden;
 	padding-top: 45px;
 	padding-bottom: 45px;
 	text-align: center;
