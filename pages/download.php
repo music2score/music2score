@@ -23,6 +23,7 @@ if(!$Auth->is_authenticated()){
     <link rel="stylesheet" href="plugins/fontawesome_v5.15.2/css/all.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/download.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
