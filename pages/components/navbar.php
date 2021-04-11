@@ -14,20 +14,20 @@ $pagename = basename($_SERVER['PHP_SELF'], ".php");
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link <?php echo (($pagename=="index")?'navbar_link_active':'navbar_link'); ?>"
-                    href="./">Home</a>
+                    id= "homebtn" href="./">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link <?php echo (($pagename=="aboutus")?'navbar_link_active':'navbar_link'); ?>"
-                    href="./aboutus.php">About</a>
+                    id= "aboutbtn" href="./aboutus.php">About</a>
             </li>
             <li class="nav-item dropdown navbar_dropdown_container">
-                <a class="nav-link <?php echo ((substr($pagename,0,6)=="browse")?'navbar_link_active':'navbar_link'); ?> dropdown-toggle"
+                <a class="nav-link <?php echo ((substr($pagename,0,6)=="browse")?'navbar_link_active':'navbar_link'); ?> dropdown-toggle browsebtn"
                     id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Browse
                 </a>
                 <div class="dropdown-menu navbar_dropdown" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item navbar_dropdown_item" href="./browse_recent.php?page=1">Most Recent</a>
-                    <a class="dropdown-item navbar_dropdown_item" href="./browse_instrument.php?type=All&page=1">By
+                    <a class="dropdown-item navbar_dropdown_item" id= "mostRecentbtn" href="./browse_recent.php?page=1">Most Recent</a>
+                    <a class="dropdown-item navbar_dropdown_item" id = "instrumentbtn" href="./browse_instrument.php?type=All&page=1">By
                         Instrument</a>
                 </div>
             </li>
@@ -70,8 +70,8 @@ $pagename = basename($_SERVER['PHP_SELF'], ".php");
                     Sign In/Up
                 </a>
                 <div class="dropdown-menu navbar_account_dropdown" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item navbar_dropdown_item" href="./register.php">Register</a>
-                    <a class="dropdown-item navbar_dropdown_item" href="./login.php">Login</a>
+                    <a class="dropdown-item navbar_dropdown_item" id="registerbtn" href="./register.php">Register</a>
+                    <a class="dropdown-item navbar_dropdown_item" id="loginbtn" href="./login.php">Login</a>
                 </div>
             </li>
             <?php } ?>

@@ -77,11 +77,13 @@ class NavigationBarCest
         $this->_login($I);
         $I->see('Account');
         $I->click('Account');
+        $I->wait(1);
         $I->see('Upload New');
         $I->see('My Sheets');
         $I->see('Logout');
 
         $I->click('Upload New');
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/upload.php');
 
         $I->wait(1);
@@ -90,6 +92,7 @@ class NavigationBarCest
         $I->see('My Sheets');
         $I->wait(0.5);
         $I->click('My Sheets');
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/download.php');
 
         $I->wait(1);
@@ -97,6 +100,7 @@ class NavigationBarCest
         $I->wait(1);
         $I->see('Logout');
         $I->click('Logout');
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/');
         $I->see('Sign In/Up');
         $I->dontSee('Account');

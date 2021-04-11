@@ -36,7 +36,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold" : 35,
+      "misMatchThreshold" : 1,
       "requireSameDimensions": true
     },
     {
