@@ -77,7 +77,7 @@ class TestUpload(TestCase):
         
         with patch('python.upload.requests.post') as mock_post:
             # Configure the mock with proper response.
-            mock_post.return_value.OK =True
+            mock_post.return_value.OK = True
             mock_post.return_value.status_code=200
             ret=upload_score(mynewjob,myurl)
             self.assertTrue(ret)
