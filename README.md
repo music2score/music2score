@@ -12,6 +12,8 @@
 
 </a>
 
+</p>
+
 <h3  align="center">music2score</h3>
 
 <p  align="center">
@@ -22,20 +24,14 @@ We aim to further increase the supported file types for conversion in future rel
 <br  />
 
 <br  />
-
-<a  href="https://www.music2score.xyz/">View Demo</a>
-
-·
-
-<a  href="https://github.com/music2score/music2score/issues">Report Bug</a>
-
-·
-
-<a  href="https://github.com/music2score/music2score/issues">Request Feature</a>
+<a  href="https://www.music2score.xyz/">View Demo</a> . <a  href="https://github.com/music2score/music2score/issues">Report Bug</a> · <a  href="https://github.com/music2score/music2score/issues">Request Feature</a>
 
 </p>
+<!-- LICENSE -->
 
-</p>
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
 
 [contributors-shield]: https://img.shields.io/github/contributors/music2score/music2score.svg?style=for-the-badge
 [contributors-url]: https://github.com/music2score/music2score/graphs/contributors
@@ -46,6 +42,6 @@ We aim to further increase the supported file types for conversion in future rel
 [issues-shield]: https://img.shields.io/github/issues/music2score/music2score.svg?style=for-the-badge
 [issues-url]: https://github.com/music2score/music2score/issues
 [license-shield]: https://img.shields.io/github/license/music2score/music2score.svg?style=for-the-badge
-[license-url]: https://github.com/music2score/repo/blob/master/LICENSE.txt
+[license-url]: https://github.com/music2score/music2score/blob/master/LICENSE
 [release-shield]: https://img.shields.io/github/v/release/music2score/music2score.svg?style=for-the-badge
 [release-url]: https://github.com/music2score/music2score/releases
