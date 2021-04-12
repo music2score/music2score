@@ -1,3 +1,6 @@
+.carousel-indicators {
+	bottom: 0;
+}
 .carousel-indicators li {
 	background-color: #f68e1f;
 	height: 7px;

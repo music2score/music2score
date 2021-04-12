@@ -88,7 +88,6 @@
 .navbar_spacer {
 	height: 64px;
 	width: 100%;
-	position: fixed;
 }
 @media screen and (max-width: 991px) {
 	.navbar_account_button {
