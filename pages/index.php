@@ -23,20 +23,15 @@ $HomePage = new HomePage;
     <link rel="stylesheet" href="css/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-​
 
 <body>
     <?php include("./components/navbar.php"); ?>
     <div id="carousel" class="carousel slide" data-ride="carousel">
-        ​
-        <!-- Indicators -->
         <ul class="carousel-indicators">
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
             <li data-target="#carousel" data-slide-to="1"></li>
             <li data-target="#carousel" data-slide-to="2"></li>
         </ul>
-        ​
-        <!-- The slideshow -->
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-100" src="./images/slide1.jpg" alt="Los Angeles">
@@ -48,15 +43,12 @@ $HomePage = new HomePage;
                 <img class="d-block w-100" src="./images/slide3.jpg" alt="New York">
             </div>
         </div>
-        ​
-        <!-- Left and right controls -->
         <a class="carousel-control-prev" href="#carousel" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </a>
         <a class="carousel-control-next" href="#carousel" data-slide="next">
             <span class="carousel-control-next-icon"></span>
         </a>
-        ​
     </div>
     <div class="search_container_outer">
         <div class="search_container_inner">
@@ -172,6 +164,5 @@ $HomePage = new HomePage;
 <script src="plugins/jquery_v3.5.1/js/jquery.min.js"></script>
 <script src="plugins/bootstrap_v4.0/js/bootstrap.min.js"></script>
 <script src="js/index.js"></script>
-​
 
 </html>
