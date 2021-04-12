@@ -30,8 +30,8 @@ class TestPolling(TestCase):
   def test_polling_fetch_job_failure(self):
     trigger = True
     jobQueue = deque()
-    urlDown ="dummydownurl"
-    urlUp ="dummyupurl"
+    urlDown = "dummydownurl"
+    urlUp = "dummyupurl"
 
     with patch('python.polling.fetch_job') as mock_fetch:
       #mock_fetch = Mock(side_effect=[(False, ()), (True, (1, 'sample.mid', 1, 0, 0, datetime.datetime(2021, 3, 23, 0, 0)))])
