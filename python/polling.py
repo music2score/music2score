@@ -95,7 +95,7 @@ def env_connect(mydb):
 
 if __name__ == '__main__':
     trigger = True
-    jobQueue = deque()
+    jobQueue = deque(maxlen=100)
 
     mydb, urlDown, urlUp = env_connect(db)
 
