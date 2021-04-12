@@ -5,18 +5,11 @@
 # Include one of framework modules (Symfony2, Yii2, Laravel5, Phalcon4) to use it
 # Remove this suite if you don't use frameworks
 
-actor: UnitTester
+actor: FunctionalTester
 modules:
     enabled:
         # add a framework module here
-        - Asserts
-        - \Helper\Unit
-        - Db:
-                dsn: 'mysql:host=mysql_server;dbname=testdb'
-                user: 'root'
-                password: '12345'
-                dump: 'codeception/bin/_data/testdb.sql'
-                populate: true # run populator before all tests
-                cleanup: true # run populator before each test
-                populator: 'mysql -u $user -p12345 -h $host $dbname < $dump '
+        - \Helper\Functional
+        - PhpBrowser:
+                url: http://apache_server
     step_decorators: ~    

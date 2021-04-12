@@ -45,7 +45,7 @@ class TestDownload(TestCase):
             
             ret=download_src(mynewjob,myurl)
             self.assertTrue(ret)
-
+            
             retval=os.path.exists('/project/tests/python/1' +"/" + 'sample.mid')
             self.assertTrue(retval)
             if os.path.exists('/project/tests/python/1'):
