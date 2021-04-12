@@ -45,7 +45,6 @@
 <p  align="center" style="text-align: center;"> <a href="https://raw.githubusercontent.com/music2score/music2score/main/pages/images/logo.png" > 
 <img  src="https://raw.githubusercontent.com/music2score/music2score/main/pages/images/logo.png"  alt="Logo"  width="80"  height="auto" style="text-align: center;"> </a> </p>
 
-
 <h3  align="center">music2score</h3>
 
 <p> The goal of Music2Score is to facilitate the ability to generate sheet music from midi files. We want to eliminate the problem of being able to play music from only a limited selection that is commonly available. Also manually searching the internet for the desired sheet music is time consuming and tiring. Therefore we created Music2Score to eliminate all those problems while adding additional features such as the the ability to convert one’s own unpublished music </p>
@@ -57,9 +56,7 @@
 
 <!-- TABLE OF CONTENTS -->
 
-<details  open="open">
-
-<summary><h2  style="display: inline-block">Table of Contents</h2></summary>
+<details  open="open"> <summary><h2  style="display: inline-block">Table of Contents</h2></summary>
 
 <ol> 
 <li> 
@@ -93,7 +90,6 @@
 <img  src="https://raw.githubusercontent.com/music2score/music2score/main/pages/images/navbar_logo.png"  alt="Logo"  width="auto"  height="80" style="text-align: center;"> </a> </p>
 
 <p>The Project is developed in containerised environment to facilitate easy setup and deployment. The Project supports simulatenously running multiple conversion containers concurrently which makes it scalable for commerical use.</p>
-
 
 ### Built With
 
