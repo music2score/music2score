@@ -10,6 +10,7 @@ class FooterCest
         $I->fillField('email', 'testuser@test.com');        
         $I->fillField('password', '1234');
         $I->click('#loginbtn');
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/');
     }
 
@@ -27,6 +28,7 @@ class FooterCest
 
         $I->see('Browse Existing Library');
         $I->click('.footer_button_browse');
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/browse_recent.php?page=1');
     }
 
@@ -37,6 +39,7 @@ class FooterCest
         $this->_login($I);
         $I->see('Upload Your Own File');
         $I->click('.footer_button_upload');
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/upload.php');
     }
 
@@ -46,6 +49,7 @@ class FooterCest
         
         $I->see('info@music2score.com');
         $I->click('.footer_reach_email');
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/contactus.php');
     }
 }

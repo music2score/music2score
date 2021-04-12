@@ -13,8 +13,6 @@ include("./helper/home_class.php");
 $HomePage = new HomePage;
 ?>
 <!DOCTYPE html>
-<html>
-​
 
 <head>
     <title>Home Page - Music2Score</title>
